@@ -77,7 +77,7 @@ export function ComparisonSection() {
     try {
       const response = await fetch(
         "https://api.frankfurter.app/latest?from=USD&to=INR",
-        { cache: "no-store" }
+        { cache: "no-store" },
       );
       if (!response.ok) throw new Error("Failed to fetch rate");
       const data = await response.json();
@@ -138,13 +138,11 @@ export function ComparisonSection() {
                 <div
                   key={row.id}
                   className={`grid grid-cols-4 items-center ${
-                    row.highlight
-                      ? "border-2 border-primary bg-primary/5"
-                      : ""
+                    row.highlight ? "border-2 border-primary bg-primary/5" : ""
                   }`}
                 >
                   <div className="px-6 py-4 flex items-center">
-                    <div className={`relative ${row.logoSize} flex-shrink-0`}>
+                    <div className={`relative ${row.logoSize} shrink-0`}>
                       <Image
                         src={row.logo}
                         alt={row.name}
@@ -153,14 +151,18 @@ export function ComparisonSection() {
                       />
                     </div>
                   </div>
-                  <div className={`px-6 py-4 text-center ${row.highlight ? "font-semibold" : ""}`}>
+                  <div
+                    className={`px-6 py-4 text-center ${row.highlight ? "font-semibold" : ""}`}
+                  >
                     {isLoading ? (
                       <span className="inline-block w-16 h-5 bg-muted animate-pulse rounded" />
                     ) : (
                       row.exchangeRate
                     )}
                   </div>
-                  <div className={`px-6 py-4 text-center ${row.highlight ? "font-semibold" : ""}`}>
+                  <div
+                    className={`px-6 py-4 text-center ${row.highlight ? "font-semibold" : ""}`}
+                  >
                     {row.transferFee}
                   </div>
                   <div className="px-6 py-4 text-center">
@@ -168,7 +170,9 @@ export function ComparisonSection() {
                       <span className="inline-block w-20 h-5 bg-muted animate-pulse rounded" />
                     ) : (
                       <>
-                        <span className={`font-semibold ${row.highlight ? "" : "text-foreground"}`}>
+                        <span
+                          className={`font-semibold ${row.highlight ? "" : "text-foreground"}`}
+                        >
                           {row.recipientGets}
                         </span>
                         {row.highlight && (
@@ -193,13 +197,11 @@ export function ComparisonSection() {
               <div
                 key={row.id}
                 className={`p-4 ${
-                  row.highlight
-                    ? "border-2 border-primary bg-primary/5"
-                    : ""
+                  row.highlight ? "border-2 border-primary bg-primary/5" : ""
                 }`}
               >
                 <div className="flex items-center mb-3">
-                  <div className={`relative ${row.logoSizeMobile} flex-shrink-0`}>
+                  <div className={`relative ${row.logoSizeMobile} shrink-0`}>
                     <Image
                       src={row.logo}
                       alt={row.name}
@@ -237,9 +239,7 @@ export function ComparisonSection() {
                     {isLoading ? (
                       <span className="inline-block w-14 h-4 bg-muted animate-pulse rounded" />
                     ) : (
-                      <div className="font-semibold">
-                        {row.recipientGets}
-                      </div>
+                      <div className="font-semibold">{row.recipientGets}</div>
                     )}
                   </div>
                 </div>
@@ -257,7 +257,8 @@ export function ComparisonSection() {
 
         {lastUpdated && (
           <p className="text-center text-sm text-muted-foreground mt-4">
-            Rates last updated: {lastUpdated.toLocaleString("en-US", {
+            Rates last updated:{" "}
+            {lastUpdated.toLocaleString("en-US", {
               dateStyle: "medium",
               timeStyle: "medium",
             })}
