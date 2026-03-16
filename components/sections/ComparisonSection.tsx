@@ -71,15 +71,18 @@ function formatINR(amount: number): string {
 export function ComparisonSection() {
   const [baseRate, setBaseRate] = useState<number>(FALLBACK_RATE);
   const [isLoading, setIsLoading] = useState(true);
+  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
 
   const fetchExchangeRate = useCallback(async () => {
     try {
       const response = await fetch(
-        "https://api.frankfurter.app/latest?from=USD&to=INR"
+        "https://api.frankfurter.app/latest?from=USD&to=INR",
+        { cache: "no-store" }
       );
       if (!response.ok) throw new Error("Failed to fetch rate");
       const data = await response.json();
       setBaseRate(data.rates.INR);
+      setLastUpdated(new Date());
     } catch (error) {
       console.error("Error fetching exchange rate:", error);
       setBaseRate(FALLBACK_RATE);
@@ -90,6 +93,8 @@ export function ComparisonSection() {
 
   useEffect(() => {
     fetchExchangeRate();
+    const interval = setInterval(fetchExchangeRate, 60 * 1000);
+    return () => clearInterval(interval);
   }, [fetchExchangeRate]);
 
   const comparisonData = providers.map((provider) => {
@@ -250,7 +255,16 @@ export function ComparisonSection() {
           </div>
         </div>
 
-        <div className="text-center mt-10">
+        {lastUpdated && (
+          <p className="text-center text-sm text-muted-foreground mt-4">
+            Rates last updated: {lastUpdated.toLocaleString("en-US", {
+              dateStyle: "medium",
+              timeStyle: "medium",
+            })} &middot; Updates every 1 minute
+          </p>
+        )}
+
+        <div className="text-center mt-6">
           <Button size="xl" className="group" asChild>
             <Link href="/contact">
               Send Money

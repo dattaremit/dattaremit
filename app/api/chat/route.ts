@@ -1,11 +1,11 @@
 import { NextRequest } from "next/server";
 import OpenAI from "openai";
 
-const apiKey = process.env.OPENAI_API_KEY || process.env.NEXT_PUBLIC_OPENAI_API_KEY;
-
-const openai = new OpenAI({
-  apiKey,
-});
+function getOpenAIClient() {
+  const apiKey = process.env.OPENAI_API_KEY || process.env.NEXT_PUBLIC_OPENAI_API_KEY;
+  if (!apiKey) return null;
+  return new OpenAI({ apiKey });
+}
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -297,7 +297,8 @@ Do NOT answer off-topic questions even if you know the answer. Stay strictly wit
 
 export async function POST(req: NextRequest) {
   try {
-    if (!apiKey) {
+    const openai = getOpenAIClient();
+    if (!openai) {
       console.error("Chat API error: OPENAI_API_KEY is not set");
       return new Response(
         JSON.stringify({ error: "Chat service is not configured" }),
