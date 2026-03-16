@@ -93,7 +93,7 @@ export function ComparisonSection() {
 
   useEffect(() => {
     fetchExchangeRate();
-    const interval = setInterval(fetchExchangeRate, 60 * 1000);
+    const interval = setInterval(fetchExchangeRate, 12 * 60 * 60 * 1000);
     return () => clearInterval(interval);
   }, [fetchExchangeRate]);
 
