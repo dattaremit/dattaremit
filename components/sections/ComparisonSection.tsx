@@ -260,7 +260,7 @@ export function ComparisonSection() {
             Rates last updated: {lastUpdated.toLocaleString("en-US", {
               dateStyle: "medium",
               timeStyle: "medium",
-            })} &middot; Updates every 1 minute
+            })}
           </p>
         )}
 
