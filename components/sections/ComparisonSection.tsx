@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
@@ -110,7 +109,7 @@ export function ComparisonSection() {
   });
 
   return (
-    <section className="py-24 bg-muted/30">
+    <section id="compare" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
@@ -267,10 +266,10 @@ export function ComparisonSection() {
 
         <div className="text-center mt-6">
           <Button size="xl" className="group" asChild>
-            <Link href="/contact">
+            <a href="#contact">
               Send Money
               <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </a>
           </Button>
         </div>
       </div>

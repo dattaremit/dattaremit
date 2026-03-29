@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
@@ -92,7 +91,7 @@ export function CurrencyConverterSection() {
   };
 
   return (
-    <section className="relative py-12 sm:py-16 md:py-20 lg:py-28 overflow-hidden bg-linear-to-b from-background via-primary/5 to-background">
+    <section id="converter" className="relative py-12 sm:py-16 md:py-20 lg:py-28 overflow-hidden bg-linear-to-b from-background via-primary/5 to-background">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 right-1/4 w-48 sm:w-72 h-48 sm:h-72 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-1/4 w-48 sm:w-72 h-48 sm:h-72 bg-primary/5 rounded-full blur-3xl" />
@@ -112,10 +111,10 @@ export function CurrencyConverterSection() {
             </p>
 
             <Button size="xl" className="group w-full sm:w-auto" asChild>
-              <Link href="/contact">
+              <a href="#contact">
                 Send Money
                 <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </Button>
           </div>
 

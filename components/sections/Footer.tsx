@@ -3,8 +3,6 @@ import Image from "next/image";
 import { AppDownloadButtons } from "@/components/ui/app-download-buttons";
 
 const footerLinks = [
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
   { href: "/terms", label: "Terms" },
   { href: "/privacy", label: "Privacy" },
 ];

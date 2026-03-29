@@ -1,11 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-linear-to-br from-primary/5 via-background to-primary/10">
+    <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-linear-to-br from-primary/5 via-background to-primary/10">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
@@ -24,10 +23,10 @@ export function HeroSection() {
             </p>
 
             <Button size="xl" className="group" asChild>
-              <Link href="/contact">
+              <a href="#contact">
                 Open an Account
                 <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </Button>
           </div>
 

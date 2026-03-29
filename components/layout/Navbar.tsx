@@ -2,21 +2,35 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { AppDownloadButtons } from "@/components/ui/app-download-buttons";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { useState, useCallback } from "react";
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
-  { href: "/contact", label: "Contact" },
-  { href: "/blogs", label: "Blogs" },
+  { href: "#home", label: "Home" },
+  { href: "#converter", label: "Converter" },
+  { href: "#compare", label: "Compare" },
+  { href: "#testimonials", label: "Testimonials" },
+  { href: "#faq", label: "FAQ" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleNavClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+      setMobileMenuOpen(false);
+    },
+    [],
+  );
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -36,13 +50,14 @@ export function Navbar() {
 
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.href}
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="text-muted-foreground hover:text-foreground transition-colors font-medium"
             >
               {link.label}
-            </Link>
+            </a>
           ))}
         </div>
 
@@ -58,7 +73,11 @@ export function Navbar() {
             size="icon"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? <X className="size-6" /> : <Menu className="size-6" />}
+            {mobileMenuOpen ? (
+              <X className="size-6" />
+            ) : (
+              <Menu className="size-6" />
+            )}
           </Button>
         </div>
       </nav>
@@ -67,14 +86,14 @@ export function Navbar() {
         <div className="md:hidden bg-background border-b border-border">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
-                onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
             <div className="pt-4 border-t border-border">
               <AppDownloadButtons direction="column" />

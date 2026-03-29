@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CreditCard, Shield, Zap } from "lucide-react";
 
@@ -47,10 +46,10 @@ export function PaymentSection() {
             </p>
 
             <Button size="xl" className="group" asChild>
-              <Link href="/contact">
+              <a href="#contact">
                 Send Money
                 <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </Button>
           </div>
         </div>
