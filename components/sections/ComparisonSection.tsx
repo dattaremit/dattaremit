@@ -6,7 +6,6 @@ import { ArrowRight, Check } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
 
 const SEND_AMOUNT = 1000;
-const FALLBACK_RATE = 83.5;
 
 const providers = [
   {
@@ -68,23 +67,22 @@ function formatINR(amount: number): string {
 }
 
 export function ComparisonSection() {
-  const [baseRate, setBaseRate] = useState<number>(FALLBACK_RATE);
+  const [baseRate, setBaseRate] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
 
   const fetchExchangeRate = useCallback(async () => {
     try {
-      const response = await fetch(
-        "https://api.frankfurter.app/latest?from=USD&to=INR",
-        { cache: "no-store" },
-      );
+      const response = await fetch("/api/exchange-rate?from=USD", {
+        cache: "no-store",
+      });
       if (!response.ok) throw new Error("Failed to fetch rate");
       const data = await response.json();
-      setBaseRate(data.rates.INR);
-      setLastUpdated(new Date());
+      if (typeof data.rate !== "number") throw new Error("Invalid rate");
+      setBaseRate(data.rate);
+      setLastUpdated(data.updatedAt ? new Date(data.updatedAt) : new Date());
     } catch (error) {
       console.error("Error fetching exchange rate:", error);
-      setBaseRate(FALLBACK_RATE);
     } finally {
       setIsLoading(false);
     }
@@ -92,12 +90,13 @@ export function ComparisonSection() {
 
   useEffect(() => {
     fetchExchangeRate();
-    const interval = setInterval(fetchExchangeRate, 12 * 60 * 60 * 1000);
+    const interval = setInterval(fetchExchangeRate, 15 * 60 * 1000);
     return () => clearInterval(interval);
   }, [fetchExchangeRate]);
 
   const comparisonData = providers.map((provider) => {
-    const exchangeRate = baseRate * provider.rateMultiplier;
+    const effectiveBase = baseRate ?? 0;
+    const exchangeRate = effectiveBase * provider.rateMultiplier;
     const recipientGets = (SEND_AMOUNT - provider.fee) * exchangeRate;
 
     return {

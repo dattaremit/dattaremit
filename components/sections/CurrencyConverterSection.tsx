@@ -45,24 +45,14 @@ export function CurrencyConverterSection() {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `https://api.frankfurter.app/latest?from=${currencyCode}&to=INR`,
+        `/api/exchange-rate?from=${currencyCode}`,
+        { cache: "no-store" },
       );
+      if (!response.ok) throw new Error(`Status ${response.status}`);
       const data = await response.json();
-      setExchangeRate(data.rates?.INR || null);
+      setExchangeRate(typeof data.rate === "number" ? data.rate : null);
     } catch {
-      // Fallback rates if API fails
-      const fallbackRates: Record<string, number> = {
-        USD: 83.5,
-        GBP: 106.2,
-        EUR: 91.0,
-        AUD: 55.1,
-        CAD: 62.3,
-        SGD: 62.8,
-        CHF: 94.5,
-        JPY: 0.56,
-        NZD: 50.8,
-      };
-      setExchangeRate(fallbackRates[currencyCode] || 83.5);
+      setExchangeRate(null);
     } finally {
       setIsLoading(false);
     }
@@ -70,6 +60,11 @@ export function CurrencyConverterSection() {
 
   useEffect(() => {
     fetchExchangeRate(selectedCurrency.code);
+    const interval = setInterval(
+      () => fetchExchangeRate(selectedCurrency.code),
+      15 * 60 * 1000,
+    );
+    return () => clearInterval(interval);
   }, [selectedCurrency, fetchExchangeRate]);
 
   const convertedAmount = exchangeRate
