@@ -5,6 +5,7 @@ import { AppDownloadButtons } from "@/components/ui/app-download-buttons";
 const footerLinks = [
   { href: "/terms", label: "Terms" },
   { href: "/privacy", label: "Privacy" },
+  { href: "/#contact", label: "Support" },
 ];
 
 const socialLinks = [
