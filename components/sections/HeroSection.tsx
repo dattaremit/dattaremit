@@ -100,9 +100,6 @@ export function HeroSection() {
                 <Clock4 className="size-4 text-[var(--brand-deep)]" />
                 Settles in minutes
               </span>
-              <span className="inline-flex items-center gap-2">
-                Regulated partner · Cybrid
-              </span>
             </div>
           </div>
 
