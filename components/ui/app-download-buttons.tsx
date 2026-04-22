@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 interface AppDownloadButtonsProps {
@@ -18,10 +19,8 @@ export function AppDownloadButtons({
         className,
       )}
     >
-      <a
-        href="https://apps.apple.com"
-        target="_blank"
-        rel="noopener noreferrer"
+      <Link
+        href="/coming-soon"
         className="group inline-flex items-center gap-2.5 rounded-full border border-border bg-card/60 px-3.5 py-2 backdrop-blur-sm transition-all duration-200 hover:border-foreground/30 hover:bg-card"
       >
         <AppleIcon className="size-5 text-foreground" />
@@ -33,11 +32,9 @@ export function AppDownloadButtons({
             App Store
           </span>
         </div>
-      </a>
-      <a
-        href="https://play.google.com"
-        target="_blank"
-        rel="noopener noreferrer"
+      </Link>
+      <Link
+        href="/coming-soon"
         className="group inline-flex items-center gap-2.5 rounded-full border border-border bg-card/60 px-3.5 py-2 backdrop-blur-sm transition-all duration-200 hover:border-foreground/30 hover:bg-card"
       >
         <Image
@@ -55,7 +52,7 @@ export function AppDownloadButtons({
             Google Play
           </span>
         </div>
-      </a>
+      </Link>
     </div>
   );
 }

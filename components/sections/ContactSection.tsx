@@ -126,7 +126,7 @@ export function ContactSection() {
                 <span className="inline-flex size-9 items-center justify-center rounded-xl bg-foreground/5 text-[var(--brand-deep)]">
                   <ShieldCheck className="size-4" />
                 </span>
-                Regulated payments partner Zynk Labs custodies funds.
+                Regulated payments partner Cybrid custodies funds.
               </div>
               <div className="flex items-center gap-3 text-sm text-muted-foreground">
                 <span className="inline-flex size-9 items-center justify-center rounded-xl bg-foreground/5 text-[var(--brand-deep)]">

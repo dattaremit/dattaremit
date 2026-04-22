@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | DattaRemit",
   },
   description:
-    "Send USD from your US bank account to any Indian bank account — transparent rates, clearly disclosed fees, bank-grade encryption, and settlement through our regulated payments partner Zynk Labs.",
+    "Send USD from your US bank account to any Indian bank account — transparent rates, clearly disclosed fees, bank-grade encryption, and settlement through our regulated payments partner Cybrid.",
   keywords: [
     "USD to INR remittance",
     "send money to India",
@@ -119,7 +119,7 @@ const jsonLd = {
       "@id": `${siteUrl}/#financialservice`,
       name: "DattaRemit",
       description:
-        "USD-to-INR cross-border money transfer service. Operates through regulated payments partner Zynk Labs.",
+        "USD-to-INR cross-border money transfer service. Operates through regulated payments partner Cybrid.",
       url: siteUrl,
       areaServed: [
         { "@type": "Country", name: "United States" },

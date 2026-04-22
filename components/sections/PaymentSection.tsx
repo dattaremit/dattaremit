@@ -44,7 +44,7 @@ export function PaymentSection() {
               account.
             </p>
             <p className="mt-4 text-sm text-muted-foreground">
-              Powered by our regulated payments partner, Zynk Labs. Transfer
+              Powered by our regulated payments partner, Cybrid. Transfer
               range: USD 1 – USD 10,000 per transaction, with a weekly
               aggregate limit disclosed in the app.
             </p>

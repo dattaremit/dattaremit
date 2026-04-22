@@ -35,7 +35,7 @@ const sections: Section[] = [
   {
     title: "2. Our service and how it works",
     intro:
-      "DattaRemit provides a technology platform that enables eligible users in the United States to initiate money transfers that result in the delivery of Indian Rupees (INR) to a recipient’s Indian bank account. Money-transmission activity — including fund custody, foreign-exchange conversion, and settlement — is performed by our regulated payments partner, Zynk Labs, under their licenses.",
+      "DattaRemit provides a technology platform that enables eligible users in the United States to initiate money transfers that result in the delivery of Indian Rupees (INR) to a recipient’s Indian bank account. Money-transmission activity — including fund custody, foreign-exchange conversion, and settlement — is performed by our regulated payments partner, Cybrid, under their licenses.",
     items: [
       "You link a United States bank account through Plaid as the funding source.",
       "You create or select a recipient with verified Indian bank account details (name, account number, IFSC).",
@@ -61,7 +61,7 @@ const sections: Section[] = [
   {
     title: "4. Account registration and identity verification (KYC)",
     content:
-      "You must create an account and complete identity verification before you can initiate a transfer. Identity verification is performed by our regulated payments partner, Zynk Labs, and may require you to provide government-issued identification, a photograph or selfie, proof of address, and, for the Indian recipient side, Aadhaar and Permanent Account Number (PAN). Additional information (including source-of-funds documentation) may be requested at any time if required by applicable law or our risk controls. We may decline to open or may suspend or close your account at any time if we cannot verify your identity, if you provide inaccurate information, or if we have a reasonable basis to believe that your use of the Service presents a legal, regulatory, or fraud risk.",
+      "You must create an account and complete identity verification before you can initiate a transfer. Identity verification is performed by our regulated payments partner, Cybrid, and may require you to provide government-issued identification, a photograph or selfie, proof of address, and, for the Indian recipient side, Aadhaar and Permanent Account Number (PAN). Additional information (including source-of-funds documentation) may be requested at any time if required by applicable law or our risk controls. We may decline to open or may suspend or close your account at any time if we cannot verify your identity, if you provide inaccurate information, or if we have a reasonable basis to believe that your use of the Service presents a legal, regulatory, or fraud risk.",
   },
   {
     title: "5. Your account credentials and account security",
@@ -118,7 +118,7 @@ const sections: Section[] = [
   {
     title: "11. Third-party services",
     content:
-      "The Service depends on third-party providers, including our regulated payments partner (Zynk Labs), bank-linking partners (Plaid), identity provider (Clerk), cloud infrastructure, email delivery, push-notification delivery, and error-monitoring providers. Your use of these providers through our Service is subject to their own terms and privacy policies. We are not responsible for the acts or omissions of third parties that we do not control, except to the extent required by applicable law.",
+      "The Service depends on third-party providers, including our regulated payments partner (Cybrid), bank-linking partners (Plaid), identity provider (Clerk), cloud infrastructure, email delivery, push-notification delivery, and error-monitoring providers. Your use of these providers through our Service is subject to their own terms and privacy policies. We are not responsible for the acts or omissions of third parties that we do not control, except to the extent required by applicable law.",
   },
   {
     title: "12. Intellectual property",

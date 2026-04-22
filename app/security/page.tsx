@@ -10,11 +10,11 @@ import {
 export const metadata: Metadata = {
   title: "Security",
   description:
-    "DattaRemit's security program: how we encrypt customer data, authenticate users, harden our mobile and web apps, monitor for abuse, and respond to incidents.",
+    "How DattaRemit protects your data, your money, and your account — from sign-in to delivery.",
   openGraph: {
     title: "Security | DattaRemit",
     description:
-      "DattaRemit's security program: how we encrypt customer data, authenticate users, and protect every transfer.",
+      "How DattaRemit protects your data, your money, and your account on every transfer.",
     url: "https://dattaremit.com/security",
   },
   alternates: {
@@ -28,122 +28,116 @@ type Section =
 
 const sections: Section[] = [
   {
-    title: "Our approach",
+    title: "How we think about security",
     content:
-      "DattaRemit treats security as a product requirement, not a checkbox. We operate as a partner-of-record on top of our regulated payments partner, Zynk Labs, which means we do not custody customer funds. Our platform's job is to collect the information necessary to initiate a transfer, authenticate the sender, move data securely to the settlement rail, and keep customers informed. Every engineering change is reviewed through a security lens before it ships.",
+      "We don't hold your money — our regulated partner Cybrid does. Our job is to collect what's needed for your transfer, confirm it's really you, move your data safely, and keep you informed. Every change we ship gets a security review before it goes live.",
   },
   {
-    title: "Data classification",
+    title: "What we store, and how we protect it",
     intro:
-      "We classify every field we store into one of three categories and apply controls accordingly:",
+      "We sort every piece of information by how sensitive it is, then protect it accordingly.",
     items: [
-      "Highly sensitive personal data — full name, date of birth, phone number, email address, residential address, government-issued identity numbers, bank account numbers, and IFSC codes. Encrypted at the field level with AES-256-GCM using master keys stored in AWS Key Management Service (KMS). For fields that must be searched (e.g. email lookup), we additionally store an HMAC-SHA256 blind index so the plaintext never leaves the application, but exact-match lookups still work.",
-      "Account metadata — account status, KYC state, Clerk user identifier, timestamps, and activity logs. Stored in managed PostgreSQL with TLS-enforced connections and daily encrypted backups.",
-      "Non-sensitive operational data — anonymised error traces, performance metrics, and health-check results. Sent to Sentry with PII redacted at source.",
+      "Personal details — your name, date of birth, phone, email, address, ID numbers, and bank account details. Each field is locked with its own encryption. The master key lives inside Amazon's key vault and never leaves it. For fields we need to look up (like your email), we also store a one-way fingerprint so we can find an exact match without ever unlocking the original.",
+      "Account info — your account status, verification stage, sign-in ID, and activity history. Kept in a managed database with encrypted connections and daily encrypted backups.",
+      "Diagnostic data — anonymised error reports and performance metrics. Anything personal is stripped out before it leaves your device.",
     ],
   },
   {
     title: "Encryption",
-    intro: "Every byte of customer data is encrypted in transit and at rest:",
+    intro: "Your data is locked down when it travels and when it sits still.",
     items: [
-      "In transit: TLS 1.2 or higher across all client–server and service-to-service links. HSTS is enforced with a one-year max-age and the preload flag, so browsers will refuse non-HTTPS connections.",
-      "At rest (application layer): AES-256-GCM with a unique 96-bit IV per encrypt, 128-bit authentication tag, and master-key operations performed inside AWS KMS. Plaintext keys never leave KMS.",
-      "At rest (storage layer): managed PostgreSQL volumes are encrypted at rest by the cloud provider. Database connections use a pinned certificate authority and require sslmode=verify-full.",
-      "Backups: encrypted with the same discipline as primary storage. Key rotation is performed via KMS without re-encrypting ciphertext, using envelope encryption.",
+      "On the move: every connection uses modern TLS. We've opted into the strictest browser enforcement, so your browser will refuse to talk to us over anything weaker.",
+      "At rest: sensitive fields are encrypted one by one with AES-256 — the same grade used for sensitive government data. The keys live inside Amazon Key Management Service and are never handled by our app in the clear.",
+      "In backups: same protection as live data. Keys are rotated regularly without needing to re-encrypt everything.",
     ],
   },
   {
-    title: "Authentication and session security",
+    title: "Sign-in and sessions",
     intro:
-      "Customer authentication is handled by Clerk, an enterprise-grade identity provider. On top of Clerk's baseline we add:",
+      "Sign-in is handled by Clerk, a trusted identity provider. On top of that we add:",
     items: [
-      "Authorised-parties allow-listing — every JWT is rejected if the 'azp' claim does not match the domains operated by DattaRemit.",
-      "Step-up verification on sensitive actions — initiating a transfer on the web requires a fresh 6-digit email code issued immediately before the action. Re-authentication is required even if the user's session is already valid.",
-      "Biometric gating on mobile — the mobile app prompts for Face ID or fingerprint before any transfer. After three failed attempts, biometrics are locked out until the user re-authenticates through Clerk.",
-      "Short-lived tokens — session tokens are rotated frequently and invalidated server-side on logout or password change.",
+      "Tokens from any domain other than ours are rejected outright.",
+      "Starting a transfer on the web needs a fresh 6-digit code emailed to you — even if you're already signed in.",
+      "On mobile, Face ID or fingerprint is required before every transfer. Three failed attempts lock biometrics until you sign in again.",
+      "Sessions expire quickly and are cancelled the moment you log out or change your password.",
     ],
   },
   {
-    title: "Transfer integrity",
+    title: "Protecting every transfer",
+    intro: "Moving money is the most sensitive thing we do. A few specific guards:",
+    items: [
+      "Duplicate protection — if the app retries after a dropped connection, you won't be charged twice. A retry with different details is rejected instead of going through.",
+      "Your weekly limit is checked inside a database lock, so you can't accidentally overspend by sending two transfers at the same instant.",
+      "Messages we receive from Cybrid and Clerk are signed. We verify the signature and reject anything older than five minutes.",
+      "Every request carries a unique ID we log on our side and return to you. Support can use it to trace a transfer from start to finish.",
+    ],
+  },
+  {
+    title: "Hardened web and API",
+    intro: "The website and servers ship with a defensive baseline:",
+    items: [
+      "Strict browser rules block other sites from embedding, framing, or hijacking our pages.",
+      "Rate limits on general traffic, signed-in users, financial actions, and bank-linking — enough headroom for normal use, enough friction to shut down abuse.",
+      "Logs are scrubbed of personal information before anything is written to disk or sent to error tracking.",
+    ],
+  },
+  {
+    title: "Hardened mobile app",
+    intro: "On iPhone and Android we add platform-specific protections:",
+    items: [
+      "Sensitive screens (identity check, sign-in, transfer confirmation) can't be screenshotted or screen-recorded.",
+      "Security tokens and secure settings live in the phone's built-in vault — iOS Keychain or Android Keystore — and are wiped on logout.",
+      "Biometric login uses Face ID, Touch ID, or the Android fingerprint reader. Three failures lock it until you sign in through Clerk again.",
+      "Released builds only trust certificates the operating system trusts. No debug shortcuts ship to the App Store or Play Store.",
+    ],
+  },
+  {
+    title: "Infrastructure",
+    intro: "Production runs on managed cloud infrastructure with documented controls:",
+    items: [
+      "Managed database with encrypted storage and point-in-time recovery, so we can roll back to any moment if something breaks.",
+      "The app runs in small, isolated containers on a locked-down platform.",
+      "Each part of the system only has the access it actually needs — nothing more.",
+      "Secrets (API keys, database passwords) are never in our source code. They're loaded at runtime from a secure store.",
+      "Health checks pull unhealthy servers out of rotation automatically, so you always reach a working one.",
+    ],
+  },
+  {
+    title: "How we write and ship code",
+    intro: "Every change goes through the same checks before it reaches you:",
+    items: [
+      "Automatic scans flag known risky patterns on every commit.",
+      "Dependency audits block any merge that introduces a known vulnerability.",
+      "Container scans check every production image for issues before release.",
+      "Strict type checking catches whole categories of bugs before the code ever runs.",
+      "Integration tests run on every change to catch regressions early.",
+    ],
+  },
+  {
+    title: "Logging and incident response",
+    intro: "If something goes wrong, we can pinpoint what happened in minutes.",
+    items: [
+      "Every request, log line, and activity record shares the same ID, so a single transfer can be traced end to end.",
+      "Logs are structured for fast search, with personal information stripped before writing.",
+      "An audit log records every action our internal team takes — who did what, when, and to which account.",
+      "If an incident affects your data, we'll tell you promptly and follow the notification timelines required by law. To report something, email security@dattaremit.com.",
+    ],
+  },
+  {
+    title: "Team and access",
     intro:
-      "Money movement is the most sensitive path in our platform. We harden it with:",
+      "Controls on systems only work if controls on people match. Ours do:",
     items: [
-      "Idempotency keys — every financial request carries a client-generated key. The server records the key, its request hash, and its result in a dedicated table with a 24-hour TTL. Replaying the same request returns the original result; replaying with a different payload is rejected.",
-      "Serializable transaction isolation — weekly limit enforcement happens inside a row-locked Serializable transaction to prevent race-condition double spends.",
-      "Signed webhooks — inbound webhooks from Zynk Labs and Clerk are verified with HMAC-SHA256, a timestamp-prefixed payload, and a five-minute replay window. Comparisons use timing-safe equality.",
-      "Request tracing — every request is tagged with an X-Request-Id which is logged, returned in the response, and quoted by support so any transfer can be traced end-to-end.",
+      "Production access requires single sign-on and a hardware security key.",
+      "Engineers complete security and privacy training at onboarding and every year after.",
+      "Database access is limited to named engineers with a documented reason, and every query is logged.",
+      "Work laptops are fully encrypted and centrally managed.",
     ],
   },
   {
-    title: "Application hardening",
-    intro: "The web and API tier ships with a defensive baseline:",
-    items: [
-      "Strict Content Security Policy (default-src 'none', frame-ancestors 'none', object-src 'none').",
-      "X-Frame-Options DENY and Cross-Origin-Opener-Policy / Cross-Origin-Resource-Policy set to same-origin.",
-      "X-Content-Type-Options nosniff and Referrer-Policy no-referrer.",
-      "Multi-tier rate limiting — 200 requests per 15 minutes per IP globally, 200 per 15 minutes per user for authenticated endpoints, 30 per 10 minutes for sensitive financial endpoints, and 10 per 15 minutes for bank-link-token generation.",
-      "Per-request structured logging via Winston with automatic PII redaction so sensitive fields never appear in log files or Sentry breadcrumbs.",
-    ],
-  },
-  {
-    title: "Mobile hardening",
-    intro: "On iOS and Android we apply additional platform-specific defences:",
-    items: [
-      "Screen-capture protection on sensitive screens (KYC, authentication, transfer confirmation).",
-      "Push tokens, device identifiers, and secure settings stored in expo-secure-store (iOS Keychain / Android Keystore) and wiped on logout.",
-      "Biometric authentication via expo-local-authentication (Face ID, Touch ID, Fingerprint) with server-aware enrollment state and three-strike lockout.",
-      "Certificate handling enforces the OS trust store; no debug-only CAs are bundled with release builds.",
-    ],
-  },
-  {
-    title: "Infrastructure and operations",
-    intro:
-      "Our production environment runs on managed cloud infrastructure with documented operational controls:",
-    items: [
-      "Managed PostgreSQL with encrypted-at-rest storage, point-in-time recovery, and pinned-CA TLS.",
-      "Application containers built with multi-stage Docker images on minimal Alpine base, shipped to a managed container platform.",
-      "Least-privilege IAM — application workloads assume roles scoped to the minimum set of KMS, database, and storage operations they actually perform.",
-      "Secrets are never committed to source control; they are injected at runtime from the platform's secret store.",
-      "Health checks probe database connectivity with a 5-second timeout so the load balancer can remove unhealthy instances automatically.",
-    ],
-  },
-  {
-    title: "Secure development lifecycle",
-    intro: "Every change goes through the same guarded pipeline:",
-    items: [
-      "Static analysis — Semgrep scans every commit and pull request for known insecure patterns.",
-      "Dependency audit — bun audit runs on every CI build and blocks merges on high-severity advisories.",
-      "Container scanning — Trivy scans every production image for OS and application-layer vulnerabilities after build.",
-      "Type checking — the entire server is compiled with TypeScript strict mode; the CI build fails on any type error.",
-      "Automated test suite — integration tests run on every push and pull request before merge.",
-    ],
-  },
-  {
-    title: "Logging, monitoring and incident response",
-    intro:
-      "We can answer the question ‘what happened to a customer's transfer?’ within minutes:",
-    items: [
-      "Every request carries an X-Request-Id that is written to application logs, admin audit logs, and activity records tied to the affected user and transaction.",
-      "Winston writes structured JSON logs in production with PII redacted at source. Warnings and errors are forwarded to Sentry with breadcrumbs for the relevant transfer.",
-      "An admin audit log records every action taken by internal staff, including actor ID, timestamp, affected resource, and a human-readable description.",
-      "If a security incident affects customer data, we notify affected customers without undue delay and follow the notification timelines required by applicable law. Contact security@dattaremit.com to report a suspected vulnerability or incident.",
-    ],
-  },
-  {
-    title: "Physical and organisational security",
-    intro:
-      "Our engineering team follows operational hygiene that complements the technical controls:",
-    items: [
-      "Access to production is gated by SSO and hardware-backed MFA.",
-      "Engineers receive security and privacy training at onboarding and annually thereafter.",
-      "Production database access is audited and limited to named engineers with a legitimate business need.",
-      "Laptops are full-disk encrypted and enrolled in mobile device management.",
-    ],
-  },
-  {
-    title: "Responsible disclosure",
+    title: "Reporting a vulnerability",
     content:
-      "If you believe you have found a security vulnerability in DattaRemit, please report it to security@dattaremit.com. Please include a clear description, reproduction steps, and any proof-of-concept material. We will acknowledge your report within three business days, investigate in good faith, and keep you informed while we work on a fix. We ask that you avoid testing that could disrupt service, violate privacy, or destroy data, and that you do not disclose the issue publicly until we have released a fix.",
+      "If you think you've found a security issue, email security@dattaremit.com. A clear description and steps to reproduce help us act fast. We'll reply within three business days, investigate honestly, and keep you posted while we fix it. Please don't run tests that could disrupt the service or expose other people's data, and hold off on public disclosure until we've shipped a fix.",
   },
 ];
 
@@ -156,7 +150,7 @@ export default function SecurityPage() {
           eyebrow="Security"
           title="Security."
           titleAccent="The controls behind every transfer."
-          description="How we protect your data, your money, and your account — with concrete technical measures, not marketing claims."
+          description="How we protect your data, your money, and your account — explained in plain English, not marketing."
           lastUpdated="April 22, 2026"
         />
         <LegalBody>

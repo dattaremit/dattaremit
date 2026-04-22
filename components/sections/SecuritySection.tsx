@@ -34,7 +34,7 @@ const pillars = [
     icon: ShieldCheck,
     title: "Regulated custody",
     description:
-      "Funds held and settled by Zynk Labs. DattaRemit never custodies money.",
+      "Funds held and settled by Cybrid. DattaRemit never custodies money.",
   },
   {
     icon: FileCheck,

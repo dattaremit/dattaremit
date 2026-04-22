@@ -5,7 +5,7 @@ const steps = [
     icon: UserCheck,
     title: "Create and verify",
     description:
-      "Sign up with your email and complete identity verification through our regulated partner Zynk Labs. Approval is typically same-day.",
+      "Sign up with your email and complete identity verification through our regulated partner Cybrid. Approval is typically same-day.",
   },
   {
     icon: Landmark,

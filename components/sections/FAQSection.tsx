@@ -8,7 +8,7 @@ import {
 const faqs = [
   {
     q: "What does DattaRemit do?",
-    a: "DattaRemit is a cross-border money-transfer service for the US-to-India corridor. You fund a transfer from a linked US bank account, and the recipient receives INR in their Indian bank account via UPI or IMPS. We operate through our regulated payments partner, Zynk Labs, who performs identity verification, fund custody, and settlement under their licenses.",
+    a: "DattaRemit is a cross-border money-transfer service for the US-to-India corridor. You fund a transfer from a linked US bank account, and the recipient receives INR in their Indian bank account via UPI or IMPS. We operate through our regulated payments partner, Cybrid, who performs identity verification, fund custody, and settlement under their licenses.",
   },
   {
     q: "Which countries and currencies are supported?",
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "What documents do I need for KYC?",
-    a: "Senders complete KYC through our partner Zynk Labs, which typically requires a government-issued ID and proof of address. Indian recipients are verified using Aadhaar and PAN, in line with RBI requirements. The exact document list is presented in the KYC flow and may vary by jurisdiction.",
+    a: "Senders complete KYC through our partner Cybrid, which typically requires a government-issued ID and proof of address. Indian recipients are verified using Aadhaar and PAN, in line with RBI requirements. The exact document list is presented in the KYC flow and may vary by jurisdiction.",
   },
   {
     q: "How fast is delivery?",
@@ -36,11 +36,11 @@ const faqs = [
   },
   {
     q: "How is my money protected?",
-    a: "Customer funds are held and settled by our regulated partner Zynk Labs — DattaRemit does not custody funds. On our side, personally identifiable information is encrypted field-by-field with AES-256-GCM using keys managed in AWS KMS, all traffic is protected with TLS and HSTS, and sensitive actions require step-up verification (email code on web, biometric on mobile).",
+    a: "Customer funds are held and settled by our regulated partner Cybrid — DattaRemit does not custody funds. On our side, personally identifiable information is encrypted field-by-field with AES-256-GCM using keys managed in AWS KMS, all traffic is protected with TLS and HSTS, and sensitive actions require step-up verification (email code on web, biometric on mobile).",
   },
   {
     q: "Is DattaRemit regulated?",
-    a: "DattaRemit operates through a regulated payments partner (Zynk Labs) that holds the money-transmission authorizations required to move funds between the US and India. Your transfer is executed under that regulated framework, and DattaRemit complies with applicable KYC and AML requirements of our partner and the jurisdictions we operate in.",
+    a: "DattaRemit operates through a regulated payments partner (Cybrid) that holds the money-transmission authorizations required to move funds between the US and India. Your transfer is executed under that regulated framework, and DattaRemit complies with applicable KYC and AML requirements of our partner and the jurisdictions we operate in.",
   },
   {
     q: "What if a transfer fails or is delayed?",
@@ -58,43 +58,37 @@ export function FAQSection() {
       id="faq"
       className="relative py-20 md:py-28 surface-soft overflow-hidden"
     >
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
-          {/* Left — title */}
-          <div className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
-            <h2 className="display-mixed text-[clamp(2rem,4.5vw,3.25rem)] font-semibold tracking-tight text-foreground">
-              Straight answers.
-            </h2>
-            <p className="mt-5 text-muted-foreground leading-relaxed text-base">
-              Everything you need to know about sending money with DattaRemit.
-              If something is missing,{" "}
-              <a
-                href="#contact"
-                className="text-foreground font-medium underline decoration-[var(--brand-deep)] decoration-2 underline-offset-4"
-              >
-                ask us directly
-              </a>
-              .
-            </p>
-          </div>
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
+        <div className="max-w-3xl mb-12 md:mb-16">
+          <h2 className="display-mixed text-[clamp(2rem,4.5vw,3.25rem)] font-semibold tracking-tight text-foreground">
+            Straight answers.
+          </h2>
+          <p className="mt-6 mx-auto max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
+            Everything you need to know about sending money with DattaRemit. If
+            something is missing,{" "}
+            <a
+              href="#contact"
+              className="text-foreground font-medium underline decoration-[var(--brand-deep)] decoration-2 underline-offset-4"
+            >
+              ask us directly
+            </a>
+            .
+          </p>
+        </div>
 
-          {/* Right — accordion */}
-          <div className="lg:col-span-8">
-            <Accordion type="single" collapsible className="w-full">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`faq-${index}`}>
-                  <AccordionTrigger className="pr-2">
-                    <span className="text-base sm:text-lg font-medium tracking-tight">
-                      {faq.q}
-                    </span>
-                  </AccordionTrigger>
-                  <AccordionContent>
-                    {faq.a}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+        <div className="w-full max-w-3xl text-left">
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`faq-${index}`}>
+                <AccordionTrigger className="pr-2">
+                  <span className="text-base sm:text-lg font-medium tracking-tight">
+                    {faq.q}
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent>{faq.a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </section>

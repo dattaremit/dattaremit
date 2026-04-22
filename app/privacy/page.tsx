@@ -63,7 +63,7 @@ const sections: Section[] = [
     intro:
       "We use your personal information only for the purposes listed below. We do not sell personal information and we do not share it with third parties for their own marketing.",
     items: [
-      "To verify your identity and perform Know-Your-Customer (KYC) and Anti-Money-Laundering (AML) checks, through our regulated payments partner Zynk Labs.",
+      "To verify your identity and perform Know-Your-Customer (KYC) and Anti-Money-Laundering (AML) checks, through our regulated payments partner Cybrid.",
       "To operate, process, and settle money transfers between your US bank account and the recipient’s Indian bank account.",
       "To display accurate exchange-rate and fee information before you confirm a transfer.",
       "To send you service communications — transfer receipts, KYC notifications, security alerts, and account updates — by email, in-app message, or push notification.",
@@ -91,7 +91,7 @@ const sections: Section[] = [
       "We share personal information only with the categories of recipient listed below, and only for the purposes described in this Policy. Every recipient is bound by contractual confidentiality and security obligations.",
     table: [
       {
-        left: "Zynk Labs",
+        left: "Cybrid",
         right:
           "Our regulated payments partner. Receives the information necessary to perform KYC, hold and settle funds, perform foreign-exchange conversion, and disburse INR to recipients. Acts as an independent controller for regulatory record-keeping.",
       },

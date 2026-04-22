@@ -101,7 +101,7 @@ export function HeroSection() {
                 Settles in minutes
               </span>
               <span className="inline-flex items-center gap-2">
-                Regulated partner · Zynk Labs
+                Regulated partner · Cybrid
               </span>
             </div>
           </div>

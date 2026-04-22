@@ -56,8 +56,8 @@ export function Footer() {
             </Link>
             <p className="text-sm text-muted-foreground max-w-md leading-relaxed mb-4">
               DattaRemit facilitates USD-to-INR cross-border payments in
-              partnership with Zynk Labs, a regulated payments provider.
-              Customer funds are held and settled by Zynk under their
+              partnership with Cybrid, a regulated payments provider.
+              Customer funds are held and settled by Cybrid under their
               licenses; DattaRemit does not custody funds.
             </p>
             <p className="text-xs text-muted-foreground">
