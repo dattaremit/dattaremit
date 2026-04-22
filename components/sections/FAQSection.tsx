@@ -54,30 +54,60 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <section id="faq" className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to know about sending money with DattaRemit.
-          </p>
-        </div>
+    <section
+      id="faq"
+      className="relative py-20 md:py-28 bg-background overflow-hidden"
+    >
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
+          {/* Left — title */}
+          <div className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
+            <div className="eyebrow mb-5">
+              <span className="tabular">08</span>
+              <span className="h-px w-6 bg-foreground/30" />
+              Questions
+            </div>
+            <h2 className="display-mixed text-[clamp(2rem,4.5vw,3.25rem)] text-foreground">
+              <span className="font-semibold">Straight</span>{" "}
+              <span className="font-light italic text-muted-foreground">
+                answers.
+              </span>
+            </h2>
+            <p className="mt-5 text-muted-foreground leading-relaxed text-base">
+              Everything you need to know about sending money with DattaRemit.
+              If something is missing,{" "}
+              <a
+                href="#contact"
+                className="text-foreground font-medium underline decoration-[var(--brand-deep)] decoration-2 underline-offset-4"
+              >
+                ask us directly
+              </a>
+              .
+            </p>
+          </div>
 
-        <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="w-full">
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`faq-${index}`}>
-                <AccordionTrigger className="text-left font-medium hover:text-primary hover:no-underline">
-                  {faq.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed">
-                  {faq.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          {/* Right — accordion */}
+          <div className="lg:col-span-8">
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`faq-${index}`}>
+                  <AccordionTrigger className="pr-2">
+                    <div className="flex items-baseline gap-4 sm:gap-5">
+                      <span className="text-[11px] font-normal tabular tracking-[0.16em] uppercase text-muted-foreground pt-1">
+                        0{(index + 1).toString().padStart(1, "0")}
+                      </span>
+                      <span className="text-base sm:text-lg font-medium tracking-tight">
+                        {faq.q}
+                      </span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="pl-10 sm:pl-14">
+                    {faq.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/sections/Footer";
+import {
+  LegalPageHero,
+  LegalBody,
+  LegalSectionHeading,
+} from "@/components/sections/LegalPage";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -19,8 +24,7 @@ export const metadata: Metadata = {
 
 type Section =
   | { title: string; content: string }
-  | { title: string; intro: string; items: string[]; outro?: string }
-  | { title: string; intro: string; content: string };
+  | { title: string; intro: string; items: string[]; outro?: string };
 
 const sections: Section[] = [
   {
@@ -44,8 +48,7 @@ const sections: Section[] = [
   },
   {
     title: "3. Eligibility",
-    intro:
-      "To use the Service you represent and warrant that you:",
+    intro: "To use the Service you represent and warrant that you:",
     items: [
       "Are at least 18 years old and have the legal capacity to enter into a binding contract in your jurisdiction.",
       "Reside in the United States and maintain a lawful US bank account you own or are authorised to use.",
@@ -183,57 +186,40 @@ export default function TermsPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-20">
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-                Terms of Service
-              </h1>
-              <p className="text-muted-foreground">
-                Last updated: April 22, 2026.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto space-y-10">
-              {sections.map((section) => (
-                <div key={section.title}>
-                  <h2 className="text-lg font-semibold mb-3">
-                    {section.title}
-                  </h2>
-                  {"content" in section && !("intro" in section) && (
-                    <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
-                      {section.content}
-                    </p>
+      <main>
+        <LegalPageHero
+          index="02"
+          eyebrow="Terms"
+          title="Terms of Service."
+          titleAccent="The rules we all agree to."
+          description="What DattaRemit does, what you can expect from us, and what we expect from you when using the Service."
+          lastUpdated="April 22, 2026"
+        />
+        <LegalBody>
+          {sections.map((section, i) => (
+            <div key={section.title}>
+              <LegalSectionHeading number={i + 1} title={section.title} />
+              {"content" in section && !("intro" in section) && (
+                <p>{section.content}</p>
+              )}
+              {"intro" in section && (
+                <>
+                  <p className="mb-3">{section.intro}</p>
+                  {"items" in section && (
+                    <ul>
+                      {section.items.map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                      ))}
+                    </ul>
                   )}
-                  {"intro" in section && (
-                    <>
-                      <p className="text-muted-foreground leading-relaxed mb-3">
-                        {section.intro}
-                      </p>
-                      {"items" in section && (
-                        <ul className="list-disc pl-6 space-y-2 text-muted-foreground leading-relaxed">
-                          {section.items.map((item, idx) => (
-                            <li key={idx}>{item}</li>
-                          ))}
-                        </ul>
-                      )}
-                      {"outro" in section && section.outro && (
-                        <p className="text-muted-foreground leading-relaxed mt-3">
-                          {section.outro}
-                        </p>
-                      )}
-                    </>
+                  {"outro" in section && section.outro && (
+                    <p className="mt-3">{section.outro}</p>
                   )}
-                </div>
-              ))}
+                </>
+              )}
             </div>
-          </div>
-        </section>
+          ))}
+        </LegalBody>
       </main>
       <Footer />
     </>

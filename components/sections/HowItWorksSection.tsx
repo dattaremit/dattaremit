@@ -3,27 +3,27 @@ import { UserCheck, Landmark, Users, Send } from "lucide-react";
 const steps = [
   {
     icon: UserCheck,
-    title: "Create and verify your account",
+    title: "Create and verify",
     description:
-      "Sign up with your email and complete identity verification (KYC) through our regulated partner Zynk Labs. Approval is typically same-day.",
+      "Sign up with your email and complete identity verification through our regulated partner Zynk Labs. Approval is typically same-day.",
   },
   {
     icon: Landmark,
-    title: "Link your US bank account",
+    title: "Link your US bank",
     description:
-      "Connect a US checking account securely through Plaid. DattaRemit never sees or stores your bank credentials — only a tokenised link.",
+      "Connect a US checking account securely through Plaid. We never see or store your bank credentials — only a tokenised link.",
   },
   {
     icon: Users,
-    title: "Add a verified recipient",
+    title: "Add a recipient",
     description:
-      "Enter the recipient's name, Indian bank account, IFSC, and contact details. Your recipient completes lightweight Aadhaar and PAN verification.",
+      "Enter the recipient's name, Indian bank account, IFSC, and contact. Recipients complete lightweight Aadhaar and PAN verification.",
   },
   {
     icon: Send,
     title: "Send and track",
     description:
-      "Confirm the transfer amount, exchange rate, and fees on the review screen. Authorise with email step-up (web) or biometrics (mobile). Track status in Activity.",
+      "Confirm amount, rate, and fees on the review screen. Authorise with email step-up (web) or biometrics (mobile). Track in Activity.",
   },
 ];
 
@@ -31,44 +31,69 @@ export function HowItWorksSection() {
   return (
     <section
       id="how-it-works"
-      className="py-24 bg-background relative overflow-hidden"
+      className="relative py-20 md:py-28 bg-background overflow-hidden"
     >
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            How DattaRemit works
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-4xl mb-14 md:mb-20">
+          <div className="eyebrow mb-5">
+            <span className="tabular">03</span>
+            <span className="h-px w-6 bg-foreground/30" />
+            How it works
+          </div>
+          <h2 className="display-mixed text-[clamp(2rem,5vw,3.75rem)] text-foreground">
+            <span className="font-semibold">Four steps,</span>{" "}
+            <span className="font-light italic text-muted-foreground">
+              one evening at most.
+            </span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="mt-6 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">
             A simple, regulated path from your US bank account to any Indian
             bank account — with verification at every step.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        {/* Step grid with asymmetric vertical rhythm on lg+ */}
+        <div className="grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => (
             <div
               key={step.title}
-              className="relative rounded-2xl border bg-card p-6 shadow-sm"
+              className={`group relative flex flex-col rounded-3xl border border-border bg-card p-6 sm:p-7 transition-all duration-300 hover:border-foreground/20 hover:-translate-y-0.5 hover:shadow-[0_20px_50px_-24px_rgba(20,16,10,0.25)] ${
+                index % 2 === 1 ? "lg:mt-10" : ""
+              }`}
             >
-              <div className="absolute -top-3 left-6 inline-flex items-center justify-center h-7 px-2.5 rounded-full bg-primary text-primary-foreground text-xs font-semibold">
-                Step {index + 1}
+              {/* Index + icon row */}
+              <div className="flex items-start justify-between mb-10 sm:mb-12">
+                <span className="text-[11px] font-medium uppercase tracking-[0.18em] tabular text-muted-foreground">
+                  Step 0{index + 1}
+                </span>
+                <span className="inline-flex size-10 items-center justify-center rounded-full bg-gradient-to-br from-[var(--brand)]/15 to-[var(--brand-deep)]/10 border border-[var(--brand)]/30 text-[var(--brand-deep)] transition-all group-hover:from-[var(--brand)]/25 group-hover:to-[var(--brand-deep)]/20">
+                  <step.icon className="size-[18px]" />
+                </span>
               </div>
-              <div className="text-primary mb-4 mt-2">
-                <step.icon className="size-8" />
+
+              {/* Big step number */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute right-5 top-3 text-[56px] sm:text-[72px] font-light text-foreground/5 tabular leading-none select-none"
+              >
+                {index + 1}
               </div>
-              <h3 className="font-semibold text-lg mb-2">{step.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+
+              <h3 className="text-xl font-semibold tracking-tight mb-3 text-foreground">
+                {step.title}
+              </h3>
+              <p className="text-[15px] text-muted-foreground leading-relaxed">
                 {step.description}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-12 text-sm text-muted-foreground max-w-2xl mx-auto">
+        <p className="mt-12 text-sm text-muted-foreground max-w-2xl">
           Transfer range: USD 1 – USD 10,000 per transaction. A weekly
           aggregate limit also applies and is visible in the app. All fees and
           the exact exchange rate are disclosed before you confirm.
-        </div>
+        </p>
       </div>
     </section>
   );

@@ -15,12 +15,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import {
   AlertCircle,
-  ArrowRight,
+  ArrowUpRight,
   Check,
-  Clock,
+  Clock4,
   Loader2,
   Mail,
-  Shield,
+  ShieldCheck,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -48,17 +48,6 @@ const schema = yup.object({
 
 type FormData = yup.InferType<typeof schema>;
 
-const features = [
-  {
-    icon: Shield,
-    text: "AES-256 field-level encryption with AWS KMS",
-  },
-  {
-    icon: Shield,
-    text: "Regulated payments partner (Zynk Labs) handles fund custody",
-  },
-];
-
 export function ContactSection() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -77,9 +66,7 @@ export function ContactSection() {
 
   useEffect(() => {
     if (isSuccess) {
-      const timer = setTimeout(() => {
-        setIsSuccess(false);
-      }, 5000);
+      const timer = setTimeout(() => setIsSuccess(false), 5000);
       return () => clearTimeout(timer);
     }
   }, [isSuccess]);
@@ -108,75 +95,71 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-16 sm:py-24 overflow-hidden">
-      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+    <section
+      id="contact"
+      className="relative py-20 md:py-28 bg-muted/40 overflow-hidden"
+    >
+      <div
+        aria-hidden
+        className="absolute top-0 right-0 w-[40rem] h-[40rem] -translate-y-1/3 translate-x-1/3 bg-[var(--brand)]/15 rounded-full blur-3xl pointer-events-none"
+      />
 
-      <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Column - Content */}
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-secondary/50 px-4 py-1.5 text-sm text-muted-foreground mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
-              </span>
-              Now accepting early access requests
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          {/* Left */}
+          <div className="lg:col-span-5">
+            <div className="eyebrow mb-5">
+              <span className="tabular">09</span>
+              <span className="h-px w-6 bg-foreground/30" />
+              Early access
             </div>
-
-            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground mb-6">
-              Get In Touch
+            <h2 className="display-mixed text-[clamp(2rem,5vw,3.75rem)] text-foreground">
+              <span className="font-semibold">Let&rsquo;s talk.</span>
             </h2>
-
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Ready to revolutionize how you receive international payments?
-              Join thousands of freelancers who are saving on fees and earning
-              yield on their hard-earned money.
+            <p className="mt-6 max-w-md text-base md:text-lg text-muted-foreground leading-relaxed">
+              Request early access or ask us anything about the service. We
+              respond within 24 hours.
             </p>
 
-            {/* Features */}
-            <div className="space-y-4 mb-10">
-              {features.map((feature) => (
-                <div key={feature.text} className="flex items-center gap-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
-                    <feature.icon className="h-4 w-4 text-primary" />
-                  </div>
-                  <span className="text-foreground font-medium">
-                    {feature.text}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Contact Info */}
-            <div className="border-t border-border/50 pt-8">
-              <p className="text-sm font-medium text-foreground mb-4">
-                Have questions? Reach out directly:
-              </p>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 text-muted-foreground">
-                  <Mail className="h-4 w-4" />
-                  <a
-                    href="mailto:support@dattaremit.com"
-                    className="hover:text-primary transition-colors"
-                  >
-                    support@dattaremit.com
-                  </a>
-                </div>
-                <div className="flex items-center gap-3 text-muted-foreground">
-                  <Clock className="h-4 w-4" />
-                  <span>Response time: Within 24 hours</span>
-                </div>
+            <div className="mt-10 space-y-4">
+              <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                <span className="inline-flex size-9 items-center justify-center rounded-xl bg-foreground/5 text-[var(--brand-deep)]">
+                  <ShieldCheck className="size-4" />
+                </span>
+                AES-256 field-level encryption with AWS KMS.
+              </div>
+              <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                <span className="inline-flex size-9 items-center justify-center rounded-xl bg-foreground/5 text-[var(--brand-deep)]">
+                  <ShieldCheck className="size-4" />
+                </span>
+                Regulated payments partner Zynk Labs custodies funds.
+              </div>
+              <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                <span className="inline-flex size-9 items-center justify-center rounded-xl bg-foreground/5 text-[var(--brand-deep)]">
+                  <Clock4 className="size-4" />
+                </span>
+                Response time: within 24 hours.
+              </div>
+              <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                <span className="inline-flex size-9 items-center justify-center rounded-xl bg-foreground/5 text-[var(--brand-deep)]">
+                  <Mail className="size-4" />
+                </span>
+                <a
+                  href="mailto:support@dattaremit.com"
+                  className="text-foreground font-medium hover:text-[var(--brand-deep)] transition-colors"
+                >
+                  support@dattaremit.com
+                </a>
               </div>
             </div>
           </div>
 
-          {/* Right Column - Form */}
-          <div>
-            <div className="rounded-2xl border border-border/50 bg-card p-6 sm:p-8 shadow-xl">
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold text-foreground mb-2">
-                  Request Early Access
+          {/* Right form */}
+          <div className="lg:col-span-7">
+            <div className="rounded-3xl border border-border bg-card p-6 sm:p-8 shadow-[0_30px_80px_-40px_rgba(20,16,10,0.3)]">
+              <div className="mb-6 pb-6 border-b border-border/70">
+                <h3 className="text-xl font-semibold tracking-tight mb-1.5">
+                  Request early access
                 </h3>
                 <p className="text-sm text-muted-foreground">
                   Fill out the form and we&apos;ll get back to you shortly.
@@ -188,55 +171,56 @@ export function ContactSection() {
                   onSubmit={form.handleSubmit(onSubmit)}
                   className="space-y-5"
                 >
-                  <FormField
-                    control={form.control}
-                    name="fullName"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Full Name</FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder="John Doe"
-                            {...field}
-                            className="h-11"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email Address</FormLabel>
-                        <FormControl>
-                          <Input
-                            type="email"
-                            placeholder="john@example.com"
-                            {...field}
-                            className="h-11"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <FormField
+                      control={form.control}
+                      name="fullName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground">
+                            Full name
+                          </FormLabel>
+                          <FormControl>
+                            <Input placeholder="John Doe" {...field} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground">
+                            Email
+                          </FormLabel>
+                          <FormControl>
+                            <Input
+                              type="email"
+                              placeholder="john@example.com"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
 
                   <FormField
                     control={form.control}
                     name="whatsapp"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>WhatsApp Number</FormLabel>
+                        <FormLabel className="text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground">
+                          WhatsApp number
+                        </FormLabel>
                         <FormControl>
                           <Input
                             type="tel"
                             placeholder="+1 234 567 8900"
                             {...field}
-                            className="h-11"
                           />
                         </FormControl>
                         <FormMessage />
@@ -249,12 +233,14 @@ export function ContactSection() {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Message</FormLabel>
+                        <FormLabel className="text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground">
+                          Message
+                        </FormLabel>
                         <FormControl>
                           <textarea
                             placeholder="Tell us about your needs..."
                             {...field}
-                            className="flex min-h-25 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                            className="flex min-h-28 w-full rounded-xl border border-border bg-card/60 px-4 py-3 text-[15px] md:text-sm shadow-[inset_0_1px_0_0_color-mix(in_oklch,var(--foreground)_4%,transparent)] outline-none transition-[color,box-shadow,border-color] placeholder:text-muted-foreground focus-visible:border-[var(--brand-deep)] focus-visible:ring-[var(--brand)]/30 focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 resize-y"
                           />
                         </FormControl>
                         <FormMessage />
@@ -264,19 +250,20 @@ export function ContactSection() {
 
                   <Button
                     type="submit"
-                    size="lg"
-                    className="w-full rounded-full text-base mt-2"
+                    variant="brand"
+                    size="xl"
+                    className="w-full mt-2"
                     disabled={isLoading}
                   >
                     {isLoading ? (
                       <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Submitting...
+                        <Loader2 className="size-4 animate-spin" />
+                        Submitting…
                       </>
                     ) : (
                       <>
-                        Request Access
-                        <ArrowRight className="ml-2 h-4 w-4" />
+                        Request access
+                        <ArrowUpRight className="size-4" />
                       </>
                     )}
                   </Button>
@@ -284,37 +271,34 @@ export function ContactSection() {
               </Form>
 
               {isSuccess && (
-                <div className="mt-6 rounded-lg bg-green-50 dark:bg-green-900/20 p-4 text-center">
-                  <div className="flex items-center justify-center gap-2 text-green-600 dark:text-green-400">
-                    <Check className="h-5 w-5" />
-                    <span className="font-medium">
-                      Request submitted successfully!
+                <div className="mt-6 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4">
+                  <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
+                    <Check className="size-5" />
+                    <span className="font-medium text-sm">
+                      Request submitted — we&apos;ll be in touch within 24 hours.
                     </span>
                   </div>
-                  <p className="mt-1 text-sm text-green-600/80 dark:text-green-400/80">
-                    We&apos;ll be in touch within 24 hours.
-                  </p>
                 </div>
               )}
 
               {isError && (
-                <div className="mt-6 rounded-lg bg-red-50 dark:bg-red-900/20 p-4 text-center">
-                  <div className="flex items-center justify-center gap-2 text-red-600 dark:text-red-400">
-                    <AlertCircle className="h-5 w-5" />
-                    <span className="font-medium">Submission failed</span>
+                <div className="mt-6 rounded-xl border border-destructive/30 bg-destructive/10 p-4">
+                  <div className="flex items-center gap-2 text-destructive">
+                    <AlertCircle className="size-5" />
+                    <span className="font-medium text-sm">{errorMessage}</span>
                   </div>
-                  <p className="mt-1 text-sm text-red-600/80 dark:text-red-400/80">
-                    {errorMessage}
-                  </p>
                 </div>
               )}
 
               <p className="mt-6 text-center text-xs text-muted-foreground">
                 By submitting, you agree to our{" "}
-                <a href="/privacy" className="text-primary hover:underline">
+                <a
+                  href="/privacy"
+                  className="text-foreground font-medium underline decoration-[var(--brand-deep)] decoration-2 underline-offset-4"
+                >
                   Privacy Policy
                 </a>
-                . No credit card required.
+                .
               </p>
             </div>
           </div>

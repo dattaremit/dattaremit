@@ -1,89 +1,99 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Building2, Banknote, Receipt, Clock } from "lucide-react";
+import { ArrowUpRight, Building2, Banknote, Receipt, Clock4 } from "lucide-react";
+
+const features = [
+  {
+    icon: Building2,
+    title: "Linked via Plaid",
+    description:
+      "Connect your US bank account securely — credentials never touch our servers, only a tokenised link.",
+  },
+  {
+    icon: Banknote,
+    title: "UPI & IMPS payout",
+    description:
+      "Funds land in the recipient's Indian bank account over UPI or IMPS rails.",
+  },
+  {
+    icon: Receipt,
+    title: "Transparent quote",
+    description:
+      "Exact exchange rate and fees shown before you confirm. No mark-ups hidden in the rate.",
+  },
+  {
+    icon: Clock4,
+    title: "Fast settlement",
+    description:
+      "Most transfers settle to the recipient within minutes, subject to banking hours.",
+  },
+];
 
 export function PaymentSection() {
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-primary/5 to-transparent" />
-
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="order-2 lg:order-1 relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-3xl blur-3xl" />
-            <div className="relative grid grid-cols-2 gap-4">
-              <FeatureCard
-                icon={<Building2 className="size-8" />}
-                title="Linked via Plaid"
-                description="Connect your US bank account securely — credentials never touch our servers."
-              />
-              <FeatureCard
-                icon={<Banknote className="size-8" />}
-                title="UPI & IMPS payout"
-                description="Funds land in the recipient's Indian bank account over UPI or IMPS rails."
-              />
-              <FeatureCard
-                icon={<Receipt className="size-8" />}
-                title="Transparent quote"
-                description="Exact exchange rate and fees shown before you confirm. No mark-ups hidden in the rate."
-              />
-              <FeatureCard
-                icon={<Clock className="size-8" />}
-                title="Fast settlement"
-                description="Most transfers settle to the recipient within minutes, subject to banking hours."
-              />
+    <section className="relative py-20 md:py-28 bg-background overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          {/* Left copy */}
+          <div className="lg:col-span-5 lg:sticky lg:top-28">
+            <div className="eyebrow mb-5">
+              <span className="tabular">05</span>
+              <span className="h-px w-6 bg-foreground/30" />
+              Funding & delivery
             </div>
-          </div>
-
-          <div className="order-1 lg:order-2">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
-              Funded from your bank,
-              <br />
-              <span className="text-primary">
-                delivered to theirs
+            <h2 className="display-mixed text-[clamp(2rem,5vw,3.75rem)] text-foreground">
+              <span className="font-semibold">Bank to bank,</span>{" "}
+              <span className="font-light italic text-muted-foreground">
+                no middle layer.
               </span>
             </h2>
-
-            <p className="text-xl text-muted-foreground mb-4">
+            <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">
               Link a US checking account once through Plaid, add a verified
               recipient, and send USD that lands as INR in their Indian bank
               account.
             </p>
-
-            <p className="text-sm text-muted-foreground mb-8">
+            <p className="mt-4 text-sm text-muted-foreground">
               Powered by our regulated payments partner, Zynk Labs. Transfer
               range: USD 1 – USD 10,000 per transaction, with a weekly
               aggregate limit disclosed in the app.
             </p>
+            <div className="mt-8">
+              <Button variant="brand" size="lg" asChild>
+                <a href="#contact">
+                  Get started
+                  <ArrowUpRight className="size-4" />
+                </a>
+              </Button>
+            </div>
+          </div>
 
-            <Button size="xl" className="group" asChild>
-              <a href="#contact">
-                Get started
-                <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </Button>
+          {/* Right feature list — split into 2x2 on sm+ */}
+          <div className="lg:col-span-7">
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
+              {features.map((feature, i) => (
+                <div
+                  key={feature.title}
+                  className="group relative rounded-3xl border border-border bg-card p-6 sm:p-7 transition-all duration-300 hover:border-foreground/20 hover:-translate-y-0.5 hover:shadow-[0_20px_50px_-24px_rgba(20,16,10,0.25)]"
+                >
+                  <div className="flex items-start justify-between mb-8">
+                    <span className="text-[11px] font-normal tabular tracking-[0.18em] uppercase text-muted-foreground">
+                      0{i + 1}
+                    </span>
+                    <span className="inline-flex size-10 items-center justify-center rounded-xl bg-foreground/5 text-foreground transition-all group-hover:bg-[var(--brand)]/15 group-hover:text-[var(--brand-deep)]">
+                      <feature.icon className="size-[18px]" />
+                    </span>
+                  </div>
+                  <h3 className="text-[17px] font-semibold tracking-tight mb-2 text-foreground">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function FeatureCard({
-  icon,
-  title,
-  description,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="bg-card rounded-2xl border shadow-lg p-6 hover:shadow-xl transition-shadow">
-      <div className="text-primary mb-4">{icon}</div>
-      <div className="font-semibold mb-1">{title}</div>
-      <div className="text-sm text-muted-foreground leading-relaxed">
-        {description}
-      </div>
-    </div>
   );
 }

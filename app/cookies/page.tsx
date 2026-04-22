@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/sections/Footer";
+import {
+  LegalPageHero,
+  LegalBody,
+  LegalSectionHeading,
+} from "@/components/sections/LegalPage";
 
 export const metadata: Metadata = {
   title: "Cookie Policy",
@@ -23,7 +28,12 @@ type Section =
   | {
       title: string;
       intro: string;
-      table: { name: string; purpose: string; lifetime: string; category: string }[];
+      table: {
+        name: string;
+        purpose: string;
+        lifetime: string;
+        category: string;
+      }[];
     };
 
 const sections: Section[] = [
@@ -55,7 +65,8 @@ const sections: Section[] = [
       },
       {
         name: "__clerk_db_jwt",
-        purpose: "Clerk session refresh token used to mint short-lived access tokens.",
+        purpose:
+          "Clerk session refresh token used to mint short-lived access tokens.",
         lifetime: "Up to 7 days",
         category: "Strictly necessary",
       },
@@ -86,8 +97,7 @@ const sections: Section[] = [
   },
   {
     title: "Managing your preferences",
-    intro:
-      "You can control cookies through your browser or device settings:",
+    intro: "You can control cookies through your browser or device settings:",
     items: [
       "Most browsers allow you to see what cookies are set and delete them individually or clear them all.",
       "Most browsers let you block cookies from specific sites or from third parties globally.",
@@ -106,82 +116,73 @@ export default function CookiesPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-20">
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-                Cookie Policy
-              </h1>
-              <p className="text-muted-foreground">
-                Last updated: April 22, 2026.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto space-y-10">
-              {sections.map((section) => (
-                <div key={section.title}>
-                  <h2 className="text-lg font-semibold mb-3">
-                    {section.title}
-                  </h2>
-                  {"content" in section && (
-                    <p className="text-muted-foreground leading-relaxed">
-                      {section.content}
-                    </p>
-                  )}
-                  {"intro" in section && (
-                    <p className="text-muted-foreground leading-relaxed mb-3">
-                      {section.intro}
-                    </p>
-                  )}
-                  {"items" in section && (
-                    <ul className="list-disc pl-6 space-y-2 text-muted-foreground leading-relaxed">
-                      {section.items.map((item, idx) => (
-                        <li key={idx}>{item}</li>
+      <main>
+        <LegalPageHero
+          index="05"
+          eyebrow="Cookies"
+          title="Cookie Policy."
+          titleAccent="Tiny files, clear intentions."
+          description="The cookies and similar technologies we use, and how you can manage them."
+          lastUpdated="April 22, 2026"
+        />
+        <LegalBody>
+          {sections.map((section, i) => (
+            <div key={section.title}>
+              <LegalSectionHeading number={i + 1} title={section.title} />
+              {"content" in section && !("intro" in section) && (
+                <p>{section.content}</p>
+              )}
+              {"intro" in section && <p className="mb-3">{section.intro}</p>}
+              {"items" in section && (
+                <ul>
+                  {section.items.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+              )}
+              {"table" in section && (
+                <div className="mt-4 overflow-x-auto rounded-2xl border border-border bg-card">
+                  <table className="w-full text-sm">
+                    <thead className="bg-background/60 text-left">
+                      <tr>
+                        <th className="px-4 py-3 text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground">
+                          Name
+                        </th>
+                        <th className="px-4 py-3 text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground">
+                          Purpose
+                        </th>
+                        <th className="px-4 py-3 text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground">
+                          Lifetime
+                        </th>
+                        <th className="px-4 py-3 text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground">
+                          Category
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-border">
+                      {section.table.map((row) => (
+                        <tr key={row.name}>
+                          <td className="px-4 py-3 align-top font-mono text-xs text-foreground">
+                            {row.name}
+                          </td>
+                          <td className="px-4 py-3 align-top text-muted-foreground leading-relaxed">
+                            {row.purpose}
+                          </td>
+                          <td className="px-4 py-3 align-top text-muted-foreground whitespace-nowrap">
+                            {row.lifetime}
+                          </td>
+                          <td className="px-4 py-3 align-top text-muted-foreground whitespace-nowrap">
+                            {row.category}
+                          </td>
+                        </tr>
                       ))}
-                    </ul>
-                  )}
-                  {"table" in section && (
-                    <div className="overflow-x-auto rounded-xl border">
-                      <table className="w-full text-sm">
-                        <thead className="bg-muted/50 text-left">
-                          <tr>
-                            <th className="px-4 py-3 font-medium">Name</th>
-                            <th className="px-4 py-3 font-medium">Purpose</th>
-                            <th className="px-4 py-3 font-medium">Lifetime</th>
-                            <th className="px-4 py-3 font-medium">Category</th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y">
-                          {section.table.map((row) => (
-                            <tr key={row.name}>
-                              <td className="px-4 py-3 align-top font-mono text-xs">
-                                {row.name}
-                              </td>
-                              <td className="px-4 py-3 align-top text-muted-foreground">
-                                {row.purpose}
-                              </td>
-                              <td className="px-4 py-3 align-top text-muted-foreground whitespace-nowrap">
-                                {row.lifetime}
-                              </td>
-                              <td className="px-4 py-3 align-top text-muted-foreground whitespace-nowrap">
-                                {row.category}
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  )}
+                    </tbody>
+                  </table>
                 </div>
-              ))}
+              )}
             </div>
-          </div>
-        </section>
+          ))}
+        </LegalBody>
       </main>
       <Footer />
     </>

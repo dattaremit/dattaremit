@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
 
 const SEND_AMOUNT = 1000;
@@ -12,8 +12,8 @@ const providers = [
     id: "dattaremit",
     name: "DattaRemit",
     logo: "/logo.png",
-    logoSize: "h-12 w-36",
-    logoSizeMobile: "h-10 w-32",
+    logoSize: "h-10 w-32",
+    logoSizeMobile: "h-8 w-28",
     rateMultiplier: 1.0,
     fee: 0,
     highlight: true,
@@ -22,8 +22,8 @@ const providers = [
     id: "wise",
     name: "Wise",
     logo: "/wise.png",
-    logoSize: "h-12 w-32",
-    logoSizeMobile: "h-10 w-28",
+    logoSize: "h-10 w-28",
+    logoSizeMobile: "h-7 w-24",
     rateMultiplier: 0.992,
     fee: 6.15,
   },
@@ -31,8 +31,8 @@ const providers = [
     id: "remitly",
     name: "Remitly",
     logo: "/remitly.png",
-    logoSize: "h-10 w-28",
-    logoSizeMobile: "h-8 w-24",
+    logoSize: "h-9 w-24",
+    logoSizeMobile: "h-7 w-20",
     rateMultiplier: 0.988,
     fee: 0,
   },
@@ -40,8 +40,8 @@ const providers = [
     id: "skrill",
     name: "Skrill",
     logo: "/skrill.png",
-    logoSize: "h-8 w-20",
-    logoSizeMobile: "h-6 w-16",
+    logoSize: "h-7 w-16",
+    logoSizeMobile: "h-5 w-14",
     rateMultiplier: 0.95,
     fee: 0,
   },
@@ -49,8 +49,8 @@ const providers = [
     id: "xoom",
     name: "Xoom",
     logo: "/xoom.png",
-    logoSize: "h-10 w-28",
-    logoSizeMobile: "h-8 w-24",
+    logoSize: "h-9 w-24",
+    logoSizeMobile: "h-7 w-20",
     rateMultiplier: 0.975,
     fee: 2.99,
     invertInDark: true,
@@ -108,78 +108,115 @@ export function ComparisonSection() {
   });
 
   return (
-    <section id="compare" className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-            Get more INR per USD
+    <section
+      id="compare"
+      className="relative py-20 md:py-28 bg-muted/40 overflow-hidden"
+    >
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="max-w-4xl mb-12 md:mb-16">
+          <div className="eyebrow mb-5">
+            <span className="tabular">04</span>
+            <span className="h-px w-6 bg-foreground/30" />
+            Side by side
+          </div>
+          <h2 className="display-mixed text-[clamp(2rem,5vw,3.75rem)] text-foreground">
+            <span className="font-semibold">More rupees</span>{" "}
+            <span className="font-light italic text-muted-foreground">
+              per dollar.
+            </span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            See how much $1000 gets you with DattaRemit vs traditional methods
+          <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
+            The amount a recipient receives when you send{" "}
+            <span className="font-semibold text-foreground tabular">$1,000</span>,
+            calculated using live rates.
           </p>
         </div>
 
-        {/* Desktop Table */}
-        <div className="hidden md:block max-w-4xl mx-auto">
-          <div className="rounded-xl border bg-background overflow-hidden">
-            {/* Header Row */}
-            <div className="grid grid-cols-4 bg-muted/50 text-sm font-medium text-muted-foreground">
-              <div className="px-6 py-4">Provider</div>
-              <div className="px-6 py-4 text-center">Exchange rate</div>
-              <div className="px-6 py-4 text-center">Transfer fee</div>
-              <div className="px-6 py-4 text-center">Recipient gets</div>
+        {/* Desktop table */}
+        <div className="hidden md:block max-w-5xl">
+          <div className="rounded-3xl border border-border bg-card overflow-hidden">
+            <div className="grid grid-cols-[1.3fr_1fr_1fr_1.2fr] border-b border-border bg-background/50">
+              <div className="px-6 py-4 text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground">
+                Provider
+              </div>
+              <div className="px-6 py-4 text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground text-right tabular">
+                Rate
+              </div>
+              <div className="px-6 py-4 text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground text-right tabular">
+                Fee
+              </div>
+              <div className="px-6 py-4 text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground text-right tabular">
+                Recipient gets
+              </div>
             </div>
 
-            {/* Data Rows */}
-            <div className="divide-y">
+            <div className="divide-y divide-border">
               {comparisonData.map((row) => (
                 <div
                   key={row.id}
-                  className={`grid grid-cols-4 items-center ${
-                    row.highlight ? "border-2 border-primary bg-primary/5" : ""
+                  className={`grid grid-cols-[1.3fr_1fr_1fr_1.2fr] items-center group transition-colors hover:bg-background/60 ${
+                    row.highlight
+                      ? "bg-gradient-to-r from-[var(--brand)]/12 via-[var(--brand)]/5 to-transparent relative"
+                      : ""
                   }`}
                 >
-                  <div className="px-6 py-4 flex items-center">
+                  {row.highlight && (
+                    <span
+                      aria-hidden
+                      className="absolute left-0 top-3 bottom-3 w-[3px] rounded-r-full bg-gradient-to-b from-[var(--brand)] to-[var(--brand-deep)]"
+                    />
+                  )}
+                  <div className="px-6 py-5 flex items-center">
                     <div className={`relative ${row.logoSize} shrink-0`}>
                       <Image
                         src={row.logo}
                         alt={row.name}
                         fill
-                        className={`object-contain object-left ${row.invertInDark ? "dark:invert" : ""}`}
+                        className={`object-contain object-left ${
+                          row.invertInDark ? "dark:invert" : ""
+                        }`}
                       />
                     </div>
                   </div>
                   <div
-                    className={`px-6 py-4 text-center ${row.highlight ? "font-semibold" : ""}`}
+                    className={`px-6 py-5 text-right tabular ${
+                      row.highlight ? "font-semibold" : "text-muted-foreground"
+                    }`}
                   >
                     {isLoading ? (
-                      <span className="inline-block w-16 h-5 bg-muted animate-pulse rounded" />
+                      <span className="shimmer inline-block w-16 h-4 rounded" />
                     ) : (
                       row.exchangeRate
                     )}
                   </div>
                   <div
-                    className={`px-6 py-4 text-center ${row.highlight ? "font-semibold" : ""}`}
+                    className={`px-6 py-5 text-right tabular ${
+                      row.highlight ? "font-semibold" : "text-muted-foreground"
+                    }`}
                   >
                     {row.transferFee}
                   </div>
-                  <div className="px-6 py-4 text-center">
+                  <div className="px-6 py-5 text-right">
                     {isLoading ? (
-                      <span className="inline-block w-20 h-5 bg-muted animate-pulse rounded" />
+                      <span className="shimmer inline-block w-24 h-5 rounded" />
                     ) : (
-                      <>
+                      <div className="flex items-center justify-end gap-2">
+                        {row.highlight && (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-[var(--brand)]/20 px-2 py-0.5 text-[10px] font-medium text-[var(--brand-deep)] tracking-wide uppercase">
+                            <Check className="size-3" />
+                            Best
+                          </span>
+                        )}
                         <span
-                          className={`font-semibold ${row.highlight ? "" : "text-foreground"}`}
+                          className={`tabular ${
+                            row.highlight
+                              ? "font-semibold text-foreground"
+                              : "text-muted-foreground"
+                          }`}
                         >
                           {row.recipientGets}
                         </span>
-                        {row.highlight && (
-                          <div className="flex items-center justify-center gap-1 text-sm text-primary mt-1">
-                            <Check className="size-4" />
-                            <span>Best value</span>
-                          </div>
-                        )}
-                      </>
+                      </div>
                     )}
                   </div>
                 </div>
@@ -188,86 +225,99 @@ export function ComparisonSection() {
           </div>
         </div>
 
-        {/* Mobile Layout */}
-        <div className="md:hidden max-w-sm mx-auto">
-          <div className="rounded-xl border bg-background overflow-hidden divide-y">
-            {comparisonData.map((row) => (
-              <div
-                key={row.id}
-                className={`p-4 ${
-                  row.highlight ? "border-2 border-primary bg-primary/5" : ""
-                }`}
-              >
-                <div className="flex items-center mb-3">
-                  <div className={`relative ${row.logoSizeMobile} shrink-0`}>
-                    <Image
-                      src={row.logo}
-                      alt={row.name}
-                      fill
-                      className={`object-contain object-left ${row.invertInDark ? "dark:invert" : ""}`}
-                    />
-                  </div>
+        {/* Mobile cards */}
+        <div className="md:hidden space-y-3">
+          {comparisonData.map((row) => (
+            <div
+              key={row.id}
+              className={`relative rounded-2xl border p-4 ${
+                row.highlight
+                  ? "bg-gradient-to-br from-[var(--brand)]/12 to-transparent border-[var(--brand)]/40"
+                  : "border-border bg-card"
+              }`}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className={`relative ${row.logoSizeMobile} shrink-0`}>
+                  <Image
+                    src={row.logo}
+                    alt={row.name}
+                    fill
+                    className={`object-contain object-left ${
+                      row.invertInDark ? "dark:invert" : ""
+                    }`}
+                  />
                 </div>
-
-                <div className="grid grid-cols-3 gap-2 text-sm">
-                  <div>
-                    <div className="text-xs text-muted-foreground">
-                      Exchange rate
-                    </div>
-                    {isLoading ? (
-                      <span className="inline-block w-12 h-4 bg-muted animate-pulse rounded" />
-                    ) : (
-                      <div className={row.highlight ? "font-semibold" : ""}>
-                        {row.exchangeRate}
-                      </div>
-                    )}
-                  </div>
-                  <div>
-                    <div className="text-xs text-muted-foreground">
-                      Transfer fee
-                    </div>
-                    <div className={row.highlight ? "font-semibold" : ""}>
-                      {row.transferFee}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-xs text-muted-foreground">
-                      Recipient gets
-                    </div>
-                    {isLoading ? (
-                      <span className="inline-block w-14 h-4 bg-muted animate-pulse rounded" />
-                    ) : (
-                      <div className="font-semibold">{row.recipientGets}</div>
-                    )}
-                  </div>
-                </div>
-
                 {row.highlight && (
-                  <div className="flex items-center gap-1 text-sm text-primary mt-3 pt-3 border-t border-primary/20">
-                    <Check className="size-4" />
-                    <span>Best value</span>
-                  </div>
+                  <span className="inline-flex items-center gap-1 rounded-full bg-[var(--brand)]/20 px-2 py-0.5 text-[10px] font-medium text-[var(--brand-deep)] tracking-wide uppercase">
+                    <Check className="size-3" />
+                    Best
+                  </span>
                 )}
               </div>
-            ))}
-          </div>
+              <div className="grid grid-cols-3 gap-2 text-sm">
+                <div>
+                  <div className="text-[10px] uppercase tracking-[0.14em] text-muted-foreground font-medium mb-1">
+                    Rate
+                  </div>
+                  {isLoading ? (
+                    <span className="shimmer inline-block w-12 h-4 rounded" />
+                  ) : (
+                    <div
+                      className={`tabular ${
+                        row.highlight ? "font-semibold" : ""
+                      }`}
+                    >
+                      {row.exchangeRate}
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-[0.14em] text-muted-foreground font-medium mb-1">
+                    Fee
+                  </div>
+                  <div
+                    className={`tabular ${
+                      row.highlight ? "font-semibold" : ""
+                    }`}
+                  >
+                    {row.transferFee}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-[0.14em] text-muted-foreground font-medium mb-1">
+                    Receives
+                  </div>
+                  {isLoading ? (
+                    <span className="shimmer inline-block w-16 h-4 rounded" />
+                  ) : (
+                    <div
+                      className={`tabular font-semibold ${
+                        row.highlight ? "text-foreground" : ""
+                      }`}
+                    >
+                      {row.recipientGets}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {lastUpdated && (
-          <p className="text-center text-sm text-muted-foreground mt-4">
-            Rates last updated:{" "}
-            {lastUpdated.toLocaleString("en-US", {
-              dateStyle: "medium",
-              timeStyle: "medium",
-            })}
-          </p>
-        )}
-
-        <div className="text-center mt-6">
-          <Button size="xl" className="group" asChild>
+        <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          {lastUpdated && (
+            <p className="text-xs text-muted-foreground tabular">
+              Rates updated{" "}
+              {lastUpdated.toLocaleString("en-US", {
+                dateStyle: "medium",
+                timeStyle: "short",
+              })}
+            </p>
+          )}
+          <Button variant="brand" size="lg" asChild>
             <a href="#contact">
-              Send Money
-              <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
+              Send with DattaRemit
+              <ArrowUpRight className="size-4" />
             </a>
           </Button>
         </div>

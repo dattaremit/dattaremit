@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/sections/Footer";
+import {
+  LegalPageHero,
+  LegalBody,
+  LegalSectionHeading,
+} from "@/components/sections/LegalPage";
 
 export const metadata: Metadata = {
   title: "Compliance",
@@ -20,7 +25,11 @@ export const metadata: Metadata = {
 type Section =
   | { title: string; content: string }
   | { title: string; intro: string; items: string[] }
-  | { title: string; intro: string; table: { name: string; purpose: string; jurisdiction: string }[] };
+  | {
+      title: string;
+      intro: string;
+      table: { name: string; purpose: string; jurisdiction: string }[];
+    };
 
 const sections: Section[] = [
   {
@@ -107,12 +116,14 @@ const sections: Section[] = [
       },
       {
         name: "Sentry",
-        purpose: "Error tracking and performance monitoring with PII redaction at source.",
+        purpose:
+          "Error tracking and performance monitoring with PII redaction at source.",
         jurisdiction: "United States",
       },
       {
         name: "Resend",
-        purpose: "Transactional email delivery (verification, KYC, receipts, support replies).",
+        purpose:
+          "Transactional email delivery (verification, KYC, receipts, support replies).",
         jurisdiction: "United States",
       },
       {
@@ -143,81 +154,67 @@ export default function CompliancePage() {
   return (
     <>
       <Navbar />
-      <main className="pt-20">
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-                Compliance
-              </h1>
-              <p className="text-muted-foreground">
-                Our regulatory model, KYC and AML program, and subprocessor
-                list. Last updated: April 22, 2026.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto space-y-10">
-              {sections.map((section) => (
-                <div key={section.title}>
-                  <h2 className="text-lg font-semibold mb-3">
-                    {section.title}
-                  </h2>
-                  {"content" in section && (
-                    <p className="text-muted-foreground leading-relaxed">
-                      {section.content}
-                    </p>
-                  )}
-                  {"intro" in section && (
-                    <p className="text-muted-foreground leading-relaxed mb-3">
-                      {section.intro}
-                    </p>
-                  )}
-                  {"items" in section && (
-                    <ul className="list-disc pl-6 space-y-2 text-muted-foreground leading-relaxed">
-                      {section.items.map((item, idx) => (
-                        <li key={idx}>{item}</li>
+      <main>
+        <LegalPageHero
+          index="04"
+          eyebrow="Compliance"
+          title="Compliance."
+          titleAccent="The regulatory picture."
+          description="Our regulatory model, KYC and AML program, sanctions posture, and the subprocessors behind the Service."
+          lastUpdated="April 22, 2026"
+        />
+        <LegalBody>
+          {sections.map((section, i) => (
+            <div key={section.title}>
+              <LegalSectionHeading number={i + 1} title={section.title} />
+              {"content" in section && !("intro" in section) && (
+                <p>{section.content}</p>
+              )}
+              {"intro" in section && <p className="mb-3">{section.intro}</p>}
+              {"items" in section && (
+                <ul>
+                  {section.items.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+              )}
+              {"table" in section && (
+                <div className="mt-4 overflow-x-auto rounded-2xl border border-border bg-card">
+                  <table className="w-full text-sm">
+                    <thead className="bg-background/60 text-left">
+                      <tr>
+                        <th className="px-4 py-3 text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground">
+                          Provider
+                        </th>
+                        <th className="px-4 py-3 text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground">
+                          Purpose
+                        </th>
+                        <th className="px-4 py-3 text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground">
+                          Jurisdiction
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-border">
+                      {section.table.map((row) => (
+                        <tr key={row.name}>
+                          <td className="px-4 py-3 align-top font-semibold text-foreground whitespace-nowrap">
+                            {row.name}
+                          </td>
+                          <td className="px-4 py-3 align-top text-muted-foreground leading-relaxed">
+                            {row.purpose}
+                          </td>
+                          <td className="px-4 py-3 align-top text-muted-foreground whitespace-nowrap">
+                            {row.jurisdiction}
+                          </td>
+                        </tr>
                       ))}
-                    </ul>
-                  )}
-                  {"table" in section && (
-                    <div className="overflow-x-auto rounded-xl border">
-                      <table className="w-full text-sm">
-                        <thead className="bg-muted/50 text-left">
-                          <tr>
-                            <th className="px-4 py-3 font-medium">Provider</th>
-                            <th className="px-4 py-3 font-medium">Purpose</th>
-                            <th className="px-4 py-3 font-medium">
-                              Jurisdiction
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y">
-                          {section.table.map((row) => (
-                            <tr key={row.name}>
-                              <td className="px-4 py-3 align-top font-medium">
-                                {row.name}
-                              </td>
-                              <td className="px-4 py-3 align-top text-muted-foreground">
-                                {row.purpose}
-                              </td>
-                              <td className="px-4 py-3 align-top text-muted-foreground whitespace-nowrap">
-                                {row.jurisdiction}
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  )}
+                    </tbody>
+                  </table>
                 </div>
-              ))}
+              )}
             </div>
-          </div>
-        </section>
+          ))}
+        </LegalBody>
       </main>
       <Footer />
     </>

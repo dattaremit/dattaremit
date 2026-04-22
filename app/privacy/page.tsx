@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/sections/Footer";
+import {
+  LegalPageHero,
+  LegalBody,
+  LegalSectionHeading,
+} from "@/components/sections/LegalPage";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -236,81 +241,64 @@ export default function PrivacyPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-20">
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-                Privacy Policy
-              </h1>
-              <p className="text-muted-foreground">
-                Last updated: April 22, 2026.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto space-y-10">
-              {sections.map((section) => (
-                <div key={section.title}>
-                  <h2 className="text-lg font-semibold mb-3">
-                    {section.title}
-                  </h2>
-                  {"content" in section && !("intro" in section) && (
-                    <p className="text-muted-foreground leading-relaxed">
-                      {section.content}
-                    </p>
-                  )}
-                  {"intro" in section && (
-                    <p className="text-muted-foreground leading-relaxed mb-3">
-                      {section.intro}
-                    </p>
-                  )}
-                  {"items" in section && (
-                    <ul className="list-disc pl-6 space-y-2 text-muted-foreground leading-relaxed">
-                      {section.items.map((item, idx) => (
-                        <li key={idx}>{item}</li>
+      <main>
+        <LegalPageHero
+          index="01"
+          eyebrow="Privacy"
+          title="Privacy Policy."
+          titleAccent="Your data, your rights."
+          description="How we handle your personal information — what we collect, why, who we share it with, and the rights you have."
+          lastUpdated="April 22, 2026"
+        />
+        <LegalBody>
+          {sections.map((section, i) => (
+            <div key={section.title}>
+              <LegalSectionHeading number={i + 1} title={section.title} />
+              {"content" in section && !("intro" in section) && (
+                <p>{section.content}</p>
+              )}
+              {"intro" in section && <p className="mb-3">{section.intro}</p>}
+              {"items" in section && (
+                <ul>
+                  {section.items.map((item, idx) => (
+                    <li key={idx}>{item}</li>
+                  ))}
+                </ul>
+              )}
+              {"table" in section && (
+                <div className="mt-4 overflow-x-auto rounded-2xl border border-border bg-card">
+                  <table className="w-full text-sm">
+                    <thead className="bg-background/60 text-left">
+                      <tr>
+                        <th className="px-4 py-3 text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground">
+                          Recipient
+                        </th>
+                        <th className="px-4 py-3 text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground">
+                          What they receive and why
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-border">
+                      {section.table.map((row) => (
+                        <tr key={row.left}>
+                          <td className="px-4 py-3 align-top font-semibold text-foreground whitespace-nowrap">
+                            {row.left}
+                          </td>
+                          <td className="px-4 py-3 align-top text-muted-foreground leading-relaxed">
+                            {row.right}
+                          </td>
+                        </tr>
                       ))}
-                    </ul>
-                  )}
-                  {"table" in section && (
-                    <div className="overflow-x-auto rounded-xl border">
-                      <table className="w-full text-sm">
-                        <thead className="bg-muted/50 text-left">
-                          <tr>
-                            <th className="px-4 py-3 font-medium">Recipient</th>
-                            <th className="px-4 py-3 font-medium">
-                              What they receive and why
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y">
-                          {section.table.map((row) => (
-                            <tr key={row.left}>
-                              <td className="px-4 py-3 align-top font-medium whitespace-nowrap">
-                                {row.left}
-                              </td>
-                              <td className="px-4 py-3 align-top text-muted-foreground leading-relaxed">
-                                {row.right}
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  )}
-                  {"outro" in section && section.outro && (
-                    <p className="text-muted-foreground leading-relaxed mt-3">
-                      {section.outro}
-                    </p>
-                  )}
+                    </tbody>
+                  </table>
                 </div>
-              ))}
+              )}
+              {"outro" in section && section.outro && (
+                <p className="mt-3">{section.outro}</p>
+              )}
             </div>
-          </div>
-        </section>
+          ))}
+        </LegalBody>
       </main>
       <Footer />
     </>

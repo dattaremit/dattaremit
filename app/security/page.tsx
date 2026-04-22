@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/sections/Footer";
+import {
+  LegalPageHero,
+  LegalBody,
+  LegalSectionHeading,
+} from "@/components/sections/LegalPage";
 
 export const metadata: Metadata = {
   title: "Security",
@@ -19,8 +24,7 @@ export const metadata: Metadata = {
 
 type Section =
   | { title: string; content: string }
-  | { title: string; intro: string; items: string[] }
-  | { title: string; intro: string; items: string[]; outro?: string };
+  | { title: string; intro: string; items: string[] };
 
 const sections: Section[] = [
   {
@@ -116,7 +120,8 @@ const sections: Section[] = [
   },
   {
     title: "Logging, monitoring and incident response",
-    intro: "We can answer the question ‘what happened to a customer’s transfer?’ within minutes:",
+    intro:
+      "We can answer the question ‘what happened to a customer's transfer?’ within minutes:",
     items: [
       "Every request carries an X-Request-Id that is written to application logs, admin audit logs, and activity records tied to the affected user and transaction.",
       "Winston writes structured JSON logs in production with PII redacted at source. Warnings and errors are forwarded to Sentry with breadcrumbs for the relevant transfer.",
@@ -146,51 +151,37 @@ export default function SecurityPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-20">
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-                Security
-              </h1>
-              <p className="text-muted-foreground">
-                How we protect your data, your money, and your account. Last
-                updated: April 22, 2026.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto space-y-10">
-              {sections.map((section) => (
-                <div key={section.title}>
-                  <h2 className="text-lg font-semibold mb-3">
-                    {section.title}
-                  </h2>
-                  {"content" in section && (
-                    <p className="text-muted-foreground leading-relaxed">
-                      {section.content}
-                    </p>
+      <main>
+        <LegalPageHero
+          index="03"
+          eyebrow="Security"
+          title="Security."
+          titleAccent="The controls behind every transfer."
+          description="How we protect your data, your money, and your account — with concrete technical measures, not marketing claims."
+          lastUpdated="April 22, 2026"
+        />
+        <LegalBody>
+          {sections.map((section, i) => (
+            <div key={section.title}>
+              <LegalSectionHeading number={i + 1} title={section.title} />
+              {"content" in section && !("intro" in section) && (
+                <p>{section.content}</p>
+              )}
+              {"intro" in section && (
+                <>
+                  <p className="mb-3">{section.intro}</p>
+                  {"items" in section && (
+                    <ul>
+                      {section.items.map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                      ))}
+                    </ul>
                   )}
-                  {"intro" in section && (
-                    <>
-                      <p className="text-muted-foreground leading-relaxed mb-3">
-                        {section.intro}
-                      </p>
-                      <ul className="list-disc pl-6 space-y-2 text-muted-foreground leading-relaxed">
-                        {section.items.map((item, idx) => (
-                          <li key={idx}>{item}</li>
-                        ))}
-                      </ul>
-                    </>
-                  )}
-                </div>
-              ))}
+                </>
+              )}
             </div>
-          </div>
-        </section>
+          ))}
+        </LegalBody>
       </main>
       <Footer />
     </>
