@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
 
 const SEND_AMOUNT = 1000;
@@ -110,22 +109,14 @@ export function ComparisonSection() {
   return (
     <section
       id="compare"
-      className="relative py-20 md:py-28 bg-muted/40 overflow-hidden"
+      className="relative py-20 md:py-28 bg-background overflow-hidden"
     >
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="max-w-4xl mb-12 md:mb-16">
-          <div className="eyebrow mb-5">
-            <span className="tabular">04</span>
-            <span className="h-px w-6 bg-foreground/30" />
-            Side by side
-          </div>
-          <h2 className="display-mixed text-[clamp(2rem,5vw,3.75rem)] text-foreground">
-            <span className="font-semibold">More rupees</span>{" "}
-            <span className="font-light italic text-muted-foreground">
-              per dollar.
-            </span>
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
+        <div className="max-w-3xl mb-12 md:mb-16">
+          <h2 className="display-mixed text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-tight text-foreground">
+            More rupees per dollar.
           </h2>
-          <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-6 mx-auto max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
             The amount a recipient receives when you send{" "}
             <span className="font-semibold text-foreground tabular">$1,000</span>,
             calculated using live rates.
@@ -133,7 +124,7 @@ export function ComparisonSection() {
         </div>
 
         {/* Desktop table */}
-        <div className="hidden md:block max-w-5xl">
+        <div className="hidden md:block w-full max-w-5xl">
           <div className="rounded-3xl border border-border bg-card overflow-hidden">
             <div className="grid grid-cols-[1.3fr_1fr_1fr_1.2fr] border-b border-border bg-background/50">
               <div className="px-6 py-4 text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground">
@@ -226,7 +217,7 @@ export function ComparisonSection() {
         </div>
 
         {/* Mobile cards */}
-        <div className="md:hidden space-y-3">
+        <div className="md:hidden w-full max-w-md space-y-3 text-left">
           {comparisonData.map((row) => (
             <div
               key={row.id}
@@ -304,23 +295,15 @@ export function ComparisonSection() {
           ))}
         </div>
 
-        <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          {lastUpdated && (
-            <p className="text-xs text-muted-foreground tabular">
-              Rates updated{" "}
-              {lastUpdated.toLocaleString("en-US", {
-                dateStyle: "medium",
-                timeStyle: "short",
-              })}
-            </p>
-          )}
-          <Button variant="brand" size="lg" asChild>
-            <a href="#contact">
-              Send with DattaRemit
-              <ArrowUpRight className="size-4" />
-            </a>
-          </Button>
-        </div>
+        {lastUpdated && (
+          <p className="mt-8 text-xs text-muted-foreground tabular">
+            Rates updated{" "}
+            {lastUpdated.toLocaleString("en-US", {
+              dateStyle: "medium",
+              timeStyle: "short",
+            })}
+          </p>
+        )}
       </div>
     </section>
   );

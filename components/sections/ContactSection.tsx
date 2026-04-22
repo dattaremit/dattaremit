@@ -97,24 +97,18 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative py-20 md:py-28 bg-muted/40 overflow-hidden"
+      className="relative py-20 md:py-28 bg-background overflow-hidden"
     >
       <div
         aria-hidden
-        className="absolute top-0 right-0 w-[40rem] h-[40rem] -translate-y-1/3 translate-x-1/3 bg-[var(--brand)]/15 rounded-full blur-3xl pointer-events-none"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_800px_400px_at_85%_20%,color-mix(in_oklch,var(--periwinkle)_18%,transparent)_0%,transparent_60%)] pointer-events-none"
       />
-
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left */}
           <div className="lg:col-span-5">
-            <div className="eyebrow mb-5">
-              <span className="tabular">09</span>
-              <span className="h-px w-6 bg-foreground/30" />
-              Early access
-            </div>
-            <h2 className="display-mixed text-[clamp(2rem,5vw,3.75rem)] text-foreground">
-              <span className="font-semibold">Let&rsquo;s talk.</span>
+            <h2 className="display-mixed text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-tight text-foreground">
+              Let&rsquo;s talk.
             </h2>
             <p className="mt-6 max-w-md text-base md:text-lg text-muted-foreground leading-relaxed">
               Request early access or ask us anything about the service. We
@@ -156,7 +150,7 @@ export function ContactSection() {
 
           {/* Right form */}
           <div className="lg:col-span-7">
-            <div className="rounded-3xl border border-border bg-card p-6 sm:p-8 shadow-[0_30px_80px_-40px_rgba(20,16,10,0.3)]">
+            <div className="rounded-3xl border border-border bg-card p-6 sm:p-8">
               <div className="mb-6 pb-6 border-b border-border/70">
                 <h3 className="text-xl font-semibold tracking-tight mb-1.5">
                   Request early access

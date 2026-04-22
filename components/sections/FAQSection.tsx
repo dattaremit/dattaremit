@@ -56,22 +56,14 @@ export function FAQSection() {
   return (
     <section
       id="faq"
-      className="relative py-20 md:py-28 bg-background overflow-hidden"
+      className="relative py-20 md:py-28 surface-soft overflow-hidden"
     >
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
           {/* Left — title */}
           <div className="lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
-            <div className="eyebrow mb-5">
-              <span className="tabular">08</span>
-              <span className="h-px w-6 bg-foreground/30" />
-              Questions
-            </div>
-            <h2 className="display-mixed text-[clamp(2rem,4.5vw,3.25rem)] text-foreground">
-              <span className="font-semibold">Straight</span>{" "}
-              <span className="font-light italic text-muted-foreground">
-                answers.
-              </span>
+            <h2 className="display-mixed text-[clamp(2rem,4.5vw,3.25rem)] font-semibold tracking-tight text-foreground">
+              Straight answers.
             </h2>
             <p className="mt-5 text-muted-foreground leading-relaxed text-base">
               Everything you need to know about sending money with DattaRemit.
@@ -92,16 +84,11 @@ export function FAQSection() {
               {faqs.map((faq, index) => (
                 <AccordionItem key={index} value={`faq-${index}`}>
                   <AccordionTrigger className="pr-2">
-                    <div className="flex items-baseline gap-4 sm:gap-5">
-                      <span className="text-[11px] font-normal tabular tracking-[0.16em] uppercase text-muted-foreground pt-1">
-                        0{(index + 1).toString().padStart(1, "0")}
-                      </span>
-                      <span className="text-base sm:text-lg font-medium tracking-tight">
-                        {faq.q}
-                      </span>
-                    </div>
+                    <span className="text-base sm:text-lg font-medium tracking-tight">
+                      {faq.q}
+                    </span>
                   </AccordionTrigger>
-                  <AccordionContent className="pl-10 sm:pl-14">
+                  <AccordionContent>
                     {faq.a}
                   </AccordionContent>
                 </AccordionItem>

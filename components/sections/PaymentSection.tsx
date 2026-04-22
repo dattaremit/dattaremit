@@ -30,21 +30,13 @@ const features = [
 
 export function PaymentSection() {
   return (
-    <section className="relative py-20 md:py-28 bg-background overflow-hidden">
+    <section className="relative py-20 md:py-28 surface-soft overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left copy */}
           <div className="lg:col-span-5 lg:sticky lg:top-28">
-            <div className="eyebrow mb-5">
-              <span className="tabular">05</span>
-              <span className="h-px w-6 bg-foreground/30" />
-              Funding & delivery
-            </div>
-            <h2 className="display-mixed text-[clamp(2rem,5vw,3.75rem)] text-foreground">
-              <span className="font-semibold">Bank to bank,</span>{" "}
-              <span className="font-light italic text-muted-foreground">
-                no middle layer.
-              </span>
+            <h2 className="display-mixed text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-tight text-foreground">
+              Bank to bank, no middle layer.
             </h2>
             <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">
               Link a US checking account once through Plaid, add a verified
@@ -69,16 +61,13 @@ export function PaymentSection() {
           {/* Right feature list — split into 2x2 on sm+ */}
           <div className="lg:col-span-7">
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
-              {features.map((feature, i) => (
+              {features.map((feature) => (
                 <div
                   key={feature.title}
-                  className="group relative rounded-3xl border border-border bg-card p-6 sm:p-7 transition-all duration-300 hover:border-foreground/20 hover:-translate-y-0.5 hover:shadow-[0_20px_50px_-24px_rgba(20,16,10,0.25)]"
+                  className="group relative rounded-3xl border border-border bg-card p-6 sm:p-7 transition-colors duration-200 hover:border-foreground/20"
                 >
-                  <div className="flex items-start justify-between mb-8">
-                    <span className="text-[11px] font-normal tabular tracking-[0.18em] uppercase text-muted-foreground">
-                      0{i + 1}
-                    </span>
-                    <span className="inline-flex size-10 items-center justify-center rounded-xl bg-foreground/5 text-foreground transition-all group-hover:bg-[var(--brand)]/15 group-hover:text-[var(--brand-deep)]">
+                  <div className="mb-8">
+                    <span className="inline-flex size-10 items-center justify-center rounded-xl bg-[var(--brand)]/10 text-[var(--brand-deep)]">
                       <feature.icon className="size-[18px]" />
                     </span>
                   </div>

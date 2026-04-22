@@ -243,7 +243,6 @@ export default function PrivacyPage() {
       <Navbar />
       <main>
         <LegalPageHero
-          index="01"
           eyebrow="Privacy"
           title="Privacy Policy."
           titleAccent="Your data, your rights."

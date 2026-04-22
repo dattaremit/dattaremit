@@ -156,7 +156,6 @@ export default function CompliancePage() {
       <Navbar />
       <main>
         <LegalPageHero
-          index="04"
           eyebrow="Compliance"
           title="Compliance."
           titleAccent="The regulatory picture."

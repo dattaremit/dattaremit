@@ -118,7 +118,6 @@ export default function CookiesPage() {
       <Navbar />
       <main>
         <LegalPageHero
-          index="05"
           eyebrow="Cookies"
           title="Cookie Policy."
           titleAccent="Tiny files, clear intentions."

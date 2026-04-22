@@ -68,35 +68,10 @@ export function SecuritySection() {
       id="security"
       className="relative py-20 md:py-28 bg-foreground text-background overflow-hidden"
     >
-      {/* Subtle inverted mesh */}
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-60"
-        style={{
-          backgroundImage:
-            "radial-gradient(ellipse at 20% 20%, color-mix(in oklch, var(--brand) 12%, transparent) 0%, transparent 50%), radial-gradient(ellipse at 85% 85%, color-mix(in oklch, var(--brand-deep) 10%, transparent) 0%, transparent 55%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, var(--background) 1px, transparent 1px), linear-gradient(to bottom, var(--background) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-        }}
-      />
-
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-3xl mb-14 md:mb-20">
-          <div className="mb-5 inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-background/60">
-            <span className="tabular">06</span>
-            <span className="h-px w-6 bg-background/30" />
-            Security & data protection
-          </div>
-          <h2 className="display-mixed text-[clamp(2rem,5vw,3.75rem)]">
-            <span className="font-semibold">How we protect</span>{" "}
-            <span className="font-light italic text-background/70">you.</span>
+          <h2 className="display-mixed text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-tight">
+            How we protect you.
           </h2>
           <p className="mt-6 max-w-xl text-base md:text-lg text-background/70 leading-relaxed">
             Concrete controls, not marketing claims. Every item below is
@@ -106,16 +81,13 @@ export function SecuritySection() {
 
         {/* 4-column grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-          {pillars.map((pillar, i) => (
+          {pillars.map((pillar) => (
             <div
               key={pillar.title}
-              className="group relative rounded-2xl border border-background/12 bg-background/[0.03] p-5 backdrop-blur-sm transition-all duration-300 hover:bg-background/[0.06] hover:border-background/25"
+              className="group relative rounded-2xl border border-background/10 bg-background/[0.03] p-5 transition-colors duration-200 hover:bg-background/[0.06] hover:border-background/20"
             >
-              <div className="flex items-start justify-between mb-6">
-                <span className="text-[10px] font-normal tabular tracking-[0.18em] uppercase text-background/50">
-                  0{(i + 1).toString().padStart(1, "0")} / 08
-                </span>
-                <span className="inline-flex size-8 items-center justify-center rounded-lg bg-[var(--brand)]/20 text-[var(--brand)] transition-all group-hover:bg-[var(--brand)]/30">
+              <div className="mb-5">
+                <span className="inline-flex size-8 items-center justify-center rounded-lg bg-[var(--brand)]/20 text-[var(--brand)]">
                   <pillar.icon className="size-4" />
                 </span>
               </div>

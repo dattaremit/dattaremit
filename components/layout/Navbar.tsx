@@ -134,7 +134,7 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-background/95 backdrop-blur-xl border-b border-border animate-in fade-in slide-in-from-top-2 duration-200">
           <div className="container mx-auto px-4 sm:px-6 py-5 flex flex-col">
-            {navLinks.map((link, i) =>
+            {navLinks.map((link) =>
               link.type === "route" ? (
                 <Link
                   key={link.href}
@@ -142,12 +142,7 @@ export function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center justify-between py-4 text-base font-medium text-foreground border-b border-border/50 last:border-b-0"
                 >
-                  <span className="flex items-baseline gap-3">
-                    <span className="text-[10px] font-normal tabular-nums tracking-[0.15em] text-muted-foreground">
-                      0{i + 1}
-                    </span>
-                    {link.label}
-                  </span>
+                  <span>{link.label}</span>
                   <ArrowUpRight className="size-4 text-muted-foreground" />
                 </Link>
               ) : (
@@ -157,12 +152,7 @@ export function Navbar() {
                   onClick={(e) => handleAnchorClick(e, link.href)}
                   className="flex items-center justify-between py-4 text-base font-medium text-foreground border-b border-border/50 last:border-b-0"
                 >
-                  <span className="flex items-baseline gap-3">
-                    <span className="text-[10px] font-normal tabular-nums tracking-[0.15em] text-muted-foreground">
-                      0{i + 1}
-                    </span>
-                    {link.label}
-                  </span>
+                  <span>{link.label}</span>
                   <ArrowUpRight className="size-4 text-muted-foreground" />
                 </a>
               ),

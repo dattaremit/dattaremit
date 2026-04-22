@@ -153,7 +153,6 @@ export default function SecurityPage() {
       <Navbar />
       <main>
         <LegalPageHero
-          index="03"
           eyebrow="Security"
           title="Security."
           titleAccent="The controls behind every transfer."

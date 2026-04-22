@@ -188,7 +188,6 @@ export default function TermsPage() {
       <Navbar />
       <main>
         <LegalPageHero
-          index="02"
           eyebrow="Terms"
           title="Terms of Service."
           titleAccent="The rules we all agree to."

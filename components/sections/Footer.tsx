@@ -119,18 +119,8 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Big wordmark */}
-        <div
-          aria-hidden
-          className="hidden md:block mt-20 mb-6 overflow-hidden leading-none select-none"
-        >
-          <div className="text-[clamp(5rem,15vw,11rem)] font-semibold tracking-[-0.04em] bg-gradient-to-b from-foreground/8 via-foreground/4 to-transparent bg-clip-text text-transparent">
-            DattaRemit
-          </div>
-        </div>
-
         {/* Bottom */}
-        <div className="mt-10 pt-8 border-t border-border/70 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-14 pt-8 border-t border-border/70 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground tabular">
             © DattaRemit {new Date().getFullYear()}. All rights reserved.
           </p>

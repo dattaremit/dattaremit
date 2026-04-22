@@ -76,22 +76,16 @@ export function CurrencyConverterSection() {
       id="converter"
       className="relative py-20 md:py-28 overflow-hidden bg-background"
     >
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[color-mix(in_oklch,var(--periwinkle)_18%,transparent)] to-transparent pointer-events-none"
+      />
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Left copy */}
           <div className="lg:col-span-6 order-2 lg:order-1">
-            <div className="eyebrow mb-5">
-              <span className="tabular">02</span>
-              <span className="h-px w-6 bg-foreground/30" />
-              Live rates
-            </div>
-            <h2 className="display-mixed text-[clamp(2rem,5vw,3.75rem)] text-foreground">
-              <span className="font-semibold">
-                Live mid-market rates,
-              </span>{" "}
-              <span className="font-light italic text-muted-foreground">
-                updated continuously.
-              </span>
+            <h2 className="display-mixed text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-tight text-foreground">
+              Live mid-market rates.
             </h2>
             <p className="mt-6 max-w-lg text-base md:text-lg text-muted-foreground leading-relaxed">
               Preview the rate at a glance. The exact rate and fees for your
@@ -109,13 +103,7 @@ export function CurrencyConverterSection() {
 
           {/* Right converter */}
           <div className="lg:col-span-6 order-1 lg:order-2 w-full">
-            <div className="relative">
-              <div
-                aria-hidden
-                className="absolute -inset-6 bg-gradient-to-br from-[var(--brand)]/15 to-transparent blur-3xl"
-              />
-
-              <div className="relative rounded-3xl border border-border bg-card/80 backdrop-blur-xl p-5 sm:p-7 shadow-[0_30px_80px_-40px_rgba(20,16,10,0.3)]">
+            <div className="rounded-3xl border border-border bg-card p-5 sm:p-7">
                 {/* You send */}
                 <div>
                   <label className="eyebrow block mb-3">You send</label>
@@ -191,10 +179,7 @@ export function CurrencyConverterSection() {
                   <div className="relative flex justify-center">
                     <span className="inline-flex items-center gap-2 rounded-full bg-card border border-border px-3 py-1.5 text-[11px] font-medium tabular">
                       {exchangeRate && !isLoading ? (
-                        <>
-                          <span className="size-1.5 rounded-full bg-[var(--brand-deep)] animate-pulse" />
-                          1 {selectedCurrency.code} = {exchangeRate.toFixed(4)} INR
-                        </>
+                        <>1 {selectedCurrency.code} = {exchangeRate.toFixed(4)} INR</>
                       ) : (
                         <span className="shimmer inline-block w-32 h-2.5 rounded-full" />
                       )}
@@ -210,7 +195,7 @@ export function CurrencyConverterSection() {
                       🇮🇳 INR
                     </span>
                   </div>
-                  <div className="rounded-2xl border border-border bg-gradient-to-br from-[var(--brand)]/8 to-transparent p-5 sm:p-6">
+                  <div className="rounded-2xl border border-border bg-background/40 p-5 sm:p-6">
                     {isLoading ? (
                       <span className="shimmer inline-block h-10 w-48 rounded-lg" />
                     ) : (
@@ -223,7 +208,6 @@ export function CurrencyConverterSection() {
                     </p>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
