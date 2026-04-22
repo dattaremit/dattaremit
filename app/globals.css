@@ -388,18 +388,6 @@
   }
 }
 
-@keyframes hero-grid-pulse {
-  0%,
-  100% {
-    opacity: 0.15;
-    transform: translate(-50%, -50%) scale(0.9);
-  }
-  50% {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(1.6);
-  }
-}
-
 .hero-grid-lines {
   background-image:
     linear-gradient(
@@ -441,24 +429,8 @@
     );
 }
 
-.hero-grid-node {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 9999px;
-  background: var(--brand);
-  box-shadow: 0 0 18px color-mix(in oklch, var(--brand) 65%, transparent);
-  transform: translate(-50%, -50%);
-  animation: hero-grid-pulse 4.2s ease-in-out infinite;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .hero-grid-lines,
-  .hero-grid-node {
+  .hero-grid-lines {
     animation: none;
-  }
-  .hero-grid-node {
-    opacity: 0.4;
-    transform: translate(-50%, -50%);
   }
 }
