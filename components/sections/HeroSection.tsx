@@ -14,17 +14,24 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-              <span className="text-foreground">Money without borders </span>
-              <span className="text-primary">For the borderless</span>
+              <span className="text-foreground">Send USD to India, </span>
+              <span className="text-primary">the straightforward way</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-xl mb-10">
-              Global banking and payments that is low-cost, instant and secure.
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-xl mb-6">
+              Link your US bank, verify your identity once, and send money that
+              arrives in an Indian bank account within minutes.
+            </p>
+
+            <p className="text-sm text-muted-foreground max-w-xl mb-10">
+              Powered by our regulated payments partner, Zynk Labs.
+              Transparent rates, no hidden mark-ups, and every transfer
+              protected with bank-grade encryption.
             </p>
 
             <Button size="xl" className="group" asChild>
               <a href="#contact">
-                Open an Account
+                Open an account
                 <ArrowRight className="size-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>

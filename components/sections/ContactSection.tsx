@@ -51,11 +51,11 @@ type FormData = yup.InferType<typeof schema>;
 const features = [
   {
     icon: Shield,
-    text: "Bank-grade security & compliance",
+    text: "AES-256 field-level encryption with AWS KMS",
   },
   {
     icon: Shield,
-    text: "SOC 2 Type II compliant infrastructure",
+    text: "Regulated payments partner (Zynk Labs) handles fund custody",
   },
 ];
 

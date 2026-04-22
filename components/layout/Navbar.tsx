@@ -9,19 +9,25 @@ import { Button } from "@/components/ui/button";
 import { useState, useCallback } from "react";
 
 const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#converter", label: "Converter" },
-  { href: "#compare", label: "Compare" },
-  { href: "#testimonials", label: "Testimonials" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#contact", label: "Contact" },
+  { href: "#home", label: "Home", type: "anchor" as const },
+  { href: "#how-it-works", label: "How it works", type: "anchor" as const },
+  { href: "#compare", label: "Compare", type: "anchor" as const },
+  { href: "/security", label: "Security", type: "route" as const },
+  { href: "/compliance", label: "Compliance", type: "route" as const },
+  { href: "#faq", label: "FAQ", type: "anchor" as const },
+  { href: "#contact", label: "Contact", type: "anchor" as const },
 ];
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const handleNavClick = useCallback(
+  const handleAnchorClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      if (typeof window !== "undefined" && window.location.pathname !== "/") {
+        // Let the browser navigate to /#anchor from other routes.
+        setMobileMenuOpen(false);
+        return;
+      }
       e.preventDefault();
       const target = document.querySelector(href);
       if (target) {
@@ -48,17 +54,28 @@ export function Navbar() {
           </span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className="text-muted-foreground hover:text-foreground transition-colors font-medium"
-            >
-              {link.label}
-            </a>
-          ))}
+        <div className="hidden md:flex items-center gap-6 lg:gap-8">
+          {navLinks.map((link) =>
+            link.type === "route" ? (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm lg:text-base"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={`/${link.href}`}
+                onClick={(e) => handleAnchorClick(e, link.href)}
+                className="text-muted-foreground hover:text-foreground transition-colors font-medium text-sm lg:text-base"
+              >
+                {link.label}
+              </a>
+            ),
+          )}
         </div>
 
         <div className="hidden md:flex items-center gap-2">
@@ -85,16 +102,27 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-background border-b border-border">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.type === "route" ? (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={`/${link.href}`}
+                  onClick={(e) => handleAnchorClick(e, link.href)}
+                  className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2"
+                >
+                  {link.label}
+                </a>
+              ),
+            )}
             <div className="pt-4 border-t border-border">
               <AppDownloadButtons direction="column" />
             </div>

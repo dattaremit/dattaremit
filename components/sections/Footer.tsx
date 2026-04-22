@@ -2,10 +2,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { AppDownloadButtons } from "@/components/ui/app-download-buttons";
 
-const footerLinks = [
-  { href: "/terms", label: "Terms" },
-  { href: "/privacy", label: "Privacy" },
+const productLinks = [
+  { href: "/#how-it-works", label: "How it works" },
+  { href: "/#compare", label: "Compare" },
+  { href: "/#faq", label: "FAQ" },
   { href: "/#contact", label: "Support" },
+];
+
+const legalLinks = [
+  { href: "/security", label: "Security" },
+  { href: "/compliance", label: "Compliance" },
+  { href: "/privacy", label: "Privacy" },
+  { href: "/terms", label: "Terms" },
+  { href: "/cookies", label: "Cookies" },
 ];
 
 const socialLinks = [
@@ -18,7 +27,7 @@ export function Footer() {
   return (
     <footer className="bg-background border-t">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid lg:grid-cols-4 gap-12">
+        <div className="grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2">
             <Image
               src="/logo.png"
@@ -27,19 +36,32 @@ export function Footer() {
               height={40}
               className="h-10 w-auto mb-6"
             />
-            <p className="text-muted-foreground text-sm max-w-md mb-8">
-              DattaRemit facilitates cross-border payments through regulated financial partners.
+            <p className="text-muted-foreground text-sm max-w-md mb-4 leading-relaxed">
+              DattaRemit facilitates USD-to-INR cross-border payments in
+              partnership with Zynk Labs, a regulated payments provider.
+              Customer funds are held and settled by Zynk under their
+              licenses; DattaRemit does not custody funds.
+            </p>
+            <p className="text-muted-foreground text-xs max-w-md">
+              Need help? Email{" "}
+              <a
+                href="mailto:support@dattaremit.com"
+                className="hover:text-foreground transition-colors"
+              >
+                support@dattaremit.com
+              </a>
+              .
             </p>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
+            <h3 className="font-semibold mb-4">Product</h3>
             <ul className="space-y-3">
-              {footerLinks.map((link) => (
+              {productLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -49,7 +71,23 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4">Download DattaRemit</h3>
+            <h3 className="font-semibold mb-4">Trust & Legal</h3>
+            <ul className="space-y-3">
+              {legalLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold mb-4">Download</h3>
             <AppDownloadButtons direction="column" />
           </div>
         </div>

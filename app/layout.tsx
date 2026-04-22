@@ -19,17 +19,17 @@ export const metadata: Metadata = {
     template: "%s | DattaRemit",
   },
   description:
-    "Send money internationally with zero fees, instant transfers, and the best exchange rates. Global banking and payments powered by regulated stablecoins.",
+    "Send USD from your US bank account to any Indian bank account — transparent rates, clearly disclosed fees, bank-grade encryption, and settlement through our regulated payments partner Zynk Labs.",
   keywords: [
+    "USD to INR remittance",
+    "send money to India",
+    "US to India money transfer",
     "international money transfer",
-    "send money abroad",
-    "remittance",
-    "USD to INR",
-    "zero fee transfer",
-    "instant money transfer",
-    "stablecoin payments",
-    "global payments",
     "cross-border payments",
+    "remittance to India",
+    "UPI payout",
+    "IMPS payout",
+    "Plaid-linked remittance",
     "DattaRemit",
   ],
   authors: [{ name: "DattaRemit" }],
@@ -65,9 +65,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DattaRemit - Money without borders",
+    title: "DattaRemit - Send USD to India, the straightforward way",
     description:
-      "Send money internationally with zero fees, instant transfers, and the best exchange rates.",
+      "Send USD from your US bank account to any Indian bank account — transparent rates, clearly disclosed fees, bank-grade encryption.",
     images: ["/og-image.png"],
     creator: "@dattaremit",
   },
@@ -112,21 +112,21 @@ const jsonLd = {
         "@id": `${siteUrl}/#organization`,
       },
       description:
-        "Send money internationally with zero fees, instant transfers, and the best exchange rates.",
+        "Send USD from your US bank account to any Indian bank account, with transparent rates and bank-grade security.",
     },
     {
       "@type": "FinancialService",
       "@id": `${siteUrl}/#financialservice`,
       name: "DattaRemit",
       description:
-        "International money transfer service with zero fees and instant transfers powered by stablecoins.",
+        "USD-to-INR cross-border money transfer service. Operates through regulated payments partner Zynk Labs.",
       url: siteUrl,
-      priceRange: "Free",
-      areaServed: {
-        "@type": "Country",
-        name: "Worldwide",
-      },
-      serviceType: "International Money Transfer",
+      areaServed: [
+        { "@type": "Country", name: "United States" },
+        { "@type": "Country", name: "India" },
+      ],
+      serviceType: "Cross-border money transfer",
+      currenciesAccepted: "USD",
     },
   ],
 };

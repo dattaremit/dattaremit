@@ -102,7 +102,9 @@ export function CurrencyConverterSection() {
             </h2>
 
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0 mb-6 sm:mb-8">
-              Secure, lightning fast transfers at guaranteed Google rates.
+              Indicative mid-market rates, updated in real time. The exact
+              rate and fees for your transfer are confirmed on the review
+              screen before you send.
             </p>
 
             <Button size="xl" className="group w-full sm:w-auto" asChild>
@@ -191,8 +193,9 @@ export function CurrencyConverterSection() {
                     </div>
                   </div>
                   <div className="mt-3 py-2.5 px-4 bg-primary/10 rounded-lg text-center">
-                    <p className="text-sm sm:text-base text-primary font-bold">
-                      Zero fee for every transfer
+                    <p className="text-xs sm:text-sm text-primary font-medium">
+                      Indicative rate. Final rate and fees shown at
+                      confirmation.
                     </p>
                   </div>
                 </div>

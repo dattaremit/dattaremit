@@ -5,11 +5,11 @@ import { Footer } from "@/components/sections/Footer";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Learn how DattaRemit collects, uses, and protects your personal information. Our commitment to your privacy and data security.",
+    "How DattaRemit collects, uses, stores, and shares your personal information for our USD-to-INR money-transfer service, and the rights you have over that information.",
   openGraph: {
     title: "Privacy Policy | DattaRemit",
     description:
-      "Learn how DattaRemit collects, uses, and protects your personal information.",
+      "How DattaRemit handles your personal information, and the rights you have over that information.",
     url: "https://dattaremit.com/privacy",
   },
   alternates: {
@@ -17,64 +17,218 @@ export const metadata: Metadata = {
   },
 };
 
-const sections = [
+type Section =
+  | { title: string; content: string }
+  | { title: string; intro: string; items: string[]; outro?: string }
+  | {
+      title: string;
+      intro: string;
+      table: { left: string; right: string }[];
+      outro?: string;
+    };
+
+const sections: Section[] = [
   {
-    title: "Overview",
+    title: "1. Overview",
     content:
-      "DattaRemit Inc. (\u201CDattaRemit\u201D, \u201Cwe\u201D, \u201Cus\u201D) respects and is committed to protecting the privacy of every user of the DattaRemit platform, including dattaremit.com and our mobile applications. In order to provide you with accurate, reliable, and personalized cross-border money transfer services between the United States and India, DattaRemit collects, uses, and discloses your personal information strictly in accordance with this Privacy Policy. Except as otherwise stated here, DattaRemit will not disclose or provide your personal information to any third party without your prior consent or unless required by law. By registering for, accessing, or using any part of the DattaRemit platform, you agree to the terms of this Privacy Policy.",
+      "This Privacy Policy explains how DattaRemit Inc. (“DattaRemit”, “we”, “us”) collects, uses, stores, shares, and protects personal information in connection with our website at dattaremit.com, our mobile applications, and our USD-to-INR money-transfer service (together, the “Service”). It applies to everyone who visits our website, registers an account, initiates a transfer, or is named as a recipient of a transfer. By using the Service you confirm that you have read and understood this Policy.",
   },
   {
-    title: "Applying Range",
+    title: "2. Who we are and how to contact us",
     content:
-      "When you register or activate an account on the DattaRemit platform, you are required to provide personal information including your full legal name, email address, phone number, date of birth, nationality, present and permanent addresses, government-issued identification details, and, where applicable, banking and recipient information necessary to complete a transfer. When you use the DattaRemit platform, we also automatically receive and record information sent by your device and browser, including but not limited to your IP address, browser type, language preference, device and operating system details, access date and time, app version, crash and diagnostic data, and general usage patterns. This information may be collected by DattaRemit directly or through trusted third-party service providers that support identity verification, authentication, payments, and platform stability.",
+      "DattaRemit Inc. is the data controller for personal information collected through the Service. You can contact our data-protection team at privacy@dattaremit.com with any privacy question or to exercise any of the rights described below. We will acknowledge your request within a reasonable period and respond substantively within the time frames set by the law that applies to you.",
   },
   {
-    title: "Use of Information",
-    content:
-      "Without your prior consent, DattaRemit will not sell, lease, trade, or share your personal information with any third party. We use your information to operate the platform and deliver our services, including to: verify your identity and perform Know-Your-Customer (KYC) and Anti-Money-Laundering (AML) checks; process and settle money transfers between the United States and India; comply with applicable legal, tax, and regulatory obligations in every jurisdiction in which we operate; detect, investigate, and prevent fraud and other unlawful activity; provide customer support and resolve disputes; and send you service-related notifications. With your consent, we may occasionally use your contact details to send product updates, new feature announcements, or marketing materials. You may withdraw this consent at any time. DattaRemit does not permit any party to collect, edit, or sell your personal information and reserves the right to suspend or terminate the account of any user found engaging in such activities.",
-  },
-  {
-    title: "The Information Disclosure",
+    title: "3. Information we collect",
     intro:
-      "Under the following circumstances, DattaRemit may disclose your personal information, in full or in part:",
+      "We only collect the information we need to provide the Service, meet our legal obligations, and keep our platform secure. The categories below describe what we collect and why.",
     items: [
-      "With your prior consent, to a specifically identified third party.",
-      "To regulated payment and KYC partners \u2014 including Zynk Labs (identity verification and settlement rails across US and India jurisdictions) and Plaid (US bank account linking) \u2014 strictly to the extent required to complete a transfer you have initiated.",
-      "To service providers that support our operations, such as Clerk (authentication), Sentry (error and crash monitoring), Resend (transactional email), Expo and Firebase (push notifications), and Google (address autocomplete), each bound by contractual confidentiality obligations.",
-      "To regulators, courts, or law-enforcement agencies when required by applicable law, subpoena, or other valid legal process.",
-      "Where you are found to be in violation of United States or Indian law, our Terms of Service, or any other DattaRemit agreement.",
-      "Where DattaRemit, in its reasonable discretion, needs to provide transaction or contact information to facilitate completion of, or dispute resolution in connection with, a transaction initiated on the DattaRemit platform.",
+      "Identity information — full legal name, date of birth, nationality, government-issued identification type and number, and a photograph or selfie used for identity verification. Collected during KYC and when you add a recipient.",
+      "Contact information — email address, phone number, residential address, and, for recipients, a contact number used for transfer notifications.",
+      "Financial information — US bank account linkage metadata (provided via Plaid), recipient Indian bank account number, IFSC code, bank name, branch, and account type. For Indian recipients we also collect Aadhaar and Permanent Account Number (PAN) as required by Indian regulation.",
+      "Transaction information — amount sent, exchange rate applied, fees, amount received, timestamps, reference numbers, partner transaction identifiers, and transfer status.",
+      "Account metadata — Clerk user identifier, account status, KYC status, activity log entries, and admin-side notes associated with your account.",
+      "Device and usage information — IP address, device type and model, operating system, application version, browser type, language preference, crash and diagnostic data, push-notification tokens, and general patterns of usage.",
+      "Authentication material — hashed passwords (managed by Clerk), session tokens, and one-time step-up codes. We do not store plaintext passwords or biometric templates; biometric matching happens on your device.",
+      "Communications — messages you send to our support team, and logs of notifications and emails we send to you.",
     ],
   },
   {
-    title: "The Storage and Exchange of Information",
-    content:
-      "Information collected by DattaRemit or our affiliated service providers is stored on managed cloud infrastructure, including encrypted PostgreSQL databases and secure object storage, with cryptographic keys managed through AWS Key Management Service (KMS). Because DattaRemit facilitates cross-border payments, your information may be transmitted to and processed in jurisdictions other than the one in which you reside \u2014 in particular between the United States and India \u2014 to complete transactions, satisfy regulatory reporting, and operate the platform. Wherever your data is stored or processed, we apply the protections described in this Policy.",
+    title: "4. How we use your information",
+    intro:
+      "We use your personal information only for the purposes listed below. We do not sell personal information and we do not share it with third parties for their own marketing.",
+    items: [
+      "To verify your identity and perform Know-Your-Customer (KYC) and Anti-Money-Laundering (AML) checks, through our regulated payments partner Zynk Labs.",
+      "To operate, process, and settle money transfers between your US bank account and the recipient’s Indian bank account.",
+      "To display accurate exchange-rate and fee information before you confirm a transfer.",
+      "To send you service communications — transfer receipts, KYC notifications, security alerts, and account updates — by email, in-app message, or push notification.",
+      "To prevent, detect, and investigate fraud, abuse, security incidents, and other prohibited activity on our platform.",
+      "To comply with applicable legal, tax, and regulatory obligations, including record-keeping and reporting duties.",
+      "To resolve disputes, enforce our Terms of Service, and establish or defend legal claims.",
+      "To improve the Service through aggregated, non-identifying analysis of how our applications are used.",
+      "With your consent, to send you occasional product updates and marketing communications; you can withdraw consent at any time.",
+    ],
   },
   {
-    title: "The Use of Cookies",
-    content:
-      "The DattaRemit website uses cookies and similar technologies to deliver a secure and personalized experience, including keeping you signed in, remembering your preferences, measuring how the site performs, and, where applicable, supporting analytics and promotional services. You have the right to accept or reject non-essential cookies; most browsers allow you to manage cookie preferences through their settings. Please note that certain essential cookies are required to authenticate your session and protect your account \u2014 if you reject these, you may not be able to log in or use features of the DattaRemit platform that depend on them.",
+    title: "5. Legal bases (EEA/UK residents)",
+    intro:
+      "If you are located in the European Economic Area or the United Kingdom, we process your personal information on the following legal bases:",
+    items: [
+      "Performance of a contract — to deliver the Service you have asked us to provide, including executing transfers and providing account access.",
+      "Compliance with a legal obligation — to meet KYC, AML, sanctions, tax, and record-keeping requirements that apply to us or to our regulated partner.",
+      "Legitimate interests — to secure our platform against fraud and abuse, to investigate suspicious activity, to improve the Service, and to communicate with customers about material changes. Where we rely on legitimate interests we have considered and balanced them against your rights.",
+      "Consent — for marketing communications, optional analytics, and any other processing where consent is the appropriate basis. You can withdraw consent at any time.",
+    ],
   },
   {
-    title: "Information Security",
-    content:
-      "Your DattaRemit account is protected by industry-standard security controls, including 256-bit TLS encryption for data in transit, AES-256 encryption for data at rest (with keys managed by AWS KMS), two-factor authentication, strict least-privilege access controls for employees, and periodic independent security reviews. Despite these measures, please note that no security system is perfect and no method of electronic transmission or storage is completely secure. We urge you to safeguard your personal information and to provide it only when necessary to complete a legitimate transaction on the DattaRemit platform. If you suspect that your account, password, or any other personal information has been compromised, please contact DattaRemit customer support immediately at support@dattaremit.com.",
+    title: "6. Who we share your information with",
+    intro:
+      "We share personal information only with the categories of recipient listed below, and only for the purposes described in this Policy. Every recipient is bound by contractual confidentiality and security obligations.",
+    table: [
+      {
+        left: "Zynk Labs",
+        right:
+          "Our regulated payments partner. Receives the information necessary to perform KYC, hold and settle funds, perform foreign-exchange conversion, and disburse INR to recipients. Acts as an independent controller for regulatory record-keeping.",
+      },
+      {
+        left: "Plaid",
+        right:
+          "Provides secure, tokenised linkage of your US bank account for ACH funding. DattaRemit receives only the tokens and metadata necessary to initiate transfers; your online-banking credentials never touch our systems.",
+      },
+      {
+        left: "Clerk",
+        right:
+          "Provides authentication, session management, and email verification for customer accounts. Stores credential material such as password hashes on our behalf.",
+      },
+      {
+        left: "Amazon Web Services",
+        right:
+          "Manages master cryptographic keys through AWS Key Management Service (KMS). Key material never leaves KMS; all encrypt and decrypt operations are performed inside KMS.",
+      },
+      {
+        left: "DigitalOcean",
+        right:
+          "Provides managed PostgreSQL, container hosting, and object storage for the DattaRemit platform.",
+      },
+      {
+        left: "Sentry",
+        right:
+          "Receives anonymised error traces and diagnostic information. We configure Sentry to redact personally identifiable fields at source.",
+      },
+      {
+        left: "Resend",
+        right:
+          "Sends transactional email on our behalf, including verification codes, KYC notifications, transfer receipts, and support replies.",
+      },
+      {
+        left: "Expo",
+        right:
+          "Delivers push notifications to the DattaRemit mobile app on iOS and Android.",
+      },
+      {
+        left: "Google",
+        right:
+          "Provides address autocomplete and normalisation during onboarding.",
+      },
+      {
+        left: "Regulators, law enforcement, and courts",
+        right:
+          "We disclose information where required by a valid subpoena, court order, statutory request, or other legal process, and where necessary to comply with our partner’s regulatory obligations.",
+      },
+      {
+        left: "Professional advisers and auditors",
+        right:
+          "Lawyers, accountants, and auditors bound by professional confidentiality, strictly where needed to provide advice or audit services.",
+      },
+      {
+        left: "Business transfers",
+        right:
+          "If we are involved in a merger, acquisition, reorganisation, or sale of assets, personal information may be transferred as part of that transaction. We will notify you before your information becomes subject to a different privacy policy.",
+      },
+    ],
   },
   {
-    title: "Special Notes on Minors",
+    title: "7. International transfers",
     content:
-      "DattaRemit\u2019s services are intended solely for adults. You may not create an account or use any part of the DattaRemit platform unless you are at least eighteen (18) years of age and otherwise legally recognized as an adult under the laws of the United States and, where applicable, India. If we become aware that a minor has created an account, we will take appropriate steps to close the account and delete the associated personal information.",
+      "Because we facilitate cross-border payments, your personal information will be transmitted to and processed in jurisdictions other than your own — in particular, between the United States and India. Where we transfer personal information from the European Economic Area, the United Kingdom, or Switzerland to a country that has not been deemed to provide an adequate level of protection, we rely on the European Commission’s Standard Contractual Clauses (or their UK addendum) and, where appropriate, supplementary measures such as encryption in transit and at rest. A copy of the relevant clauses is available on request from privacy@dattaremit.com.",
   },
   {
-    title: "Updating Information",
-    content:
-      "You agree to promptly notify DattaRemit of any changes, updates, or corrections to your personal information so that we can continue to provide our services accurately and comply with our regulatory obligations. You may review, update, or modify your profile information and communication preferences at any time from the Profile section of the DattaRemit mobile application, or by contacting customer support for assistance.",
+    title: "8. How we protect your information",
+    intro:
+      "We apply layered technical and organisational controls to protect personal information. The most important are:",
+    items: [
+      "Field-level encryption of highly sensitive personal data (name, date of birth, phone number, email, bank account number, IFSC, etc.) using AES-256-GCM with master keys stored in AWS Key Management Service.",
+      "Blind indexing (HMAC-SHA256) so that exact-match lookups work on encrypted data without the plaintext ever being stored.",
+      "TLS 1.2 or higher on all client–server and service-to-service links, with HSTS preload enabled.",
+      "Strict Content Security Policy, X-Frame-Options DENY, and other hardened security headers on our web properties.",
+      "Strong authentication through Clerk, with email-code step-up on sensitive actions on the web and Face ID / fingerprint gating on mobile.",
+      "Idempotency keys and HMAC-signed webhooks (with a five-minute replay window) to protect financial operations.",
+      "Structured logs with automatic PII redaction, so sensitive fields never appear in log files or error-tracking systems.",
+      "Continuous security review: Semgrep SAST on every change, bun audit on every CI run, and Trivy container scanning before deployment.",
+      "Least-privilege engineering access to production and an internal audit log of every admin action.",
+      "Despite these measures, no system is perfectly secure. You can help protect your account by choosing a strong, unique password, enabling biometric unlock on mobile, and contacting us at support@dattaremit.com as soon as you notice anything suspicious.",
+    ],
   },
   {
-    title: "Contact Us",
+    title: "9. Data retention",
+    intro:
+      "We retain personal information only for as long as we need it to provide the Service, meet our legal and regulatory obligations, and defend legal claims. Typical retention periods are:",
+    items: [
+      "Customer identification records (KYC documents and verification results): at least five (5) years after the end of the customer relationship, as required by US and Indian AML regulation.",
+      "Transaction records: at least five (5) years after the transaction date.",
+      "Account metadata: while your account is open, and for up to five (5) years after closure for audit and dispute purposes.",
+      "Application logs with PII redacted: typically 30 to 90 days, unless a specific incident requires longer retention.",
+      "Marketing preferences: until you withdraw consent.",
+    ],
+    outro:
+      "After the applicable retention period we either delete the information or anonymise it so that it can no longer be linked to you.",
+  },
+  {
+    title: "10. Your rights",
+    intro:
+      "Depending on where you live, you may have some or all of the following rights. We will not discriminate against you for exercising any of them.",
+    items: [
+      "Access — to know what personal information we hold about you and to receive a copy of it.",
+      "Rectification — to have inaccurate or incomplete information corrected.",
+      "Deletion — to request that we delete personal information, subject to our legal and regulatory retention obligations (for example, AML record-keeping duties).",
+      "Restriction and objection — to ask us to limit certain processing, or to object to processing based on legitimate interests.",
+      "Portability — to receive your information in a structured, machine-readable format and to transmit it to another controller where technically feasible.",
+      "Withdrawal of consent — where we rely on consent (for example, for marketing), you can withdraw it at any time without affecting the lawfulness of prior processing.",
+      "Do-not-sell / share and limit sensitive data — California residents may request that we limit the use of sensitive personal information; because we do not sell or share personal information for cross-context behavioural advertising, these rights are respected by default.",
+      "Lodge a complaint — you have the right to lodge a complaint with your data-protection authority or, in the United States, the relevant state attorney general.",
+    ],
+    outro:
+      "To exercise any of these rights, email privacy@dattaremit.com. We may need to verify your identity before acting on a request.",
+  },
+  {
+    title: "11. Children",
     content:
-      "For any questions, clarifications, or requests related to this Privacy Policy \u2014 including requests to access, correct, or delete your personal information \u2014 please contact our Data Protection team at privacy@dattaremit.com, or write to us at: DattaRemit Inc., [Registered address \u2014 TO BE UPDATED].",
+      "The Service is for adults only. You must be at least 18 years old to create an account or initiate a transfer. We do not knowingly collect personal information from anyone under 18. If we become aware that we have collected information from a minor, we will delete it promptly. If you believe a minor has used the Service, please contact us at privacy@dattaremit.com.",
+  },
+  {
+    title: "12. Cookies and similar technologies",
+    content:
+      "We use a small number of cookies and similar technologies to keep you logged in, remember your theme preference, and prevent abuse. We do not use cookies for cross-context behavioural advertising. For the full list and instructions on managing cookies, see our Cookie Policy at /cookies.",
+  },
+  {
+    title: "13. Automated decision-making",
+    content:
+      "We apply automated rules to help detect fraud, prevent duplicate transfers (idempotency), and screen transactions against sanctions and other restricted-party lists. These automated checks may cause a transfer to be held or declined. Where a decision with a legal or similarly significant effect is made solely by automated means, you have the right to ask for human review. Contact privacy@dattaremit.com to exercise that right.",
+  },
+  {
+    title: "14. Third-party websites and services",
+    content:
+      "Our Service may contain links to third-party websites or integrate with third-party services (for example, Plaid for bank linking). This Policy does not apply to those third-party sites or services; please review their own privacy policies before using them.",
+  },
+  {
+    title: "15. Changes to this Policy",
+    content:
+      "We review this Policy regularly and will update it to reflect changes in the Service, our partners, or applicable law. When we make a material change we will notify you through the Service or by email and will update the “last updated” date below. Your continued use of the Service after the effective date of a change means you accept the updated Policy.",
+  },
+  {
+    title: "16. Contact us",
+    content:
+      "For any question or request about this Privacy Policy, or to exercise any of the rights above, please write to privacy@dattaremit.com. You can also reach our support team at support@dattaremit.com and our compliance team at compliance@dattaremit.com. If you would prefer to write by post, contact us for our current registered address.",
   },
 ];
 
@@ -89,7 +243,9 @@ export default function PrivacyPage() {
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
                 Privacy Policy
               </h1>
-              <p className="text-muted-foreground">Last updated: April 15, 2026</p>
+              <p className="text-muted-foreground">
+                Last updated: April 22, 2026.
+              </p>
             </div>
           </div>
         </section>
@@ -99,19 +255,56 @@ export default function PrivacyPage() {
             <div className="max-w-3xl mx-auto space-y-10">
               {sections.map((section) => (
                 <div key={section.title}>
-                  <h2 className="text-lg font-semibold mb-3">{section.title}</h2>
-                  {"content" in section && section.content && (
-                    <p className="text-muted-foreground leading-relaxed">{section.content}</p>
+                  <h2 className="text-lg font-semibold mb-3">
+                    {section.title}
+                  </h2>
+                  {"content" in section && !("intro" in section) && (
+                    <p className="text-muted-foreground leading-relaxed">
+                      {section.content}
+                    </p>
                   )}
-                  {"intro" in section && section.intro && (
-                    <p className="text-muted-foreground leading-relaxed mb-3">{section.intro}</p>
+                  {"intro" in section && (
+                    <p className="text-muted-foreground leading-relaxed mb-3">
+                      {section.intro}
+                    </p>
                   )}
-                  {"items" in section && section.items && (
+                  {"items" in section && (
                     <ul className="list-disc pl-6 space-y-2 text-muted-foreground leading-relaxed">
                       {section.items.map((item, idx) => (
                         <li key={idx}>{item}</li>
                       ))}
                     </ul>
+                  )}
+                  {"table" in section && (
+                    <div className="overflow-x-auto rounded-xl border">
+                      <table className="w-full text-sm">
+                        <thead className="bg-muted/50 text-left">
+                          <tr>
+                            <th className="px-4 py-3 font-medium">Recipient</th>
+                            <th className="px-4 py-3 font-medium">
+                              What they receive and why
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y">
+                          {section.table.map((row) => (
+                            <tr key={row.left}>
+                              <td className="px-4 py-3 align-top font-medium whitespace-nowrap">
+                                {row.left}
+                              </td>
+                              <td className="px-4 py-3 align-top text-muted-foreground leading-relaxed">
+                                {row.right}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                  {"outro" in section && section.outro && (
+                    <p className="text-muted-foreground leading-relaxed mt-3">
+                      {section.outro}
+                    </p>
                   )}
                 </div>
               ))}
