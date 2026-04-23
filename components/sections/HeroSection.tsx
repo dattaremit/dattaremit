@@ -211,21 +211,44 @@ function Flag({ code }: { code: "us" | "in" }) {
     return (
       <span
         aria-hidden
-        className="size-4 rounded-full overflow-hidden inline-block ring-1 ring-border relative bg-[#bf0a30]"
+        className="size-4 rounded-full overflow-hidden inline-block ring-1 ring-border"
       >
-        <span className="absolute inset-x-0 top-0 h-1/2 bg-white" />
-        <span className="absolute left-0 top-0 w-1/2 h-1/2 bg-[#002868]" />
+        <svg
+          viewBox="0 0 26 14"
+          className="size-full"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <rect width="26" height="14" fill="#B22234" />
+          {[1, 3, 5, 7, 9, 11, 13].map((y) => (
+            <rect key={y} y={y} width="26" height="1" fill="#ffffff" />
+          ))}
+          <rect width="11" height="7" fill="#3C3B6E" />
+        </svg>
       </span>
     );
   }
   return (
     <span
       aria-hidden
-      className="size-4 rounded-full overflow-hidden inline-block ring-1 ring-border relative flex-col"
+      className="size-4 rounded-full overflow-hidden inline-block ring-1 ring-border"
     >
-      <span className="flex-1 bg-[#ff9933]" />
-      <span className="flex-1 bg-white" />
-      <span className="flex-1 bg-[#138808]" />
+      <svg
+        viewBox="0 0 18 12"
+        className="size-full"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <rect width="18" height="4" fill="#FF9933" />
+        <rect y="4" width="18" height="4" fill="#ffffff" />
+        <rect y="8" width="18" height="4" fill="#138808" />
+        <circle
+          cx="9"
+          cy="6"
+          r="1.4"
+          fill="none"
+          stroke="#000088"
+          strokeWidth="0.35"
+        />
+      </svg>
     </span>
   );
 }
