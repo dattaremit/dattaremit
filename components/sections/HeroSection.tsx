@@ -56,7 +56,7 @@ export function HeroSection() {
 
       <div className="container mx-auto px-4 sm:px-6 pt-28 md:pt-32 pb-16 md:pb-20 relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-          {/* Left — editorial headline */}
+          {/* Left: editorial headline */}
           <div className="lg:col-span-7 fade-up" style={{ animationDelay: "80ms" }}>
             <h1 className="display-mixed text-[clamp(2.5rem,7vw,5.5rem)] text-foreground">
               <span className="font-semibold">Send money</span>
@@ -72,7 +72,7 @@ export function HeroSection() {
             </h1>
 
             <p className="mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
-              Link your US bank once, verify your identity, and send USD that
+              Verify your identity, link your US bank once, and send USD that
               lands as rupees in an Indian bank account within minutes.
               Transparent rates and bank-grade encryption on every transfer.
             </p>
@@ -93,17 +93,17 @@ export function HeroSection() {
             {/* Trust row */}
             <div className="mt-10 pt-6 border-t border-border/70 flex flex-wrap items-center gap-x-8 gap-y-3 text-[13px] text-muted-foreground">
               <span className="inline-flex items-center gap-2">
-                <ShieldCheck className="size-4 text-[var(--brand-deep)]" />
+                <ShieldCheck className="size-4 text-brand-deep" />
                 AES-256 field encryption
               </span>
               <span className="inline-flex items-center gap-2">
-                <Clock4 className="size-4 text-[var(--brand-deep)]" />
+                <Clock4 className="size-4 text-brand-deep" />
                 Settles in minutes
               </span>
             </div>
           </div>
 
-          {/* Right — transfer preview card */}
+          {/* Right: transfer preview card */}
           <div
             className="lg:col-span-5 fade-up"
             style={{ animationDelay: "160ms" }}
@@ -221,7 +221,7 @@ function Flag({ code }: { code: "us" | "in" }) {
   return (
     <span
       aria-hidden
-      className="size-4 rounded-full overflow-hidden inline-block ring-1 ring-border relative flex flex-col"
+      className="size-4 rounded-full overflow-hidden inline-block ring-1 ring-border relative flex-col"
     >
       <span className="flex-1 bg-[#ff9933]" />
       <span className="flex-1 bg-white" />

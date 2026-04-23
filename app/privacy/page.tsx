@@ -48,14 +48,14 @@ const sections: Section[] = [
     intro:
       "We only collect the information we need to provide the Service, meet our legal obligations, and keep our platform secure. The categories below describe what we collect and why.",
     items: [
-      "Identity information — full legal name, date of birth, nationality, government-issued identification type and number, and a photograph or selfie used for identity verification. Collected during KYC and when you add a recipient.",
-      "Contact information — email address, phone number, residential address, and, for recipients, a contact number used for transfer notifications.",
-      "Financial information — US bank account linkage metadata (provided via Plaid), recipient Indian bank account number, IFSC code, bank name, branch, and account type. For Indian recipients we also collect Aadhaar and Permanent Account Number (PAN) as required by Indian regulation.",
-      "Transaction information — amount sent, exchange rate applied, fees, amount received, timestamps, reference numbers, partner transaction identifiers, and transfer status.",
-      "Account metadata — Clerk user identifier, account status, KYC status, activity log entries, and admin-side notes associated with your account.",
-      "Device and usage information — IP address, device type and model, operating system, application version, browser type, language preference, crash and diagnostic data, push-notification tokens, and general patterns of usage.",
-      "Authentication material — hashed passwords (managed by Clerk), session tokens, and one-time step-up codes. We do not store plaintext passwords or biometric templates; biometric matching happens on your device.",
-      "Communications — messages you send to our support team, and logs of notifications and emails we send to you.",
+      "Identity information: full legal name, date of birth, nationality, government-issued identification type and number, and a photograph or selfie used for identity verification. Collected during KYC and when you add a recipient.",
+      "Contact information: email address, phone number, residential address, and, for recipients, a contact number used for transfer notifications.",
+      "Financial information: US bank account linkage metadata (provided via Plaid), recipient Indian bank account number, IFSC code, bank name, branch, and account type. For Indian recipients we also collect Aadhaar and Permanent Account Number (PAN) as required by Indian regulation.",
+      "Transaction information: amount sent, exchange rate applied, fees, amount received, timestamps, reference numbers, partner transaction identifiers, and transfer status.",
+      "Account metadata: Clerk user identifier, account status, KYC status, activity log entries, and admin-side notes associated with your account.",
+      "Device and usage information: IP address, device type and model, operating system, application version, browser type, language preference, crash and diagnostic data, push-notification tokens, and general patterns of usage.",
+      "Authentication material: hashed passwords (managed by Clerk), session tokens, and one-time step-up codes. We do not store plaintext passwords or biometric templates; biometric matching happens on your device.",
+      "Communications: messages you send to our support team, and logs of notifications and emails we send to you.",
     ],
   },
   {
@@ -66,7 +66,7 @@ const sections: Section[] = [
       "To verify your identity and perform Know-Your-Customer (KYC) and Anti-Money-Laundering (AML) checks, through our regulated payments partner Cybrid.",
       "To operate, process, and settle money transfers between your US bank account and the recipient’s Indian bank account.",
       "To display accurate exchange-rate and fee information before you confirm a transfer.",
-      "To send you service communications — transfer receipts, KYC notifications, security alerts, and account updates — by email, in-app message, or push notification.",
+      "To send you service communications (transfer receipts, KYC notifications, security alerts, and account updates) by email, in-app message, or push notification.",
       "To prevent, detect, and investigate fraud, abuse, security incidents, and other prohibited activity on our platform.",
       "To comply with applicable legal, tax, and regulatory obligations, including record-keeping and reporting duties.",
       "To resolve disputes, enforce our Terms of Service, and establish or defend legal claims.",
@@ -79,10 +79,10 @@ const sections: Section[] = [
     intro:
       "If you are located in the European Economic Area or the United Kingdom, we process your personal information on the following legal bases:",
     items: [
-      "Performance of a contract — to deliver the Service you have asked us to provide, including executing transfers and providing account access.",
-      "Compliance with a legal obligation — to meet KYC, AML, sanctions, tax, and record-keeping requirements that apply to us or to our regulated partner.",
-      "Legitimate interests — to secure our platform against fraud and abuse, to investigate suspicious activity, to improve the Service, and to communicate with customers about material changes. Where we rely on legitimate interests we have considered and balanced them against your rights.",
-      "Consent — for marketing communications, optional analytics, and any other processing where consent is the appropriate basis. You can withdraw consent at any time.",
+      "Performance of a contract: to deliver the Service you have asked us to provide, including executing transfers and providing account access.",
+      "Compliance with a legal obligation: to meet KYC, AML, sanctions, tax, and record-keeping requirements that apply to us or to our regulated partner.",
+      "Legitimate interests: to secure our platform against fraud and abuse, to investigate suspicious activity, to improve the Service, and to communicate with customers about material changes. Where we rely on legitimate interests we have considered and balanced them against your rights.",
+      "Consent: for marketing communications, optional analytics, and any other processing where consent is the appropriate basis. You can withdraw consent at any time.",
     ],
   },
   {
@@ -155,7 +155,7 @@ const sections: Section[] = [
   {
     title: "7. International transfers",
     content:
-      "Because we facilitate cross-border payments, your personal information will be transmitted to and processed in jurisdictions other than your own — in particular, between the United States and India. Where we transfer personal information from the European Economic Area, the United Kingdom, or Switzerland to a country that has not been deemed to provide an adequate level of protection, we rely on the European Commission’s Standard Contractual Clauses (or their UK addendum) and, where appropriate, supplementary measures such as encryption in transit and at rest. A copy of the relevant clauses is available on request from privacy@dattaremit.com.",
+      "Because we facilitate cross-border payments, your personal information will be transmitted to and processed in jurisdictions other than your own, in particular between the United States and India. Where we transfer personal information from the European Economic Area, the United Kingdom, or Switzerland to a country that has not been deemed to provide an adequate level of protection, we rely on the European Commission’s Standard Contractual Clauses (or their UK addendum) and, where appropriate, supplementary measures such as encryption in transit and at rest. A copy of the relevant clauses is available on request from privacy@dattaremit.com.",
   },
   {
     title: "8. How we protect your information",
@@ -193,14 +193,14 @@ const sections: Section[] = [
     intro:
       "Depending on where you live, you may have some or all of the following rights. We will not discriminate against you for exercising any of them.",
     items: [
-      "Access — to know what personal information we hold about you and to receive a copy of it.",
-      "Rectification — to have inaccurate or incomplete information corrected.",
-      "Deletion — to request that we delete personal information, subject to our legal and regulatory retention obligations (for example, AML record-keeping duties).",
-      "Restriction and objection — to ask us to limit certain processing, or to object to processing based on legitimate interests.",
-      "Portability — to receive your information in a structured, machine-readable format and to transmit it to another controller where technically feasible.",
-      "Withdrawal of consent — where we rely on consent (for example, for marketing), you can withdraw it at any time without affecting the lawfulness of prior processing.",
-      "Do-not-sell / share and limit sensitive data — California residents may request that we limit the use of sensitive personal information; because we do not sell or share personal information for cross-context behavioural advertising, these rights are respected by default.",
-      "Lodge a complaint — you have the right to lodge a complaint with your data-protection authority or, in the United States, the relevant state attorney general.",
+      "Access: to know what personal information we hold about you and to receive a copy of it.",
+      "Rectification: to have inaccurate or incomplete information corrected.",
+      "Deletion: to request that we delete personal information, subject to our legal and regulatory retention obligations (for example, AML record-keeping duties).",
+      "Restriction and objection: to ask us to limit certain processing, or to object to processing based on legitimate interests.",
+      "Portability: to receive your information in a structured, machine-readable format and to transmit it to another controller where technically feasible.",
+      "Withdrawal of consent: where we rely on consent (for example, for marketing), you can withdraw it at any time without affecting the lawfulness of prior processing.",
+      "Do-not-sell / share and limit sensitive data: California residents may request that we limit the use of sensitive personal information; because we do not sell or share personal information for cross-context behavioural advertising, these rights are respected by default.",
+      "Lodge a complaint: you have the right to lodge a complaint with your data-protection authority or, in the United States, the relevant state attorney general.",
     ],
     outro:
       "To exercise any of these rights, email privacy@dattaremit.com. We may need to verify your identity before acting on a request.",
@@ -246,7 +246,7 @@ export default function PrivacyPage() {
           eyebrow="Privacy"
           title="Privacy Policy."
           titleAccent="Your data, your rights."
-          description="How we handle your personal information — what we collect, why, who we share it with, and the rights you have."
+          description="How we handle your personal information: what we collect, why, who we share it with, and the rights you have."
           lastUpdated="April 22, 2026"
         />
         <LegalBody>

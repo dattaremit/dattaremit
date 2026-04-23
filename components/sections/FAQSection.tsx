@@ -8,47 +8,47 @@ import {
 const faqs = [
   {
     q: "What does DattaRemit do?",
-    a: "DattaRemit is a cross-border money-transfer service for the US-to-India corridor. You fund a transfer from a linked US bank account, and the recipient receives INR in their Indian bank account via UPI or IMPS. We operate through our regulated payments partner, Cybrid, who performs identity verification, fund custody, and settlement under their licenses.",
+    a: "DattaRemit is a cross-border money transfer service for the US to India corridor. You fund a transfer from a linked US bank account, and the recipient receives INR in their Indian bank account. We operate through regulated payments partners who perform identity verification, fund custody, and settlement under their licenses.",
   },
   {
     q: "Which countries and currencies are supported?",
-    a: "Today, DattaRemit supports the United States to India corridor only. You send USD from a US bank account; the recipient receives INR. Additional corridors are on our roadmap and will be announced when they launch.",
+    a: "Today, DattaRemit supports the US to India corridor only. You send USD from a US bank account, and the recipient receives INR. Additional corridors are on our roadmap and will be announced when they launch.",
   },
   {
     q: "How do I sign up?",
-    a: "Create an account on the web or mobile app with your email, verify it, and complete identity verification (KYC). Once your KYC is approved, link a US bank account through Plaid and add a recipient. Most users complete onboarding in under ten minutes.",
+    a: "Create an account on the web or mobile app with your email, verify it, and complete identity verification (KYC). Once your KYC is approved, link a US bank account through Plaid and add a recipient. Most users complete onboarding in under 5-7 minutes.",
   },
   {
     q: "What documents do I need for KYC?",
-    a: "Senders complete KYC through our partner Cybrid, which typically requires a government-issued ID and proof of address. Indian recipients are verified using Aadhaar and PAN, in line with RBI requirements. The exact document list is presented in the KYC flow and may vary by jurisdiction.",
+    a: "Senders complete KYC through our partner Persona, which typically requires a government-issued ID and proof of address. Most users provide a driver's license or state ID. Indian recipients are verified using Aadhaar and PAN, in line with RBI requirements.",
   },
   {
     q: "How fast is delivery?",
-    a: "Most transfers settle to the recipient's bank account within minutes once funds are debited from your US bank. Delivery times depend on your funding method, banking hours, and compliance checks, and bank-holiday delays are possible.",
+    a: "Customers may become eligible for instant transfers (under 10 minutes) once they have sufficient transaction history with us. For non instant transfers, funds are typically delivered to the recipient's bank account within 48 hours after the debit from your U.S. bank account. Delivery times depend on your funding method, banking hours, compliance checks, and bank holidays.",
   },
   {
     q: "What does it cost?",
-    a: "Fees and the exact exchange rate applied are disclosed on the review screen before you confirm any transfer. You only pay what you see at confirmation — no hidden mark-ups on the rate.",
+    a: "All transfers are processed at the mid-market exchange rate (Google rate), with no surprise or hidden fees.",
   },
   {
     q: "Are there transfer limits?",
-    a: "Yes. The per-transaction range is USD 1 to USD 10,000. A weekly aggregate limit also applies and is visible in the app. Limits may change based on regulatory requirements and your account status.",
+    a: "Yes. The per-transaction range is USD 1 to USD 10,000. A weekly aggregate limit also applies and is visible in the app. Limits may change based on regulatory requirements and your account status. For higher limits, please contact our support team.",
   },
   {
     q: "How is my money protected?",
-    a: "Customer funds are held and settled by our regulated partner Cybrid — DattaRemit does not custody funds. On our side, personally identifiable information is encrypted field-by-field with AES-256-GCM using keys managed in AWS KMS, all traffic is protected with TLS and HSTS, and sensitive actions require step-up verification (email code on web, biometric on mobile).",
+    a: "Customer funds are held and settled by our regulated partners, who are FDIC-insured. DattaRemit does not custody funds. On our side, personally identifiable information is encrypted field by field using AES-256-GCM with keys managed by hyperscalers. All traffic is protected with TLS and HSTS, and sensitive actions require step up verification (email code on web, biometric verification on mobile).",
   },
   {
     q: "Is DattaRemit regulated?",
-    a: "DattaRemit operates through a regulated payments partner (Cybrid) that holds the money-transmission authorizations required to move funds between the US and India. Your transfer is executed under that regulated framework, and DattaRemit complies with applicable KYC and AML requirements of our partner and the jurisdictions we operate in.",
+    a: "DattaRemit operates through regulated payments partners that hold the money transmission authorizations required to move funds between the US and India. Your transfer is executed under that regulated framework, and DattaRemit complies with the applicable KYC and AML requirements of our partners and the jurisdictions in which we operate.",
   },
   {
     q: "What if a transfer fails or is delayed?",
-    a: "If a transfer cannot be completed, the full amount debited from your funding source is returned. You can track every transfer in the Activity screen, and our support team can investigate any transfer that does not settle as expected.",
+    a: "If a transfer cannot be completed, the full amount debited from your funding source is returned. You can track every transfer in the activity screen, and our support team can investigate any transfer that does not settle as expected. Our support team typically responds the same day to all inquiries.",
   },
   {
     q: "How do I contact support?",
-    a: "Email support@dattaremit.com and we respond within 24 hours. For privacy or data-protection requests write to privacy@dattaremit.com. For legal questions, legal@dattaremit.com.",
+    a: "Email support@dattaremit.com, and we typically respond the same day. For privacy or data protection requests, write to support@dattaremit.com. For legal questions, please contact support@dattaremit.com.",
   },
 ];
 

@@ -14,51 +14,51 @@ import {
 const pillars = [
   {
     icon: KeyRound,
-    title: "Field-level encryption",
+    title: "Your data is encrypted",
     description:
-      "PII encrypted with AES-256-GCM. Master keys never leave AWS KMS.",
+      "Personal details are individually locked. The master key stays inside Amazon's secure vault.",
   },
   {
     icon: Lock,
-    title: "TLS everywhere",
+    title: "Private connections",
     description:
-      "TLS 1.2+ on every link with HSTS preload, strict CSP, and hardened headers.",
+      "Every link between you and us is encrypted. Your browser refuses anything weaker.",
   },
   {
     icon: Fingerprint,
-    title: "Step-up authentication",
+    title: "Extra check on transfers",
     description:
-      "Email-code step-up on web transfers. Biometric gate with lockout on mobile.",
+      "Every transfer asks for a fresh email code on the web, or Face ID / fingerprint on mobile.",
   },
   {
     icon: ShieldCheck,
-    title: "Regulated custody",
+    title: "Your money stays with Cybrid",
     description:
-      "Funds held and settled by Cybrid. DattaRemit never custodies money.",
+      "Funds are held and settled by Cybrid. DattaRemit never touches the money itself.",
   },
   {
     icon: FileCheck,
-    title: "Idempotent ops",
+    title: "No double charges",
     description:
-      "Every money-movement request carries an idempotency key. Signed webhooks.",
+      "If the app retries after a dropped connection, you're never charged twice for the same transfer.",
   },
   {
     icon: Eye,
-    title: "PII-redacted logs",
+    title: "Personal info off our logs",
     description:
-      "Structured logs mask sensitive fields before they are written or shipped.",
+      "Sensitive fields are stripped before anything is written to our logs or sent anywhere.",
   },
   {
     icon: AlertTriangle,
-    title: "Continuous review",
+    title: "Every change reviewed",
     description:
-      "Semgrep SAST on every change. Dependency audit and Trivy container scans.",
+      "Each code change is scanned for known issues and vulnerabilities before it reaches you.",
   },
   {
     icon: Smartphone,
-    title: "Mobile hardening",
+    title: "Mobile app lockdown",
     description:
-      "Screen-capture block. Tokens stored in iOS Keychain / Android Keystore.",
+      "Sensitive screens can't be screenshotted. Logins live in your phone's built-in vault.",
   },
 ];
 
@@ -74,8 +74,8 @@ export function SecuritySection() {
             How we protect you.
           </h2>
           <p className="mt-6 max-w-xl text-base md:text-lg text-background/70 leading-relaxed">
-            Concrete controls, not marketing claims. Every item below is
-            implemented in production today.
+            Real protections, not marketing claims. Every item below is live
+            in production today.
           </p>
         </div>
 

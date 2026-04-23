@@ -35,12 +35,12 @@ const sections: Section[] = [
   {
     title: "2. Our service and how it works",
     intro:
-      "DattaRemit provides a technology platform that enables eligible users in the United States to initiate money transfers that result in the delivery of Indian Rupees (INR) to a recipient’s Indian bank account. Money-transmission activity — including fund custody, foreign-exchange conversion, and settlement — is performed by our regulated payments partner, Cybrid, under their licenses.",
+      "DattaRemit provides a technology platform that enables eligible users in the United States to initiate money transfers that result in the delivery of Indian Rupees (INR) to a recipient’s Indian bank account. Money-transmission activity (including fund custody, foreign-exchange conversion, and settlement) is performed by our regulated payments partner, Cybrid, under their licenses.",
     items: [
       "You link a United States bank account through Plaid as the funding source.",
       "You create or select a recipient with verified Indian bank account details (name, account number, IFSC).",
       "Before confirmation, we display the amount you will send, the exchange rate applied, the fees payable, and the amount the recipient will receive.",
-      "You authorise the transfer through step-up verification — an email code on the web and biometric confirmation on mobile.",
+      "You authorise the transfer through step-up verification: an email code on the web and biometric confirmation on mobile.",
       "Funds are debited from your US bank account, converted to INR by our partner, and delivered to the recipient via UPI or IMPS.",
     ],
     outro:
@@ -106,7 +106,7 @@ const sections: Section[] = [
       "Sending or receiving funds on behalf of third parties without our express written consent.",
       "Transactions involving controlled substances, weapons, adult services, gambling, counterfeit goods, or other activity restricted by our partner’s rules.",
       "Transactions with parties located in, or ordinarily resident in, countries subject to comprehensive sanctions (including but not limited to Cuba, Iran, North Korea, Syria, and the Crimea, so-called Donetsk People’s Republic, and so-called Luhansk People’s Republic regions of Ukraine).",
-      "Any attempt to interfere with, probe, or disrupt the Service — including reverse engineering, introducing malware, scraping, rate-limit evasion, or unauthorised API use.",
+      "Any attempt to interfere with, probe, or disrupt the Service, including reverse engineering, introducing malware, scraping, rate-limit evasion, or unauthorised API use.",
       "Any attempt to impersonate another person, create multiple accounts, or circumvent identity-verification requirements.",
     ],
   },
@@ -128,27 +128,27 @@ const sections: Section[] = [
   {
     title: "13. Communications and electronic notices",
     content:
-      "By using the Service you consent to receive communications from us electronically — including transfer confirmations, security alerts, service updates, and legally required notices — by email, in-app message, or push notification. You agree that any notices, agreements, disclosures, or other communications delivered electronically satisfy any legal requirement that such communications be in writing. You may withdraw consent for non-essential marketing communications at any time through your account settings or by contacting us; essential service communications cannot be turned off while you maintain an account.",
+      "By using the Service you consent to receive communications from us electronically (including transfer confirmations, security alerts, service updates, and legally required notices) by email, in-app message, or push notification. You agree that any notices, agreements, disclosures, or other communications delivered electronically satisfy any legal requirement that such communications be in writing. You may withdraw consent for non-essential marketing communications at any time through your account settings or by contacting us; essential service communications cannot be turned off while you maintain an account.",
   },
   {
     title: "14. Disclaimers",
     content:
-      "Except as expressly set out in these Terms and to the fullest extent permitted by applicable law, the Service is provided on an “as is” and “as available” basis. DattaRemit disclaims all warranties, whether express, implied, statutory, or otherwise — including any warranty of merchantability, fitness for a particular purpose, non-infringement, or quiet enjoyment. We do not warrant that the Service will be uninterrupted, timely, secure, or error-free, or that any information obtained through the Service will be accurate or reliable. Exchange-rate quotes are indicative until the moment you confirm a transfer.",
+      "Except as expressly set out in these Terms and to the fullest extent permitted by applicable law, the Service is provided on an “as is” and “as available” basis. DattaRemit disclaims all warranties, whether express, implied, statutory, or otherwise, including any warranty of merchantability, fitness for a particular purpose, non-infringement, or quiet enjoyment. We do not warrant that the Service will be uninterrupted, timely, secure, or error-free, or that any information obtained through the Service will be accurate or reliable. Exchange-rate quotes are indicative until the moment you confirm a transfer.",
   },
   {
     title: "15. Limitation of liability",
     content:
-      "To the fullest extent permitted by applicable law, DattaRemit and its officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages — including loss of profits, loss of data, loss of business opportunity, or reputational harm — arising out of or in connection with your use of the Service, whether based on contract, tort, strict liability, or any other theory, even if we have been advised of the possibility of such damages. In no event shall our aggregate liability to you for any claim arising out of or relating to the Service exceed the greater of (a) the total fees you paid to DattaRemit in the twelve (12) months preceding the event giving rise to the claim, or (b) one hundred US dollars (USD 100). Nothing in these Terms limits liability that cannot be limited under applicable law, including liability for fraud, gross negligence, or wilful misconduct.",
+      "To the fullest extent permitted by applicable law, DattaRemit and its officers, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages (including loss of profits, loss of data, loss of business opportunity, or reputational harm) arising out of or in connection with your use of the Service, whether based on contract, tort, strict liability, or any other theory, even if we have been advised of the possibility of such damages. In no event shall our aggregate liability to you for any claim arising out of or relating to the Service exceed the greater of (a) the total fees you paid to DattaRemit in the twelve (12) months preceding the event giving rise to the claim, or (b) one hundred US dollars (USD 100). Nothing in these Terms limits liability that cannot be limited under applicable law, including liability for fraud, gross negligence, or wilful misconduct.",
   },
   {
     title: "16. Indemnification",
     content:
-      "You agree to defend, indemnify, and hold harmless DattaRemit and its affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses — including reasonable legal fees — arising out of or in connection with (a) your breach of these Terms, (b) your violation of any applicable law or the rights of any third party, (c) any inaccurate, incomplete, or misleading information you provide, or (d) the misuse of your account, whether or not authorised by you.",
+      "You agree to defend, indemnify, and hold harmless DattaRemit and its affiliates, officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or in connection with (a) your breach of these Terms, (b) your violation of any applicable law or the rights of any third party, (c) any inaccurate, incomplete, or misleading information you provide, or (d) the misuse of your account, whether or not authorised by you.",
   },
   {
     title: "17. Suspension and termination",
     content:
-      "We may suspend or terminate your account or access to any part of the Service at any time, with or without notice, if we believe (a) you have breached these Terms, (b) your use of the Service creates a legal, regulatory, or fraud risk, (c) your identity cannot be verified or re-verified, or (d) you have been inactive for a prolonged period. You may terminate your account at any time by contacting support@dattaremit.com. Provisions that by their nature should survive termination — including sections on prohibited uses, disclaimers, limitation of liability, indemnification, governing law, and dispute resolution — will survive.",
+      "We may suspend or terminate your account or access to any part of the Service at any time, with or without notice, if we believe (a) you have breached these Terms, (b) your use of the Service creates a legal, regulatory, or fraud risk, (c) your identity cannot be verified or re-verified, or (d) you have been inactive for a prolonged period. You may terminate your account at any time by contacting support@dattaremit.com. Provisions that by their nature should survive termination (including sections on prohibited uses, disclaimers, limitation of liability, indemnification, governing law, and dispute resolution) will survive.",
   },
   {
     title: "18. Changes to these Terms",
@@ -158,7 +158,7 @@ const sections: Section[] = [
   {
     title: "19. Force majeure",
     content:
-      "We are not liable for any failure or delay in performance caused by events beyond our reasonable control — including acts of God, natural disasters, war, civil unrest, terrorism, strikes, governmental action, sanctions, changes in law, internet or telecommunications outages, payment-rail outages, or failures of our regulated partner or its correspondent banks.",
+      "We are not liable for any failure or delay in performance caused by events beyond our reasonable control, including acts of God, natural disasters, war, civil unrest, terrorism, strikes, governmental action, sanctions, changes in law, internet or telecommunications outages, payment-rail outages, or failures of our regulated partner or its correspondent banks.",
   },
   {
     title: "20. Governing law and dispute resolution",

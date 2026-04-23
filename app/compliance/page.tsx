@@ -51,7 +51,7 @@ const sections: Section[] = [
       "Date of birth.",
       "Residential address (for senders, a verifiable US address).",
       "Nationality and country of residence.",
-      "Government-issued identification document — type, number, and an image of the document. For Indian recipients, this includes Aadhaar and PAN.",
+      "Government-issued identification document: type, number, and an image of the document. For Indian recipients, this includes Aadhaar and PAN.",
       "A live photograph or selfie, matched against the identification document.",
       "Source-of-funds information for higher-value transfers, as required by our partner's rules.",
     ],
@@ -61,12 +61,12 @@ const sections: Section[] = [
     intro:
       "We work within our partner's AML framework and apply the following controls on the DattaRemit side:",
     items: [
-      "Transaction limits — per-transaction maximum of USD 10,000 and a weekly aggregate limit enforced inside a Serializable database transaction to prevent race-condition breaches.",
-      "Idempotency — every financial request carries an idempotency key to prevent duplicate or manipulated requests.",
-      "Activity logging — every sensitive action (KYC start, KYC status change, transfer initiation, transfer completion) is written to a tamper-evident activity log tied to the customer and transaction.",
-      "Admin audit trail — every action taken by an internal user is recorded with the actor identifier, timestamp, affected resource, and a human-readable description.",
-      "Suspicious-activity escalation — patterns inconsistent with a customer's declared profile are escalated to Cybrid for further review. Cybrid performs sanctions, PEP, and adverse-media screening and files Suspicious Activity Reports (SARs) where required.",
-      "Record retention — customer identification records, transaction records, and communications are retained for the period required by applicable law (a minimum of five years in most jurisdictions).",
+      "Transaction limits: per-transaction maximum of USD 10,000 and a weekly aggregate limit enforced inside a Serializable database transaction to prevent race-condition breaches.",
+      "Idempotency: every financial request carries an idempotency key to prevent duplicate or manipulated requests.",
+      "Activity logging: every sensitive action (KYC start, KYC status change, transfer initiation, transfer completion) is written to a tamper-evident activity log tied to the customer and transaction.",
+      "Admin audit trail: every action taken by an internal user is recorded with the actor identifier, timestamp, affected resource, and a human-readable description.",
+      "Suspicious-activity escalation: patterns inconsistent with a customer's declared profile are escalated to Cybrid for further review. Cybrid performs sanctions, PEP, and adverse-media screening and files Suspicious Activity Reports (SARs) where required.",
+      "Record retention: customer identification records, transaction records, and communications are retained for the period required by applicable law (a minimum of five years in most jurisdictions).",
     ],
   },
   {
@@ -77,7 +77,7 @@ const sections: Section[] = [
   {
     title: "Data protection and privacy",
     content:
-      "DattaRemit is the data controller for customer information collected through our applications. We use Cybrid, Clerk, Plaid, and other subprocessors as data processors to operate the service. Customers in California have specific rights under the California Consumer Privacy Act (CCPA / CPRA), and customers in the European Economic Area and United Kingdom have rights under the GDPR / UK GDPR. Cross-border transfers of personal data — for example, from the United States to India — are performed under standard contractual clauses with our partners. Full detail is in our Privacy Policy.",
+      "DattaRemit is the data controller for customer information collected through our applications. We use Cybrid, Clerk, Plaid, and other subprocessors as data processors to operate the service. Customers in California have specific rights under the California Consumer Privacy Act (CCPA / CPRA), and customers in the European Economic Area and United Kingdom have rights under the GDPR / UK GDPR. Cross-border transfers of personal data (for example, from the United States to India) are performed under standard contractual clauses with our partners. Full detail is in our Privacy Policy.",
   },
   {
     title: "Subprocessor list",

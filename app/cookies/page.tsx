@@ -40,16 +40,16 @@ const sections: Section[] = [
   {
     title: "What cookies are",
     content:
-      "Cookies are small text files that a website stores on your device to remember information between visits. Similar technologies — including local storage, session storage, and mobile application identifiers — do the same job. This policy covers all of them and explains which we use and why.",
+      "Cookies are small text files that a website stores on your device to remember information between visits. Similar technologies (including local storage, session storage, and mobile application identifiers) do the same job. This policy covers all of them and explains which we use and why.",
   },
   {
     title: "Categories we use",
     intro:
       "We only use cookies and similar technologies that fall into one of three categories:",
     items: [
-      "Strictly necessary — required for the site or app to work, including holding your authenticated session, preserving your cart-equivalent transfer state, and preventing abuse. These cannot be disabled because the service would not function without them.",
-      "Preference — remember your chosen language, theme (light / dark), and certain display preferences so you do not have to re-select them every visit.",
-      "Analytics and performance — help us understand how visitors interact with our site so we can improve it. We do not combine this data with identified customer records and we do not use it for advertising.",
+      "Strictly necessary: required for the site or app to work, including holding your authenticated session, preserving your cart-equivalent transfer state, and preventing abuse. These cannot be disabled because the service would not function without them.",
+      "Preference: remember your chosen language, theme (light / dark), and certain display preferences so you do not have to re-select them every visit.",
+      "Analytics and performance: help us understand how visitors interact with our site so we can improve it. We do not combine this data with identified customer records and we do not use it for advertising.",
     ],
   },
   {
@@ -89,10 +89,10 @@ const sections: Section[] = [
     intro:
       "Some features on our website rely on third-party services that may set their own cookies or identifiers subject to their own privacy policies:",
     items: [
-      "Clerk — authentication, session issuance, and bot protection.",
-      "Plaid — US bank account linking when you start an ACH funding flow.",
-      "Sentry — browser-side error capture used to diagnose crashes (we configure Sentry to redact identifiable fields at source).",
-      "Google — reCAPTCHA-style bot protection when used, and address autocomplete where you opt in during onboarding.",
+      "Clerk: authentication, session issuance, and bot protection.",
+      "Plaid: US bank account linking when you start an ACH funding flow.",
+      "Sentry: browser-side error capture used to diagnose crashes (we configure Sentry to redact identifiable fields at source).",
+      "Google: reCAPTCHA-style bot protection when used, and address autocomplete where you opt in during onboarding.",
     ],
   },
   {

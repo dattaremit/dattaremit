@@ -6,7 +6,7 @@ const features = [
     icon: Building2,
     title: "Linked via Plaid",
     description:
-      "Connect your US bank account securely — credentials never touch our servers, only a tokenised link.",
+      "Connect your US bank account securely. Credentials never touch our servers, only a tokenised link.",
   },
   {
     icon: Banknote,
@@ -24,7 +24,7 @@ const features = [
     icon: Clock4,
     title: "Fast settlement",
     description:
-      "Most transfers settle to the recipient within minutes, subject to banking hours.",
+      "Most transfers settle to the recipient within minutes, 24x7x365.",
   },
 ];
 
@@ -58,7 +58,7 @@ export function PaymentSection() {
             </div>
           </div>
 
-          {/* Right feature list — split into 2x2 on sm+ */}
+          {/* Right feature list: split into 2x2 on sm+ */}
           <div className="lg:col-span-7">
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
               {features.map((feature) => (

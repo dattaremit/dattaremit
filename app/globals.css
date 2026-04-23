@@ -53,11 +53,11 @@
 }
 
 /* ================================
-   Brand palette — light
+   Brand palette: light
    Derived from the DattaRemit logo:
-     top bar    — royal blue     (primary brand)
-     middle bar — periwinkle     (soft tint)
-     bottom bar — mint green     (success / accent)
+     top bar    : royal blue     (primary brand)
+     middle bar : periwinkle     (soft tint)
+     bottom bar : mint green     (success / accent)
    Cool ice-white surfaces, deep navy-slate typography.
    ================================ */
 :root {
@@ -97,7 +97,7 @@
   --input: oklch(0.9 0.015 265);
   --ring: oklch(0.55 0.15 263);
 
-  /* Charts — brand, mint, periwinkle, cool neutrals */
+  /* Charts: brand, mint, periwinkle, cool neutrals */
   --chart-1: oklch(0.48 0.18 263);
   --chart-2: oklch(0.72 0.12 162);
   --chart-3: oklch(0.78 0.1 270);
@@ -115,7 +115,7 @@
 }
 
 /* ================================
-   Brand palette — dark
+   Brand palette: dark
    Deep navy-ink surfaces, ice-white typography,
    brighter brand blue for contrast, mint kept fresh.
    ================================ */
@@ -272,7 +272,7 @@
     );
 }
 
-/* Seam gradient — gentle top-and-bottom fade toward background */
+/* Seam gradient: gentle top-and-bottom fade toward background */
 @utility section-edges {
   &::before,
   &::after {

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | DattaRemit",
   },
   description:
-    "Send USD from your US bank account to any Indian bank account — transparent rates, clearly disclosed fees, bank-grade encryption, and settlement through our regulated payments partner Cybrid.",
+    "Send USD from your US bank account to any Indian bank account. Transparent rates, clearly disclosed fees, bank-grade encryption, and settlement through our regulated payments partner Cybrid.",
   keywords: [
     "USD to INR remittance",
     "send money to India",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DattaRemit - Send USD to India, the straightforward way",
     description:
-      "Send USD from your US bank account to any Indian bank account — transparent rates, clearly disclosed fees, bank-grade encryption.",
+      "Send USD from your US bank account to any Indian bank account. Transparent rates, clearly disclosed fees, bank-grade encryption.",
     images: ["/og-image.png"],
     creator: "@dattaremit",
   },

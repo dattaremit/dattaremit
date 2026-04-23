@@ -80,7 +80,7 @@ export default function ComingSoonPage() {
 
               <p className="mt-10 inline-flex items-center gap-2 text-xs text-muted-foreground">
                 <Bell className="size-3.5 text-[var(--brand-deep)]" />
-                No spam — one email when the app is live.
+                No spam. One email when the app is live.
               </p>
             </div>
           </div>

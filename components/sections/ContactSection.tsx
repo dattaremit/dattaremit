@@ -269,7 +269,7 @@ export function ContactSection() {
                   <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
                     <Check className="size-5" />
                     <span className="font-medium text-sm">
-                      Request submitted — we&apos;ll be in touch within 24 hours.
+                      Request submitted. We&apos;ll be in touch within 24 hours.
                     </span>
                   </div>
                 </div>

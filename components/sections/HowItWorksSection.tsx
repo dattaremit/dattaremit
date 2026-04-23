@@ -5,19 +5,19 @@ const steps = [
     icon: UserCheck,
     title: "Create and verify",
     description:
-      "Sign up with your email and complete identity verification through our regulated partner Cybrid. Approval is typically same-day.",
+      "Sign up with your email and complete identity verification through our regulated partner Cybrid. Majority of the time approved within minutes.",
   },
   {
     icon: Landmark,
     title: "Link your US bank",
     description:
-      "Connect a US checking account securely through Plaid. We never see or store your bank credentials — only a tokenised link.",
+      "Connect a US checking account securely through Plaid. We never see or store your bank credentials. Only a tokenised link.",
   },
   {
     icon: Users,
     title: "Add a recipient",
     description:
-      "Enter the recipient's name, Indian bank account, IFSC, and contact. Recipients complete lightweight Aadhaar and PAN verification.",
+      "Enter the recipient's name, Indian bank account, IFSC, and contact. Recipients complete a KYC Aadhaar and PAN verification.",
   },
   {
     icon: Send,
@@ -40,7 +40,7 @@ export function HowItWorksSection() {
           </h2>
           <p className="mt-6 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed">
             A simple, regulated path from your US bank account to any Indian
-            bank account — with verification at every step.
+            bank account, with verification at every step.
           </p>
         </div>
 
@@ -65,14 +65,7 @@ export function HowItWorksSection() {
               </p>
             </div>
           ))}
-        </div>
-
-        <p className="mt-12 text-sm text-muted-foreground max-w-2xl">
-          Transfer range: USD 1 – USD 10,000 per transaction. A weekly
-          aggregate limit also applies and is visible in the app. All fees and
-          the exact exchange rate are disclosed before you confirm.
-        </p>
-      </div>
+        </div>      </div>
     </section>
   );
 }
