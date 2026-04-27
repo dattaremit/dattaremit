@@ -43,11 +43,6 @@ export function PaymentSection() {
               recipient, and send USD that lands as INR in their Indian bank
               account.
             </p>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Powered by our regulated payments partner, Cybrid. Transfer
-              range: USD 1 – USD 10,000 per transaction, with a weekly
-              aggregate limit disclosed in the app.
-            </p>
             <div className="mt-8">
               <Button variant="brand" size="lg" asChild>
                 <a href="#contact">
