@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DattaRemit Landing Page
+
+Public marketing site for [dattaremit.com](https://dattaremit.com). Next.js 16 (App Router) + React 19 + Tailwind CSS 4.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Command | What it does |
+|---|---|
+| `npm run dev` | Start the Next.js dev server |
+| `npm run build` | Production build |
+| `npm run start` | Run the production build |
+| `npm run lint` | ESLint |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Stack
 
-## Learn More
+- **Framework:** Next.js 16 (App Router) + React 19
+- **Styling:** Tailwind CSS 4 + `tw-animate-css`; light/dark theme via `next-themes`
+- **Font:** Poppins (300/400/500/600/700) via `next/font/google`
+- **UI primitives:** Radix UI (`radix-ui`, `@radix-ui/react-accordion`, `@radix-ui/react-label`, `@radix-ui/react-slot`)
+- **Forms:** React Hook Form + Yup (`@hookform/resolvers`)
+- **State:** Zustand
+- **Content extras:** `react-markdown` + `remark-gfm` for rich text, `react-spinners`, `lucide-react` icons
+- **AI chat widget:** OpenAI (`openai`) wired via `components/chat-widget.tsx`
+- **Live FX:** `yahoo-finance2` for USD→INR rates
+- **HTTP:** Axios
 
-To learn more about Next.js, take a look at the following resources:
+## SEO / Metadata
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`app/layout.tsx` ships with:
+- Full OpenGraph + Twitter card metadata
+- JSON-LD structured data (`Organization`, `WebSite`, `FinancialService`) for rich results
+- Canonical URL set to `https://dattaremit.com`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Path Alias
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`@/*` maps to the project root (`tsconfig.json`).
