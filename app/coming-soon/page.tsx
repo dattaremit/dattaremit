@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, ArrowLeft, Apple, Smartphone, Bell } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, Bell } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Coming soon",
@@ -65,18 +65,6 @@ export default function ComingSoonPage() {
                 </Button>
               </div>
 
-              <div className="mt-16 grid sm:grid-cols-2 gap-4 max-w-xl mx-auto text-left">
-                <PlatformCard
-                  icon={<Apple className="size-5" />}
-                  label="iOS"
-                  store="App Store"
-                />
-                <PlatformCard
-                  icon={<Smartphone className="size-5" />}
-                  label="Android"
-                  store="Google Play"
-                />
-              </div>
 
               <p className="mt-10 inline-flex items-center gap-2 text-xs text-muted-foreground">
                 <Bell className="size-3.5 text-[var(--brand-deep)]" />
@@ -91,31 +79,3 @@ export default function ComingSoonPage() {
   );
 }
 
-function PlatformCard({
-  icon,
-  label,
-  store,
-}: {
-  icon: React.ReactNode;
-  label: string;
-  store: string;
-}) {
-  return (
-    <div className="rounded-2xl border border-border bg-card/70 backdrop-blur-sm px-5 py-4 flex items-center gap-4">
-      <span className="inline-flex size-10 items-center justify-center rounded-xl bg-foreground/5 text-foreground">
-        {icon}
-      </span>
-      <div className="flex flex-col leading-tight">
-        <span className="text-[11px] uppercase tracking-[0.16em] font-medium text-muted-foreground">
-          {label}
-        </span>
-        <span className="text-sm font-semibold tracking-tight text-foreground">
-          {store}
-        </span>
-      </div>
-      <span className="ml-auto rounded-full border border-border bg-background/60 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
-        Soon
-      </span>
-    </div>
-  );
-}

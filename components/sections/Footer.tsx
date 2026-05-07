@@ -1,7 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { AppDownloadButtons } from "@/components/ui/app-download-buttons";
-
 const productLinks = [
   { href: "/#how-it-works", label: "How it works" },
   { href: "/#compare", label: "Compare" },
@@ -110,13 +108,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Download */}
-          <div className="lg:col-span-3">
-            <h3 className="text-[11px] uppercase tracking-[0.18em] font-medium text-muted-foreground mb-5">
-              Download
-            </h3>
-            <AppDownloadButtons direction="column" />
-          </div>
         </div>
 
         {/* Bottom */}
