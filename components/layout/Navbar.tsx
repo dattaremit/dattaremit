@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState, useCallback, useEffect } from "react";
 
 const navLinks = [
@@ -96,23 +96,14 @@ export function Navbar() {
           {/* Right side */}
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Button
-              size="sm"
-              variant="brand"
-              className="hidden sm:inline-flex"
-              asChild
+            <a
+              href="https://app.dattaremit.com/sign-in"
+              className="hidden sm:inline-flex items-center px-4 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              <a
-                href={
-                  typeof window !== "undefined" &&
-                  window.location.pathname === "/"
-                    ? "#contact"
-                    : "/#contact"
-                }
-              >
-                Get started
-                <ArrowUpRight className="size-4" />
-              </a>
+              Log in
+            </a>
+            <Button size="sm" variant="brand" className="hidden sm:inline-flex" asChild>
+              <a href="https://app.dattaremit.com/sign-up">Sign up</a>
             </Button>
             <button
               className="lg:hidden inline-flex size-9 items-center justify-center rounded-full border border-border bg-card/60 backdrop-blur-sm text-foreground transition-colors hover:bg-card"
@@ -140,32 +131,33 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between py-4 text-base font-medium text-foreground border-b border-border/50 last:border-b-0"
+                  className="flex items-center py-4 text-base font-medium text-foreground border-b border-border/50 last:border-b-0"
                 >
-                  <span>{link.label}</span>
-                  <ArrowUpRight className="size-4 text-muted-foreground" />
+                  {link.label}
                 </Link>
               ) : (
                 <a
                   key={link.href}
                   href={`/${link.href}`}
                   onClick={(e) => handleAnchorClick(e, link.href)}
-                  className="flex items-center justify-between py-4 text-base font-medium text-foreground border-b border-border/50 last:border-b-0"
+                  className="flex items-center py-4 text-base font-medium text-foreground border-b border-border/50 last:border-b-0"
                 >
-                  <span>{link.label}</span>
-                  <ArrowUpRight className="size-4 text-muted-foreground" />
+                  {link.label}
                 </a>
               ),
             )}
-            <Button variant="brand" size="lg" className="mt-6 w-full" asChild>
-              <a
-                href="/#contact"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Get started
-                <ArrowUpRight className="size-4" />
-              </a>
-            </Button>
+            <div className="mt-6 flex flex-col gap-3">
+              <Button variant="outline" size="lg" className="w-full" asChild>
+                <a href="https://app.dattaremit.com/sign-in" onClick={() => setMobileMenuOpen(false)}>
+                  Log in
+                </a>
+              </Button>
+              <Button variant="brand" size="lg" className="w-full" asChild>
+                <a href="https://app.dattaremit.com/sign-up" onClick={() => setMobileMenuOpen(false)}>
+                  Sign up
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       )}
