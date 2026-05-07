@@ -35,7 +35,7 @@ export function Footer() {
       <div className="container mx-auto px-4 sm:px-6 pt-16 md:pt-20 pb-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12">
           {/* Brand */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-6">
             <Link
               href="/"
               className="inline-flex items-center gap-3 mb-6"
@@ -71,7 +71,7 @@ export function Footer() {
           </div>
 
           {/* Product */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-3">
             <h3 className="text-[11px] uppercase tracking-[0.18em] font-medium text-muted-foreground mb-5">
               Product
             </h3>
@@ -90,7 +90,7 @@ export function Footer() {
           </div>
 
           {/* Legal */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-3">
             <h3 className="text-[11px] uppercase tracking-[0.18em] font-medium text-muted-foreground mb-5">
               Trust & legal
             </h3>
