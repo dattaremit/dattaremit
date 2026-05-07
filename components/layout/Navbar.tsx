@@ -96,13 +96,10 @@ export function Navbar() {
           {/* Right side */}
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <a
-              href="https://app.dattaremit.com/sign-in"
-              className="hidden sm:inline-flex items-center px-4 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Log in
-            </a>
-            <Button size="sm" variant="brand" className="hidden sm:inline-flex" asChild>
+            <Button variant="mint" className="hidden sm:inline-flex leading-none" asChild>
+              <a href="https://app.dattaremit.com/sign-in">Log in</a>
+            </Button>
+            <Button variant="brand" className="hidden sm:inline-flex leading-none" asChild>
               <a href="https://app.dattaremit.com/sign-up">Sign up</a>
             </Button>
             <button

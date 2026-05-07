@@ -13,6 +13,8 @@ const buttonVariants = cva(
           "bg-foreground text-background hover:bg-foreground/90 shadow-[0_1px_0_0_rgba(0,0,0,0.04),0_6px_20px_-8px_rgba(20,16,10,0.25)] hover:shadow-[0_1px_0_0_rgba(0,0,0,0.06),0_10px_24px_-8px_rgba(20,16,10,0.35)]",
         brand:
           "bg-gradient-to-br from-[var(--brand)] to-[var(--brand-deep)] text-[var(--primary-foreground)] hover:brightness-[1.08] active:brightness-95 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.25),0_8px_24px_-6px_color-mix(in_oklch,var(--brand-deep)_45%,transparent)] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.35),0_14px_32px_-8px_color-mix(in_oklch,var(--brand-deep)_60%,transparent)]",
+        mint:
+          "bg-[var(--mint-deep)] text-white hover:brightness-[1.08] active:brightness-95 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.2),0_8px_24px_-6px_color-mix(in_oklch,var(--mint-deep)_45%,transparent)] hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.3),0_14px_32px_-8px_color-mix(in_oklch,var(--mint-deep)_60%,transparent)]",
         destructive:
           "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
         outline:
