@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import { ChatWidget } from "@/components/chat-widget";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import "./globals.css";
 
@@ -152,7 +151,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
-          <ChatWidget />
         </ThemeProvider>
       </body>
     </html>
