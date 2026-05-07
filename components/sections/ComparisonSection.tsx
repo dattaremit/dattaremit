@@ -21,10 +21,11 @@ const providers = [
     id: "wise",
     name: "Wise",
     logo: "/wise.png",
-    logoSize: "h-10 w-28",
-    logoSizeMobile: "h-7 w-24",
+    logoSize: "h-8 w-24",
+    logoSizeMobile: "h-6 w-20",
     rateMultiplier: 0.992,
     fee: 6.15,
+    monochromeInDark: true,
   },
   {
     id: "remitly",
@@ -34,6 +35,7 @@ const providers = [
     logoSizeMobile: "h-7 w-20",
     rateMultiplier: 0.988,
     fee: 0,
+    monochromeInDark: true,
   },
   {
     id: "skrill",
@@ -43,6 +45,7 @@ const providers = [
     logoSizeMobile: "h-5 w-14",
     rateMultiplier: 0.95,
     fee: 0,
+    monochromeInDark: true,
   },
   {
     id: "xoom",
@@ -52,7 +55,7 @@ const providers = [
     logoSizeMobile: "h-7 w-20",
     rateMultiplier: 0.975,
     fee: 2.99,
-    invertInDark: true,
+    monochromeInDark: true,
   },
 ];
 
@@ -164,7 +167,9 @@ export function ComparisonSection() {
                         alt={row.name}
                         fill
                         className={`object-contain object-left ${
-                          row.invertInDark ? "dark:invert" : ""
+                          row.monochromeInDark
+                            ? "dark:brightness-0 dark:invert"
+                            : ""
                         }`}
                       />
                     </div>
@@ -234,7 +239,9 @@ export function ComparisonSection() {
                     alt={row.name}
                     fill
                     className={`object-contain object-left ${
-                      row.invertInDark ? "dark:invert" : ""
+                      row.monochromeInDark
+                        ? "dark:brightness-0 dark:invert"
+                        : ""
                     }`}
                   />
                 </div>
