@@ -4,7 +4,7 @@ import { CurrencyConverterSection } from "@/components/sections/CurrencyConverte
 import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
 import { ComparisonSection } from "@/components/sections/ComparisonSection";
 import { PaymentSection } from "@/components/sections/PaymentSection";
-import { SecuritySection } from "@/components/sections/SecuritySection";
+import { TrustSection } from "@/components/sections/TrustSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { ContactSection } from "@/components/sections/ContactSection";
@@ -20,7 +20,7 @@ export default function Home() {
         <HowItWorksSection />
         <ComparisonSection />
         <PaymentSection />
-        <SecuritySection />
+        <TrustSection />
         <TestimonialsSection />
         <FAQSection />
         <ContactSection />
