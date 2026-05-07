@@ -45,8 +45,8 @@ export function Navbar() {
       <div
         className={`transition-all duration-300 ${
           scrolled
-            ? "bg-background/75 backdrop-blur-xl border-b border-border/70"
-            : "bg-background/40 backdrop-blur-md border-b border-transparent"
+            ? "bg-background/75 backdrop-blur-xl"
+            : "bg-background/40 backdrop-blur-md"
         }`}
       >
         <nav className="container mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between gap-6">
