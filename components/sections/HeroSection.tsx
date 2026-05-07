@@ -2,8 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, ShieldCheck, Clock4 } from "lucide-react";
-import { HeroGrid } from "@/components/hero-grid";
+import { ArrowUpRight } from "lucide-react";
 
 const SAMPLE_USD = 1000;
 
@@ -52,8 +51,6 @@ export function HeroSection() {
       id="home"
       className="relative min-h-[90svh] overflow-hidden brand-mesh"
     >
-      <HeroGrid />
-
       <div className="container mx-auto px-4 sm:px-6 pt-28 md:pt-32 pb-16 md:pb-20 relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left: editorial headline */}
@@ -65,9 +62,8 @@ export function HeroSection() {
                 to India,
               </span>
               <br />
-              <span className="font-semibold">
-                without the{" "}
-                <span className="brand-underline">noise</span>.
+              <span className="font-semibold bg-gradient-to-r from-brand-deep via-brand to-mint bg-clip-text text-transparent">
+                in minutes.
               </span>
             </h1>
 
@@ -90,17 +86,6 @@ export function HeroSection() {
               </Button>
             </div>
 
-            {/* Trust row */}
-            <div className="mt-10 pt-6 border-t border-border/70 flex flex-wrap items-center gap-x-8 gap-y-3 text-[13px] text-muted-foreground">
-              <span className="inline-flex items-center gap-2">
-                <ShieldCheck className="size-4 text-brand-deep" />
-                AES-256 field encryption
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <Clock4 className="size-4 text-brand-deep" />
-                Settles in minutes
-              </span>
-            </div>
           </div>
 
           {/* Right: transfer preview card */}
