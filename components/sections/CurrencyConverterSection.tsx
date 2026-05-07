@@ -93,7 +93,7 @@ export function CurrencyConverterSection() {
             </p>
             <div className="mt-8">
               <Button size="lg" variant="brand" asChild>
-                <a href="#contact">
+                <a href="https://app.dattaremit.com/sign-up">
                   Start sending
                   <ArrowUpRight className="size-4" />
                 </a>

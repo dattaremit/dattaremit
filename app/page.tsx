@@ -7,7 +7,6 @@ import { PaymentSection } from "@/components/sections/PaymentSection";
 import { TrustSection } from "@/components/sections/TrustSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
-import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
@@ -23,7 +22,6 @@ export default function Home() {
         <TrustSection />
         <TestimonialsSection />
         <FAQSection />
-        <ContactSection />
       </main>
       <Footer />
     </>

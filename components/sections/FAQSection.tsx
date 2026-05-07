@@ -67,7 +67,7 @@ export function FAQSection() {
             Everything you need to know about sending money with DattaRemit. If
             something is missing,{" "}
             <a
-              href="#contact"
+              href="mailto:support@dattaremit.com"
               className="text-foreground font-medium underline decoration-[var(--brand-deep)] decoration-2 underline-offset-4"
             >
               ask us directly

@@ -76,7 +76,7 @@ export function HeroSection() {
             {/* CTAs */}
             <div className="mt-10 flex flex-col sm:flex-row gap-3">
               <Button size="xl" variant="brand" asChild>
-                <a href="#contact">
+                <a href="https://app.dattaremit.com/sign-up">
                   Open an account
                   <ArrowUpRight className="size-5" />
                 </a>

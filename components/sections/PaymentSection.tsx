@@ -45,7 +45,7 @@ export function PaymentSection() {
             </p>
             <div className="mt-8">
               <Button variant="brand" size="lg" asChild>
-                <a href="#contact">
+                <a href="https://app.dattaremit.com/sign-up">
                   Get started
                   <ArrowUpRight className="size-4" />
                 </a>

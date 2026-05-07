@@ -4,7 +4,7 @@ const productLinks = [
   { href: "/#how-it-works", label: "How it works" },
   { href: "/#compare", label: "Compare" },
   { href: "/#faq", label: "FAQ" },
-  { href: "/#contact", label: "Support" },
+  { href: "mailto:support@dattaremit.com", label: "Support" },
 ];
 
 const legalLinks = [
