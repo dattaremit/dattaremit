@@ -10,7 +10,7 @@ const features = [
   },
   {
     icon: Banknote,
-    title: "UPI & IMPS payout",
+    title: "RTGS & IMPS payout",
     description:
       "Funds land in the recipient's Indian bank account over UPI or IMPS rails.",
   },

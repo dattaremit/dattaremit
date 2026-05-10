@@ -53,8 +53,8 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm text-muted-foreground max-w-md leading-relaxed mb-4">
-            DattaRemit facilitates USD-to-INR cross-border payments in partnership with Cybrid, a regulated payments provider. 
-            Customer funds are held and settled them, DattaRemit does not custody customer funds.            
+            DattaRemit facilitates USD-to-INR cross-border payments in partnership with a regulated payments provider. 
+            DattaRemit does not custody customer funds.            
             </p>
             <p className="text-xs text-muted-foreground">
               Need help? Email{" "}
