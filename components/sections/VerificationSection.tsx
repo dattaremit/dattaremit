@@ -17,7 +17,7 @@ export function VerificationSection() {
               />
               <Image
                 src="/smartphone.png"
-                alt="Verified every send"
+                alt="Step up authentication"
                 width={1200}
                 height={900}
                 className="relative w-full h-auto"

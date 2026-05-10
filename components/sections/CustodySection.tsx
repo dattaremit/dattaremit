@@ -17,7 +17,7 @@ export function CustodySection() {
               </span>
             </h2>
             <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">
-              Cybrid holds and settles every transfer under their licenses.
+              Our regulated partner holds and settles every transfer under their licenses.
             </p>
           </div>
 
