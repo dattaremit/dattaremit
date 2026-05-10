@@ -80,65 +80,6 @@ const sections: Section[] = [
       "DattaRemit is the data controller for customer information collected through our applications. We use Cybrid, Clerk, Plaid, and other subprocessors as data processors to operate the service. Customers in California have specific rights under the California Consumer Privacy Act (CCPA / CPRA), and customers in the European Economic Area and United Kingdom have rights under the GDPR / UK GDPR. Cross-border transfers of personal data (for example, from the United States to India) are performed under standard contractual clauses with our partners. Full detail is in our Privacy Policy.",
   },
   {
-    title: "Subprocessor list",
-    intro:
-      "We rely on the following regulated and contracted service providers to operate the platform. Each is bound by a data-processing agreement with confidentiality, security, and sub-processing controls.",
-    table: [
-      {
-        name: "Cybrid",
-        purpose:
-          "Regulated payments partner. Performs KYC, fund custody, FX conversion, and USD-to-INR settlement.",
-        jurisdiction: "United States / India",
-      },
-      {
-        name: "Clerk",
-        purpose:
-          "Authentication, session management, and email verification for customer accounts.",
-        jurisdiction: "United States",
-      },
-      {
-        name: "Plaid",
-        purpose:
-          "Tokenised US bank account linking used to initiate ACH funding.",
-        jurisdiction: "United States",
-      },
-      {
-        name: "Amazon Web Services (KMS)",
-        purpose:
-          "Master-key management for field-level encryption and blind indexing.",
-        jurisdiction: "United States",
-      },
-      {
-        name: "DigitalOcean",
-        purpose:
-          "Managed PostgreSQL database, container platform, and object storage.",
-        jurisdiction: "United States",
-      },
-      {
-        name: "Sentry",
-        purpose:
-          "Error tracking and performance monitoring with PII redaction at source.",
-        jurisdiction: "United States",
-      },
-      {
-        name: "Resend",
-        purpose:
-          "Transactional email delivery (verification, KYC, receipts, support replies).",
-        jurisdiction: "United States",
-      },
-      {
-        name: "Expo (notifications)",
-        purpose: "Push-notification delivery to registered mobile devices.",
-        jurisdiction: "United States",
-      },
-      {
-        name: "Google (Maps)",
-        purpose: "Address autocomplete and normalisation during onboarding.",
-        jurisdiction: "United States",
-      },
-    ],
-  },
-  {
     title: "Record keeping",
     content:
       "We retain identification records, transaction records, and related communications for as long as required by the laws of the jurisdictions in which we or our partner operate (a minimum of five years from the end of the customer relationship in most cases). Logs containing personally identifiable information are redacted at source and retained only for the shortest period needed for debugging, abuse investigation, and regulatory reporting.",
