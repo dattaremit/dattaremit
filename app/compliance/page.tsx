@@ -35,7 +35,7 @@ const sections: Section[] = [
   {
     title: "Regulatory model",
     content:
-      "DattaRemit operates as a technology partner-of-record on top of a regulated payments infrastructure provider, Cybrid. Cybrid holds the money-transmission authorizations necessary to collect funds from US senders and disburse INR to Indian recipients. DattaRemit provides the customer-facing application and data flow; Cybrid performs the regulated activities of identity verification, fund custody, foreign-exchange conversion, and settlement. This model allows us to offer a compliant money-movement product without operating as a standalone Money Services Business (MSB). All activity is performed within the regulatory framework of our partner.",
+      "DattaRemit operates as a technology partner-of-record on top of a regulated payments infrastructure provider. Our partner holds the money-transmission authorizations necessary to collect funds from US senders and disburse INR to Indian recipients. DattaRemit provides the customer-facing application and data flow; our partners performs the regulated activities of identity verification, fund custody, foreign-exchange conversion, and settlement. This model allows us to offer a compliant money-movement product without operating as a standalone Money Services Business (MSB). All activity is performed within the regulatory framework of our partner.",
   },
   {
     title: "Jurisdictions served",
@@ -45,7 +45,7 @@ const sections: Section[] = [
   {
     title: "Customer Identification Program (KYC)",
     intro:
-      "Every customer completes identity verification before they can initiate a transfer. KYC is performed by our regulated partner Cybrid. At a minimum we collect:",
+      "Every customer completes identity verification before they can initiate a transfer. KYC is performed by our partner Persona. At a minimum we collect:",
     items: [
       "Full legal name as it appears on government-issued identification.",
       "Date of birth.",
@@ -61,23 +61,23 @@ const sections: Section[] = [
     intro:
       "We work within our partner's AML framework and apply the following controls on the DattaRemit side:",
     items: [
-      "Transaction limits: per-transaction maximum of USD 10,000 and a weekly aggregate limit enforced inside a Serializable database transaction to prevent race-condition breaches.",
+      "Transaction limits: per-transaction maximum of USD 15,000 and a weekly aggregate limit enforced inside a Serializable database transaction to prevent race-condition breaches.",
       "Idempotency: every financial request carries an idempotency key to prevent duplicate or manipulated requests.",
       "Activity logging: every sensitive action (KYC start, KYC status change, transfer initiation, transfer completion) is written to a tamper-evident activity log tied to the customer and transaction.",
       "Admin audit trail: every action taken by an internal user is recorded with the actor identifier, timestamp, affected resource, and a human-readable description.",
-      "Suspicious-activity escalation: patterns inconsistent with a customer's declared profile are escalated to Cybrid for further review. Cybrid performs sanctions, PEP, and adverse-media screening and files Suspicious Activity Reports (SARs) where required.",
+      "Suspicious-activity escalation: patterns inconsistent with a customer's declared profile are escalated to our regulated partner for further review, who perform sanctions, PEP, and adverse-media screening and files Suspicious Activity Reports (SARs) where required.",
       "Record retention: customer identification records, transaction records, and communications are retained for the period required by applicable law (a minimum of five years in most jurisdictions).",
     ],
   },
   {
     title: "Sanctions and restricted-party screening",
     content:
-      "Sanctions screening against OFAC Specially Designated Nationals, UN consolidated list, EU consolidated list, HM Treasury and equivalent Indian lists is performed by our regulated partner prior to onboarding and before every transaction. DattaRemit does not knowingly transact with any party on a restricted list, and we will decline or freeze transactions that fail screening. If you believe a transaction has been declined in error, please contact compliance@dattaremit.com.",
+      "Sanctions screening against OFAC Specially Designated Nationals, UN consolidated list, EU consolidated list, HM Treasury and equivalent Indian lists is performed by our regulated partner prior to onboarding and before every transaction. DattaRemit does not knowingly transact with any party on a restricted list, and we will decline or freeze transactions that fail screening. If you believe a transaction has been declined in error, please contact support@dattaremit.com.",
   },
   {
     title: "Data protection and privacy",
     content:
-      "DattaRemit is the data controller for customer information collected through our applications. We use Cybrid, Clerk, Plaid, and other subprocessors as data processors to operate the service. Customers in California have specific rights under the California Consumer Privacy Act (CCPA / CPRA), and customers in the European Economic Area and United Kingdom have rights under the GDPR / UK GDPR. Cross-border transfers of personal data (for example, from the United States to India) are performed under standard contractual clauses with our partners. Full detail is in our Privacy Policy.",
+      "DattaRemit is the data controller for customer information collected through our applications. Refer to our Privacy Policy for more details.",
   },
   {
     title: "Record keeping",
@@ -87,7 +87,7 @@ const sections: Section[] = [
   {
     title: "Complaints and regulatory contacts",
     content:
-      "If you have a complaint about DattaRemit or the handling of your transfer, please write to support@dattaremit.com first; we aim to acknowledge within 24 hours and resolve within 15 business days. Unresolved complaints may be escalated to our regulated partner, Cybrid, and ultimately to the relevant financial services regulator in your jurisdiction. Compliance questions and formal regulator inquiries may be sent to compliance@dattaremit.com.",
+      "If you have a complaint about DattaRemit or the handling of your transfer, please write to support@dattaremit.com first; we aim to acknowledge within 24 hours and resolve within 3-5 business days.",
   },
 ];
 

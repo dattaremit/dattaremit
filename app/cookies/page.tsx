@@ -53,49 +53,6 @@ const sections: Section[] = [
     ],
   },
   {
-    title: "Cookies we set",
-    intro:
-      "Below is a representative list of the cookies and similar technologies active on dattaremit.com. Names and lifetimes may change as we refine the product.",
-    table: [
-      {
-        name: "__session",
-        purpose: "Clerk-issued authentication session cookie.",
-        lifetime: "Session (cleared on logout)",
-        category: "Strictly necessary",
-      },
-      {
-        name: "__clerk_db_jwt",
-        purpose:
-          "Clerk session refresh token used to mint short-lived access tokens.",
-        lifetime: "Up to 7 days",
-        category: "Strictly necessary",
-      },
-      {
-        name: "theme",
-        purpose: "Stores your chosen interface theme (light / dark / system).",
-        lifetime: "1 year (local storage)",
-        category: "Preference",
-      },
-      {
-        name: "next-themes",
-        purpose: "Synchronises theme choice across tabs.",
-        lifetime: "1 year (local storage)",
-        category: "Preference",
-      },
-    ],
-  },
-  {
-    title: "Third-party technologies",
-    intro:
-      "Some features on our website rely on third-party services that may set their own cookies or identifiers subject to their own privacy policies:",
-    items: [
-      "Clerk: authentication, session issuance, and bot protection.",
-      "Plaid: US bank account linking when you start an ACH funding flow.",
-      "Sentry: browser-side error capture used to diagnose crashes (we configure Sentry to redact identifiable fields at source).",
-      "Google: reCAPTCHA-style bot protection when used, and address autocomplete where you opt in during onboarding.",
-    ],
-  },
-  {
     title: "Managing your preferences",
     intro: "You can control cookies through your browser or device settings:",
     items: [
@@ -108,7 +65,7 @@ const sections: Section[] = [
   {
     title: "Updates to this policy",
     content:
-      "We review and update this policy when we introduce or retire any cookie or similar technology. The 'last updated' date below reflects the most recent change. Questions about this policy can be sent to privacy@dattaremit.com.",
+      "We review and update this policy when we introduce or retire any cookie or similar technology. The 'last updated' date below reflects the most recent change. Questions about this policy can be sent to support@dattaremit.com.",
   },
 ];
 

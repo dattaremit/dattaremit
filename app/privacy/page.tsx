@@ -41,7 +41,7 @@ const sections: Section[] = [
   {
     title: "2. Who we are and how to contact us",
     content:
-      "DattaRemit Inc. is the data controller for personal information collected through the Service. You can contact our data-protection team at privacy@dattaremit.com with any privacy question or to exercise any of the rights described below. We will acknowledge your request within a reasonable period and respond substantively within the time frames set by the law that applies to you.",
+      "DattaRemit Inc. is the data controller for personal information collected through the Service. You can contact our data-protection team at support@dattaremit.com with any privacy question or to exercise any of the rights described below. We will acknowledge your request within a reasonable period and respond substantively within the time frames set by the law that applies to you.",
   },
   {
     title: "3. Information we collect",
@@ -52,9 +52,8 @@ const sections: Section[] = [
       "Contact information: email address, phone number, residential address, and, for recipients, a contact number used for transfer notifications.",
       "Financial information: US bank account linkage metadata (provided via Plaid), recipient Indian bank account number, IFSC code, bank name, branch, and account type. For Indian recipients we also collect Aadhaar and Permanent Account Number (PAN) as required by Indian regulation.",
       "Transaction information: amount sent, exchange rate applied, fees, amount received, timestamps, reference numbers, partner transaction identifiers, and transfer status.",
-      "Account metadata: Clerk user identifier, account status, KYC status, activity log entries, and admin-side notes associated with your account.",
       "Device and usage information: IP address, device type and model, operating system, application version, browser type, language preference, crash and diagnostic data, push-notification tokens, and general patterns of usage.",
-      "Authentication material: hashed passwords (managed by Clerk), session tokens, and one-time step-up codes. We do not store plaintext passwords or biometric templates; biometric matching happens on your device.",
+      "Authentication material: hashed passwords (managed by authentication provider), session tokens, and one-time step-up codes. We do not store plaintext passwords or biometric templates; biometric matching happens on your device.",
       "Communications: messages you send to our support team, and logs of notifications and emails we send to you.",
     ],
   },
@@ -63,7 +62,7 @@ const sections: Section[] = [
     intro:
       "We use your personal information only for the purposes listed below. We do not sell personal information and we do not share it with third parties for their own marketing.",
     items: [
-      "To verify your identity and perform Know-Your-Customer (KYC) and Anti-Money-Laundering (AML) checks, through our regulated payments partner Cybrid.",
+      "To verify your identity and perform Know-Your-Customer (KYC) and Anti-Money-Laundering (AML) checks, through our regulated payments partner.",
       "To operate, process, and settle money transfers between your US bank account and the recipient’s Indian bank account.",
       "To display accurate exchange-rate and fee information before you confirm a transfer.",
       "To send you service communications (transfer receipts, KYC notifications, security alerts, and account updates) by email, in-app message, or push notification.",
@@ -84,78 +83,6 @@ const sections: Section[] = [
       "Legitimate interests: to secure our platform against fraud and abuse, to investigate suspicious activity, to improve the Service, and to communicate with customers about material changes. Where we rely on legitimate interests we have considered and balanced them against your rights.",
       "Consent: for marketing communications, optional analytics, and any other processing where consent is the appropriate basis. You can withdraw consent at any time.",
     ],
-  },
-  {
-    title: "6. Who we share your information with",
-    intro:
-      "We share personal information only with the categories of recipient listed below, and only for the purposes described in this Policy. Every recipient is bound by contractual confidentiality and security obligations.",
-    table: [
-      {
-        left: "Cybrid",
-        right:
-          "Our regulated payments partner. Receives the information necessary to perform KYC, hold and settle funds, perform foreign-exchange conversion, and disburse INR to recipients. Acts as an independent controller for regulatory record-keeping.",
-      },
-      {
-        left: "Plaid",
-        right:
-          "Provides secure, tokenised linkage of your US bank account for ACH funding. DattaRemit receives only the tokens and metadata necessary to initiate transfers; your online-banking credentials never touch our systems.",
-      },
-      {
-        left: "Clerk",
-        right:
-          "Provides authentication, session management, and email verification for customer accounts. Stores credential material such as password hashes on our behalf.",
-      },
-      {
-        left: "Amazon Web Services",
-        right:
-          "Manages master cryptographic keys through AWS Key Management Service (KMS). Key material never leaves KMS; all encrypt and decrypt operations are performed inside KMS.",
-      },
-      {
-        left: "DigitalOcean",
-        right:
-          "Provides managed PostgreSQL, container hosting, and object storage for the DattaRemit platform.",
-      },
-      {
-        left: "Sentry",
-        right:
-          "Receives anonymised error traces and diagnostic information. We configure Sentry to redact personally identifiable fields at source.",
-      },
-      {
-        left: "Resend",
-        right:
-          "Sends transactional email on our behalf, including verification codes, KYC notifications, transfer receipts, and support replies.",
-      },
-      {
-        left: "Expo",
-        right:
-          "Delivers push notifications to the DattaRemit mobile app on iOS and Android.",
-      },
-      {
-        left: "Google",
-        right:
-          "Provides address autocomplete and normalisation during onboarding.",
-      },
-      {
-        left: "Regulators, law enforcement, and courts",
-        right:
-          "We disclose information where required by a valid subpoena, court order, statutory request, or other legal process, and where necessary to comply with our partner’s regulatory obligations.",
-      },
-      {
-        left: "Professional advisers and auditors",
-        right:
-          "Lawyers, accountants, and auditors bound by professional confidentiality, strictly where needed to provide advice or audit services.",
-      },
-      {
-        left: "Business transfers",
-        right:
-          "If we are involved in a merger, acquisition, reorganisation, or sale of assets, personal information may be transferred as part of that transaction. We will notify you before your information becomes subject to a different privacy policy.",
-      },
-    ],
-  },
-  {
-    title: "7. International transfers",
-    content:
-      "Because we facilitate cross-border payments, your personal information will be transmitted to and processed in jurisdictions other than your own, in particular between the United States and India. Where we transfer personal information from the European Economic Area, the United Kingdom, or Switzerland to a country that has not been deemed to provide an adequate level of protection, we rely on the European Commission’s Standard Contractual Clauses (or their UK addendum) and, where appropriate, supplementary measures such as encryption in transit and at rest. A copy of the relevant clauses is available on request from privacy@dattaremit.com.",
   },
   {
     title: "8. How we protect your information",

@@ -35,7 +35,7 @@ const sections: Section[] = [
   {
     title: "2. Our service and how it works",
     intro:
-      "DattaRemit provides a technology platform that enables eligible users in the United States to initiate money transfers that result in the delivery of Indian Rupees (INR) to a recipient’s Indian bank account. Money-transmission activity (including fund custody, foreign-exchange conversion, and settlement) is performed by our regulated payments partner, Cybrid, under their licenses.",
+      "DattaRemit provides a technology platform that enables eligible users in the United States to initiate money transfers that result in the delivery of Indian Rupees (INR) to a recipient’s Indian bank account. Money-transmission activity (including fund custody, foreign-exchange conversion, and settlement) is performed by our regulated payments partner.",
     items: [
       "You link a United States bank account through Plaid as the funding source.",
       "You create or select a recipient with verified Indian bank account details (name, account number, IFSC).",
