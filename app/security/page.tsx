@@ -30,14 +30,14 @@ const sections: Section[] = [
   {
     title: "How we think about security",
     content:
-      "We don't hold your money. Our regulated partner Cybrid does. Our job is to collect what's needed for your transfer, confirm it's really you, move your data safely, and keep you informed. Every change we ship gets a security review before it goes live.",
+      "We don't hold your money. Our regulated partner does. Our job is to collect what's needed for your transfer, confirm it's really you, move your data safely, and keep you informed. Every change we ship gets a security review before it goes live.",
   },
   {
     title: "What we store, and how we protect it",
     intro:
       "We sort every piece of information by how sensitive it is, then protect it accordingly.",
     items: [
-      "Personal details: your name, date of birth, phone, email, address, ID numbers, and bank account details. Each field is locked with its own encryption. The master key lives inside Amazon's key vault and never leaves it. For fields we need to look up (like your email), we also store a one-way fingerprint so we can find an exact match without ever unlocking the original.",
+      "Personal details: your name, date of birth, phone, email, address, ID numbers, and bank account details. Each field is locked with its own encryption. The master key lives inside a protected key vault and never leaves it.",
       "Account info: your account status, verification stage, sign-in ID, and activity history. Kept in a managed database with encrypted connections and daily encrypted backups.",
       "Diagnostic data: anonymised error reports and performance metrics. Anything personal is stripped out before it leaves your device.",
     ],
@@ -47,14 +47,14 @@ const sections: Section[] = [
     intro: "Your data is locked down when it travels and when it sits still.",
     items: [
       "On the move: every connection uses modern TLS. We've opted into the strictest browser enforcement, so your browser will refuse to talk to us over anything weaker.",
-      "At rest: sensitive fields are encrypted one by one with AES-256, the same grade used for sensitive government data. The keys live inside Amazon Key Management Service and are never handled by our app in the clear.",
+      "At rest: sensitive fields are encrypted one by one with AES-256, the same grade used for sensitive government data. The keys live inside vault Service and are never handled by our app.",
       "In backups: same protection as live data. Keys are rotated regularly without needing to re-encrypt everything.",
     ],
   },
   {
-    title: "Sign-in and sessions",
+    title: "Authentication and Sessions",
     intro:
-      "Sign-in is handled by Clerk, a trusted identity provider. On top of that we add:",
+      "Sign-in is handled by third party, a trusted identity provider. On top of that we add",
     items: [
       "Tokens from any domain other than ours are rejected outright.",
       "Starting a transfer on the web needs a fresh 6-digit code emailed to you, even if you're already signed in.",
@@ -68,17 +68,17 @@ const sections: Section[] = [
     items: [
       "Duplicate protection: if the app retries after a dropped connection, you won't be charged twice. A retry with different details is rejected instead of going through.",
       "Your weekly limit is checked inside a database lock, so you can't accidentally overspend by sending two transfers at the same instant.",
-      "Messages we receive from Cybrid and Clerk are signed. We verify the signature and reject anything older than five minutes.",
+      "Messages we receive from our regulated partners are signed. We verify the signature and reject anything older than five minutes.",
       "Every request carries a unique ID we log on our side and return to you. Support can use it to trace a transfer from start to finish.",
     ],
   },
   {
-    title: "Hardened web and API",
+    title: "Hardened Web and API",
     intro: "The website and servers ship with a defensive baseline:",
     items: [
       "Strict browser rules block other sites from embedding, framing, or hijacking our pages.",
       "Rate limits on general traffic, signed-in users, financial actions, and bank-linking: enough headroom for normal use, enough friction to shut down abuse.",
-      "Logs are scrubbed of personal information before anything is written to disk or sent to error tracking.",
+      "Logs are scrubbed of personal information before anything is written to disk or sent to error tracking."
     ],
   },
   {
@@ -86,8 +86,8 @@ const sections: Section[] = [
     intro: "On iPhone and Android we add platform-specific protections:",
     items: [
       "Sensitive screens (identity check, sign-in, transfer confirmation) can't be screenshotted or screen-recorded.",
-      "Security tokens and secure settings live in the phone's built-in vault (iOS Keychain or Android Keystore) and are wiped on logout.",
-      "Biometric login uses Face ID, Touch ID, or the Android fingerprint reader. Three failures lock it until you sign in through Clerk again.",
+      "Security tokens and secure settings live in the phone's built-in vault and are wiped on logout.",
+      "Biometric login uses Face ID, Touch ID, or the Android fingerprint reader. Three failures lock it until you sign in again.",
       "Released builds only trust certificates the operating system trusts. No debug shortcuts ship to the App Store or Play Store.",
     ],
   },
@@ -98,7 +98,7 @@ const sections: Section[] = [
       "Managed database with encrypted storage and point-in-time recovery, so we can roll back to any moment if something breaks.",
       "The app runs in small, isolated containers on a locked-down platform.",
       "Each part of the system only has the access it actually needs, nothing more.",
-      "Secrets (API keys, database passwords) are never in our source code. They're loaded at runtime from a secure store.",
+      "Secrets are saved in a encrypted storage. They're loaded at runtime.",
       "Health checks pull unhealthy servers out of rotation automatically, so you always reach a working one.",
     ],
   },
@@ -106,7 +106,7 @@ const sections: Section[] = [
     title: "How we write and ship code",
     intro: "Every change goes through the same checks before it reaches you:",
     items: [
-      "Automatic scans flag known risky patterns on every commit.",
+      "Automated security scans flag known risky patterns on every commit.",
       "Dependency audits block any merge that introduces a known vulnerability.",
       "Container scans check every production image for issues before release.",
       "Strict type checking catches whole categories of bugs before the code ever runs.",
