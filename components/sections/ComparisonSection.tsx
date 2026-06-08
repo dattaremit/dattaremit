@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import { Check } from "lucide-react";
-import { useState, useEffect, useCallback } from "react";
-import { fetchUsdInrRate } from "@/lib/exchange-rate-api";
+import { useUsdInrRate } from "@/lib/use-usd-inr-rate";
 
 const SEND_AMOUNT = 1000;
 
@@ -70,28 +69,7 @@ function formatINR(amount: number): string {
 }
 
 export function ComparisonSection() {
-  const [baseRate, setBaseRate] = useState<number | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
-
-  const fetchExchangeRate = useCallback(async () => {
-    try {
-      const data = await fetchUsdInrRate();
-      if (typeof data.rate !== "number") throw new Error("Invalid rate");
-      setBaseRate(data.rate);
-      setLastUpdated(data.updatedAt ? new Date(data.updatedAt) : new Date());
-    } catch (error) {
-      console.error("Error fetching exchange rate:", error);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchExchangeRate();
-    const interval = setInterval(fetchExchangeRate, 15 * 60 * 1000);
-    return () => clearInterval(interval);
-  }, [fetchExchangeRate]);
+  const { rate: baseRate, updatedAt: lastUpdated, isLoading } = useUsdInrRate();
 
   const comparisonData = providers.map((provider) => {
     const effectiveBase = baseRate ?? 0;

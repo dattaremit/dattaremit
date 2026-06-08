@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
-import { fetchUsdInrRate } from "@/lib/exchange-rate-api";
+import { useUsdInrRate } from "@/lib/use-usd-inr-rate";
 
 const DEFAULT_USD = 1000;
 
@@ -17,8 +17,7 @@ function formatINR(amount: number) {
 }
 
 export function HeroSection() {
-  const [rate, setRate] = useState<number | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const { rate, isLoading } = useUsdInrRate();
   const [amountInput, setAmountInput] = useState(String(DEFAULT_USD));
   const [isAmountFocused, setIsAmountFocused] = useState(false);
 
@@ -33,25 +32,6 @@ export function HeroSection() {
     },
     [],
   );
-
-  const fetchRate = useCallback(async () => {
-    try {
-      const data = await fetchUsdInrRate();
-      if (typeof data.rate === "number" && Number.isFinite(data.rate)) {
-        setRate(data.rate);
-      }
-    } catch {
-      // Leave rate null; UI shows shimmer.
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchRate();
-    const interval = setInterval(fetchRate, 15 * 60 * 1000);
-    return () => clearInterval(interval);
-  }, [fetchRate]);
 
   const sendAmount = parseFloat(amountInput) || 0;
   const recipientGets = rate ? sendAmount * rate : 0;

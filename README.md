@@ -27,8 +27,7 @@ npm run dev      # http://localhost:3000
 - **Forms:** React Hook Form + Yup (`@hookform/resolvers`)
 - **State:** Zustand
 - **Content extras:** `react-markdown` + `remark-gfm` for rich text, `react-spinners`, `lucide-react` icons
-- **AI chat widget:** OpenAI (`openai`) wired via `components/chat-widget.tsx`
-- **Live FX:** calls the backend's USD→INR rate directly via `lib/exchange-rate-api.ts` (set `NEXT_PUBLIC_BASE_API_URL`)
+- **Live FX:** the live USD→INR rate is fetched from the backend via the axios api client (`lib/api-client.ts` + `lib/exchange-rate-api.ts`) and consumed through the `useUsdInrRate` hook (`lib/use-usd-inr-rate.ts`). Set `NEXT_PUBLIC_BASE_API_URL`.
 - **HTTP:** Axios
 
 ## SEO / Metadata
