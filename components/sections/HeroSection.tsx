@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 
-const SAMPLE_USD = 1000;
+const DEFAULT_USD = 1000;
 
 function formatINR(amount: number) {
   return new Intl.NumberFormat("en-IN", {
@@ -18,6 +18,20 @@ function formatINR(amount: number) {
 export function HeroSection() {
   const [rate, setRate] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [amountInput, setAmountInput] = useState(String(DEFAULT_USD));
+  const [isAmountFocused, setIsAmountFocused] = useState(false);
+
+  const handleAmountChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      // Allow only digits and a single decimal point (max 2 decimals).
+      const sanitized = e.target.value
+        .replace(/[^0-9.]/g, "")
+        .replace(/(\..*)\./g, "$1")
+        .replace(/^(\d*\.\d{0,2}).*$/, "$1");
+      setAmountInput(sanitized);
+    },
+    [],
+  );
 
   const fetchRate = useCallback(async () => {
     try {
@@ -42,7 +56,8 @@ export function HeroSection() {
     return () => clearInterval(interval);
   }, [fetchRate]);
 
-  const recipientGets = rate ? SAMPLE_USD * rate : 0;
+  const sendAmount = parseFloat(amountInput) || 0;
+  const recipientGets = rate ? sendAmount * rate : 0;
   const formattedInr = rate ? formatINR(recipientGets) : null;
   const formattedRate = rate ? rate.toFixed(2) : null;
 
@@ -114,14 +129,34 @@ export function HeroSection() {
                     <Flag code="us" /> USD
                   </span>
                 </div>
-                <div className="flex items-baseline gap-2 tabular">
-                  <span className="text-4xl md:text-5xl font-semibold tracking-tight text-foreground">
-                    1,000
+                <label className="group flex items-baseline gap-1.5 tabular cursor-text w-fit">
+                  <span className="text-3xl md:text-4xl font-light text-muted-foreground">
+                    $
                   </span>
-                  <span className="text-xl md:text-2xl font-light text-muted-foreground">
-                    .00
-                  </span>
-                </div>
+                  <input
+                    type="text"
+                    inputMode="decimal"
+                    value={amountInput}
+                    onChange={handleAmountChange}
+                    onFocus={() => setIsAmountFocused(true)}
+                    onBlur={() => setIsAmountFocused(false)}
+                    aria-label="Amount to send in USD"
+                    placeholder="0"
+                    size={1}
+                    style={{ width: `${Math.max(amountInput.length, 1)}ch` }}
+                    className={`min-w-[1ch] bg-transparent text-4xl md:text-5xl font-semibold tracking-tight text-foreground outline-none placeholder:text-muted-foreground/40 ${
+                      isAmountFocused ? "caret-brand" : "caret-transparent"
+                    }`}
+                  />
+                  {/* Blinking caret signals the field is editable. Hidden while
+                      focused so it doesn't double up with the native caret. */}
+                  <span
+                    aria-hidden
+                    className={`-ml-0.5 inline-block h-9 md:h-11 w-[2px] rounded-full bg-brand ${
+                      isAmountFocused ? "opacity-0" : "caret-blink"
+                    }`}
+                  />
+                </label>
               </div>
 
               {/* Divider with rate chip */}
