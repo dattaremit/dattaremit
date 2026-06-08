@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
+import { fetchUsdInrRate } from "@/lib/exchange-rate-api";
 
 const DEFAULT_USD = 1000;
 
@@ -35,11 +36,7 @@ export function HeroSection() {
 
   const fetchRate = useCallback(async () => {
     try {
-      const res = await fetch("/api/exchange-rate?from=USD", {
-        cache: "no-store",
-      });
-      if (!res.ok) throw new Error(`Status ${res.status}`);
-      const data = await res.json();
+      const data = await fetchUsdInrRate();
       if (typeof data.rate === "number" && Number.isFinite(data.rate)) {
         setRate(data.rate);
       }

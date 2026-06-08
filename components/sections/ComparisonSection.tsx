@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Check } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
+import { fetchUsdInrRate } from "@/lib/exchange-rate-api";
 
 const SEND_AMOUNT = 1000;
 
@@ -75,11 +76,7 @@ export function ComparisonSection() {
 
   const fetchExchangeRate = useCallback(async () => {
     try {
-      const response = await fetch("/api/exchange-rate?from=USD", {
-        cache: "no-store",
-      });
-      if (!response.ok) throw new Error("Failed to fetch rate");
-      const data = await response.json();
+      const data = await fetchUsdInrRate();
       if (typeof data.rate !== "number") throw new Error("Invalid rate");
       setBaseRate(data.rate);
       setLastUpdated(data.updatedAt ? new Date(data.updatedAt) : new Date());

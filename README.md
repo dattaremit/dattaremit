@@ -28,7 +28,7 @@ npm run dev      # http://localhost:3000
 - **State:** Zustand
 - **Content extras:** `react-markdown` + `remark-gfm` for rich text, `react-spinners`, `lucide-react` icons
 - **AI chat widget:** OpenAI (`openai`) wired via `components/chat-widget.tsx`
-- **Live FX:** `/api/exchange-rate` proxies the backend's USD→INR rate (set `NEXT_PUBLIC_BASE_API_URL`)
+- **Live FX:** calls the backend's USD→INR rate directly via `lib/exchange-rate-api.ts` (set `NEXT_PUBLIC_BASE_API_URL`)
 - **HTTP:** Axios
 
 ## SEO / Metadata
