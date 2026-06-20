@@ -6,6 +6,7 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useCallback, useEffect } from "react";
+import { playKeySound, preloadKeySound } from "@/lib/key-sound";
 
 const navLinks = [
   { href: "#how-it-works", label: "How it works", type: "anchor" as const },
@@ -23,11 +24,13 @@ export function Navbar() {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+    preloadKeySound();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const handleAnchorClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      playKeySound();
       if (typeof window !== "undefined" && window.location.pathname !== "/") {
         setMobileMenuOpen(false);
         return;
@@ -76,6 +79,7 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  onClick={() => playKeySound()}
                   className="px-4 py-1.5 text-[13px] font-medium text-muted-foreground hover:text-foreground hover:bg-foreground/5 rounded-full transition-colors"
                 >
                   {link.label}
@@ -104,7 +108,10 @@ export function Navbar() {
             </Button>
             <button
               className="lg:hidden inline-flex size-9 items-center justify-center rounded-full border border-border bg-card/60 backdrop-blur-sm text-foreground transition-colors hover:bg-card"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={() => {
+                playKeySound();
+                setMobileMenuOpen(!mobileMenuOpen);
+              }}
               aria-label="Toggle menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -127,7 +134,10 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => {
+                    playKeySound();
+                    setMobileMenuOpen(false);
+                  }}
                   className="flex items-center py-4 text-base font-medium text-foreground border-b border-border/50 last:border-b-0"
                 >
                   {link.label}
