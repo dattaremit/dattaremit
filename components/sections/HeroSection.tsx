@@ -41,9 +41,9 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-[90svh] overflow-hidden brand-mesh"
+      className="relative min-h-[70svh] overflow-hidden brand-mesh"
     >
-      <div className="container mx-auto px-4 sm:px-6 pt-28 md:pt-32 pb-16 md:pb-20 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 pt-24 md:pt-28 pb-12 md:pb-16 relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left: editorial headline */}
           <div className="lg:col-span-7 fade-up" style={{ animationDelay: "80ms" }}>
