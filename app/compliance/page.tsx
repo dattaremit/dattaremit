@@ -102,6 +102,7 @@ export default function CompliancePage() {
           titleAccent="The regulatory picture."
           description="Our regulatory model, KYC and AML program, sanctions posture, and the subprocessors behind the Service."
           lastUpdated="April 22, 2026"
+          showGlobe
         />
         <LegalBody>
           {sections.map((section, i) => (

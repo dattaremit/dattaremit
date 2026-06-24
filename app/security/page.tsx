@@ -152,6 +152,7 @@ export default function SecurityPage() {
           titleAccent="The controls behind every transfer."
           description="How we protect your data, your money, and your account. Explained in plain English, not marketing."
           lastUpdated="April 22, 2026"
+          showGlobe
         />
         <LegalBody>
           {sections.map((section, i) => (

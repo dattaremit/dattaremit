@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { HeroGlobe } from "@/components/ui/hero-globe";
 
 interface LegalPageHeroProps {
   eyebrow: string;
@@ -7,6 +8,8 @@ interface LegalPageHeroProps {
   titleAccent?: string;
   description?: string;
   lastUpdated: string;
+  /** Show the animated globe motif behind the header (security/compliance). */
+  showGlobe?: boolean;
 }
 
 export function LegalPageHero({
@@ -15,10 +18,14 @@ export function LegalPageHero({
   titleAccent,
   description,
   lastUpdated,
+  showGlobe = false,
 }: LegalPageHeroProps) {
   return (
     <section className="relative overflow-hidden border-b border-border brand-mesh">
-      <div className="container mx-auto px-4 sm:px-6 pt-28 md:pt-36 pb-16 md:pb-20 relative">
+      {showGlobe ? (
+        <HeroGlobe className="top-1/2 right-[-14%] hidden h-[420px] w-[420px] -translate-y-1/2 sm:right-[-6%] md:block md:h-[560px] md:w-[560px]" />
+      ) : null}
+      <div className="container mx-auto px-4 sm:px-6 pt-28 md:pt-36 pb-16 md:pb-20 relative z-10">
         <nav
           aria-label="Breadcrumb"
           className="flex items-center gap-2 text-xs text-muted-foreground mb-6"
