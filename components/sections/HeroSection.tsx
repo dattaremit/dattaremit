@@ -5,16 +5,24 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import { Flag } from "@/components/ui/flag";
 import { CurrencySelector } from "@/components/ui/currency-selector";
+import TextType from "@/components/TextType";
 import { useUsdRate } from "@/lib/use-usd-rate";
 import {
+  CURRENCIES,
   DEFAULT_CURRENCY,
   formatAmount,
   formatRate,
-  getCurrency,
   type CurrencyCode,
 } from "@/lib/currencies";
 
 const DEFAULT_USD = 1000;
+
+// Country names the headline types through. Drop the leading article so the
+// short form reads well after "to" ("the Philippines" → "Philippines"); the
+// trailing comma is part of the typed string so it animates as one unit.
+const DESTINATIONS = CURRENCIES.map(
+  (c) => `${c.destination.replace(/^the /, "")},`,
+);
 
 export function HeroSection() {
   const [currency, setCurrency] = useState<CurrencyCode>(DEFAULT_CURRENCY);
@@ -34,7 +42,6 @@ export function HeroSection() {
     [],
   );
 
-  const destination = getCurrency(currency).destination;
   const sendAmount = parseFloat(amountInput) || 0;
   const recipientGets = rate ? sendAmount * rate : 0;
   const formattedReceive = rate ? formatAmount(recipientGets, currency) : null;
@@ -53,7 +60,16 @@ export function HeroSection() {
               <span className="font-semibold">Send money</span>
               <br />
               <span className="font-light italic text-muted-foreground">
-                to {destination},
+                to{" "}
+                <TextType
+                  as="span"
+                  text={DESTINATIONS}
+                  className="text-foreground"
+                  typingSpeed={90}
+                  deletingSpeed={45}
+                  pauseDuration={1800}
+                  cursorClassName="text-brand"
+                />
               </span>
               <br />
               <span className="font-semibold bg-gradient-to-r from-brand-deep via-brand to-mint bg-clip-text text-transparent">
