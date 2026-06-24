@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, Building2, Banknote, Receipt, Clock4 } from "lucide-react";
+import { GlowCard } from "@/components/ui/glow-card";
 
 const features = [
   {
@@ -57,22 +58,21 @@ export function PaymentSection() {
           <div className="lg:col-span-7">
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
               {features.map((feature) => (
-                <div
-                  key={feature.title}
-                  className="group relative rounded-3xl border border-border bg-card p-6 sm:p-7 transition-colors duration-200 hover:border-foreground/20"
-                >
-                  <div className="mb-8">
-                    <span className="inline-flex size-10 items-center justify-center rounded-xl bg-[var(--brand)]/10 text-[var(--brand-deep)]">
-                      <feature.icon className="size-[18px]" />
-                    </span>
+                <GlowCard key={feature.title} className="h-full">
+                  <div className="h-full p-6 sm:p-7">
+                    <div className="mb-8">
+                      <span className="inline-flex size-10 items-center justify-center rounded-xl bg-[var(--brand)]/10 text-[var(--brand-deep)]">
+                        <feature.icon className="size-[18px]" />
+                      </span>
+                    </div>
+                    <h3 className="text-[17px] font-semibold tracking-tight mb-2 text-foreground">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {feature.description}
+                    </p>
                   </div>
-                  <h3 className="text-[17px] font-semibold tracking-tight mb-2 text-foreground">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
+                </GlowCard>
               ))}
             </div>
           </div>

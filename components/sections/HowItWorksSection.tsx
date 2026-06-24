@@ -1,4 +1,5 @@
 import { UserCheck, Landmark, Users, Send } from "lucide-react";
+import { GlowCard } from "@/components/ui/glow-card";
 
 const steps = [
   {
@@ -46,24 +47,23 @@ export function HowItWorksSection() {
 
         {/* Step grid with asymmetric vertical rhythm on lg+ */}
         <div className="grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, index) => (
-            <div
-              key={step.title}
-              className="group relative flex flex-col rounded-3xl border border-border bg-card p-6 sm:p-7 transition-colors duration-200 hover:border-foreground/20"
-            >
-              <div className="mb-8">
-                <span className="inline-flex size-10 items-center justify-center rounded-full bg-[var(--brand)]/10 text-[var(--brand-deep)]">
-                  <step.icon className="size-[18px]" />
-                </span>
-              </div>
+          {steps.map((step) => (
+            <GlowCard key={step.title} className="h-full">
+              <div className="flex h-full flex-col p-6 sm:p-7">
+                <div className="mb-8">
+                  <span className="inline-flex size-10 items-center justify-center rounded-full bg-[var(--brand)]/10 text-[var(--brand-deep)]">
+                    <step.icon className="size-[18px]" />
+                  </span>
+                </div>
 
-              <h3 className="text-xl font-semibold tracking-tight mb-3 text-foreground">
-                {step.title}
-              </h3>
-              <p className="text-[15px] text-muted-foreground leading-relaxed">
-                {step.description}
-              </p>
-            </div>
+                <h3 className="text-xl font-semibold tracking-tight mb-3 text-foreground">
+                  {step.title}
+                </h3>
+                <p className="text-[15px] text-muted-foreground leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+            </GlowCard>
           ))}
         </div>      </div>
     </section>
