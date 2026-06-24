@@ -137,7 +137,7 @@ export function HeroSection() {
             className="lg:col-span-5 fade-up"
             style={{ animationDelay: "160ms" }}
           >
-            <div className="relative rounded-3xl border border-border/60 bg-card/70 backdrop-blur-xl overflow-hidden">
+            <div className="relative rounded-3xl border border-border/60 bg-card/70 backdrop-blur-xl">
               {/* Card header */}
               <div className="flex items-center justify-between px-5 md:px-6 py-4 border-b border-border/70">
                 <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
