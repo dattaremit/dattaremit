@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import { Flag } from "@/components/ui/flag";
 import { CurrencySelector } from "@/components/ui/currency-selector";
+import { Globe } from "@/components/ui/globe";
 import TextType from "@/components/TextType";
 import { useUsdRate } from "@/lib/use-usd-rate";
 import {
@@ -14,8 +15,9 @@ import {
   formatRate,
   type CurrencyCode,
 } from "@/lib/currencies";
+import { type COBEOptions } from "cobe";
 
-const DEFAULT_USD = 1000;
+const DEFAULT_USD = 100;
 
 // Country names the headline types through. Drop the leading article so the
 // short form reads well after "to" ("the Philippines" → "Philippines"); the
@@ -23,6 +25,32 @@ const DEFAULT_USD = 1000;
 const DESTINATIONS = CURRENCIES.map(
   (c) => `${c.destination.replace(/^the /, "")},`,
 );
+
+// Globe tuned for the dark default theme, with markers on the corridors we
+// serve: the US (source) and each supported destination country.
+const GLOBE_CONFIG: COBEOptions = {
+  width: 800,
+  height: 800,
+  onRender: () => {},
+  devicePixelRatio: 2,
+  phi: 0,
+  theta: 0.3,
+  dark: 1,
+  diffuse: 1.2,
+  mapSamples: 16000,
+  mapBrightness: 5,
+  baseColor: [0.35, 0.37, 0.5],
+  markerColor: [0.45, 0.52, 1],
+  glowColor: [0.25, 0.28, 0.55],
+  markers: [
+    { location: [40.7128, -74.006], size: 0.1 }, // United States (source)
+    { location: [19.076, 72.8777], size: 0.1 }, // India
+    { location: [14.5995, 120.9842], size: 0.08 }, // Philippines
+    { location: [21.0278, 105.8342], size: 0.07 }, // Vietnam
+    { location: [-6.2088, 106.8456], size: 0.08 }, // Indonesia
+    { location: [6.5244, 3.3792], size: 0.07 }, // Nigeria
+  ],
+};
 
 export function HeroSection() {
   const [currency, setCurrency] = useState<CurrencyCode>(DEFAULT_CURRENCY);
@@ -52,6 +80,12 @@ export function HeroSection() {
       id="home"
       className="relative min-h-[70svh] overflow-hidden brand-mesh"
     >
+      {/* Animated globe motif — we send money worldwide. Sits behind the
+          content, auto-rotating, anchored to the lower-right. */}
+      <div className="pointer-events-none absolute -top-10 right-[-18%] z-0 h-[480px] w-[480px] max-w-[90vw] opacity-30 [mask-image:radial-gradient(circle_at_center,black_40%,transparent_65%)] sm:right-[-8%] md:h-[680px] md:w-[680px]">
+        <Globe config={GLOBE_CONFIG} />
+      </div>
+
       <div className="container mx-auto px-4 sm:px-6 pt-24 md:pt-28 pb-12 md:pb-16 relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left: editorial headline */}
@@ -103,7 +137,7 @@ export function HeroSection() {
             className="lg:col-span-5 fade-up"
             style={{ animationDelay: "160ms" }}
           >
-            <div className="relative rounded-3xl border border-border bg-card overflow-hidden">
+            <div className="relative rounded-3xl border border-border/60 bg-card/70 backdrop-blur-xl overflow-hidden">
               {/* Card header */}
               <div className="flex items-center justify-between px-5 md:px-6 py-4 border-b border-border/70">
                 <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
