@@ -3,21 +3,22 @@
 import { useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
-import { useUsdInrRate } from "@/lib/use-usd-inr-rate";
+import { Flag } from "@/components/ui/flag";
+import { CurrencySelector } from "@/components/ui/currency-selector";
+import { useUsdRate } from "@/lib/use-usd-rate";
+import {
+  DEFAULT_CURRENCY,
+  formatAmount,
+  formatRate,
+  getCurrency,
+  type CurrencyCode,
+} from "@/lib/currencies";
 
 const DEFAULT_USD = 1000;
 
-function formatINR(amount: number) {
-  return new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(amount);
-}
-
 export function HeroSection() {
-  const { rate, isLoading } = useUsdInrRate();
+  const [currency, setCurrency] = useState<CurrencyCode>(DEFAULT_CURRENCY);
+  const { rate, isLoading } = useUsdRate(currency);
   const [amountInput, setAmountInput] = useState(String(DEFAULT_USD));
   const [isAmountFocused, setIsAmountFocused] = useState(false);
 
@@ -33,10 +34,11 @@ export function HeroSection() {
     [],
   );
 
+  const destination = getCurrency(currency).destination;
   const sendAmount = parseFloat(amountInput) || 0;
   const recipientGets = rate ? sendAmount * rate : 0;
-  const formattedInr = rate ? formatINR(recipientGets) : null;
-  const formattedRate = rate ? rate.toFixed(2) : null;
+  const formattedReceive = rate ? formatAmount(recipientGets, currency) : null;
+  const formattedRate = rate ? formatRate(rate, currency) : null;
 
   return (
     <section
@@ -51,7 +53,7 @@ export function HeroSection() {
               <span className="font-semibold">Send money</span>
               <br />
               <span className="font-light italic text-muted-foreground">
-                to India,
+                to {destination},
               </span>
               <br />
               <span className="font-semibold bg-gradient-to-r from-brand-deep via-brand to-mint bg-clip-text text-transparent">
@@ -61,8 +63,8 @@ export function HeroSection() {
 
             <p className="mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
               Verify your identity, link your US bank once, and send USD that
-              lands as rupees in an Indian bank account within minutes.
-              Transparent rates and bank-grade encryption on every transfer.
+              lands in a local bank account within minutes. Transparent rates
+              and bank-grade encryption on every transfer.
             </p>
 
             {/* CTAs */}
@@ -144,7 +146,7 @@ export function HeroSection() {
                     {isLoading || !formattedRate ? (
                       <span className="shimmer inline-block w-28 h-2.5 rounded-full" />
                     ) : (
-                      <>1 USD = {formattedRate} INR</>
+                      <>1 USD = {formattedRate} {currency}</>
                     )}
                   </span>
                 </div>
@@ -156,15 +158,13 @@ export function HeroSection() {
                   <span className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground font-medium">
                     They receive
                   </span>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background/60 px-2.5 py-1 text-xs font-medium">
-                    <Flag code="in" /> INR
-                  </span>
+                  <CurrencySelector value={currency} onChange={setCurrency} />
                 </div>
-                {isLoading || !formattedInr ? (
+                {isLoading || !formattedReceive ? (
                   <span className="shimmer inline-block h-10 w-48 rounded-lg" />
                 ) : (
                   <span className="block text-4xl md:text-5xl font-semibold tracking-tight tabular text-foreground">
-                    {formattedInr}
+                    {formattedReceive}
                   </span>
                 )}
               </div>
@@ -185,9 +185,9 @@ export function HeroSection() {
                 </div>
                 <div className="px-4 py-3">
                   <div className="text-muted-foreground uppercase tracking-[0.14em] font-medium text-[10px]">
-                    Via
+                    Secure
                   </div>
-                  <div className="mt-0.5 font-semibold">UPI / IMPS</div>
+                  <div className="mt-0.5 font-semibold">Bank-grade</div>
                 </div>
               </div>
             </div>
@@ -200,52 +200,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  );
-}
-
-function Flag({ code }: { code: "us" | "in" }) {
-  if (code === "us") {
-    return (
-      <span
-        aria-hidden
-        className="size-4 rounded-full overflow-hidden inline-block ring-1 ring-border"
-      >
-        <svg
-          viewBox="0 0 26 14"
-          className="size-full"
-          preserveAspectRatio="xMidYMid slice"
-        >
-          <rect width="26" height="14" fill="#B22234" />
-          {[1, 3, 5, 7, 9, 11, 13].map((y) => (
-            <rect key={y} y={y} width="26" height="1" fill="#ffffff" />
-          ))}
-          <rect width="11" height="7" fill="#3C3B6E" />
-        </svg>
-      </span>
-    );
-  }
-  return (
-    <span
-      aria-hidden
-      className="size-4 rounded-full overflow-hidden inline-block ring-1 ring-border"
-    >
-      <svg
-        viewBox="0 0 18 12"
-        className="size-full"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <rect width="18" height="4" fill="#FF9933" />
-        <rect y="4" width="18" height="4" fill="#ffffff" />
-        <rect y="8" width="18" height="4" fill="#138808" />
-        <circle
-          cx="9"
-          cy="6"
-          r="1.4"
-          fill="none"
-          stroke="#000088"
-          strokeWidth="0.35"
-        />
-      </svg>
-    </span>
   );
 }

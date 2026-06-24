@@ -1,20 +1,39 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { Check } from "lucide-react";
-import { useUsdInrRate } from "@/lib/use-usd-inr-rate";
+import { CurrencySelector } from "@/components/ui/currency-selector";
+import { useUsdRate } from "@/lib/use-usd-rate";
+import {
+  COMPETITOR_RATES,
+  DEFAULT_CURRENCY,
+  formatAmount,
+  formatRate,
+  getCurrency,
+  type CompetitorId,
+  type CurrencyCode,
+} from "@/lib/currencies";
 
 const SEND_AMOUNT = 1000;
 
-const providers = [
+// Static display metadata per provider; the per-corridor rate/fee numbers live
+// in COMPETITOR_RATES and are looked up by id for the selected currency.
+const PROVIDERS: {
+  id: CompetitorId;
+  name: string;
+  logo: string;
+  logoSize: string;
+  logoSizeMobile: string;
+  highlight?: boolean;
+  monochromeInDark?: boolean;
+}[] = [
   {
     id: "dattaremit",
     name: "DattaRemit",
     logo: "/logo.png",
     logoSize: "h-10 w-32",
     logoSizeMobile: "h-8 w-28",
-    rateMultiplier: 1.0,
-    fee: 0,
     highlight: true,
   },
   {
@@ -23,8 +42,6 @@ const providers = [
     logo: "/wise.png",
     logoSize: "h-8 w-24",
     logoSizeMobile: "h-6 w-20",
-    rateMultiplier: 0.992,
-    fee: 6.15,
     monochromeInDark: true,
   },
   {
@@ -33,8 +50,6 @@ const providers = [
     logo: "/remitly.png",
     logoSize: "h-9 w-24",
     logoSizeMobile: "h-7 w-20",
-    rateMultiplier: 0.988,
-    fee: 0,
     monochromeInDark: true,
   },
   {
@@ -43,8 +58,6 @@ const providers = [
     logo: "/skrill.png",
     logoSize: "h-7 w-16",
     logoSizeMobile: "h-5 w-14",
-    rateMultiplier: 0.95,
-    fee: 0,
     monochromeInDark: true,
   },
   {
@@ -53,34 +66,27 @@ const providers = [
     logo: "/xoom.png",
     logoSize: "h-9 w-24",
     logoSizeMobile: "h-7 w-20",
-    rateMultiplier: 0.975,
-    fee: 2.99,
     monochromeInDark: true,
   },
 ];
 
-function formatINR(amount: number): string {
-  return new Intl.NumberFormat("en-IN", {
-    style: "currency",
-    currency: "INR",
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(amount);
-}
-
 export function ComparisonSection() {
-  const { rate: baseRate, updatedAt: lastUpdated, isLoading } = useUsdInrRate();
+  const [currency, setCurrency] = useState<CurrencyCode>(DEFAULT_CURRENCY);
+  const { rate: baseRate, updatedAt: lastUpdated, isLoading } = useUsdRate(currency);
+  const unit = getCurrency(currency).unit;
+  const rates = COMPETITOR_RATES[currency];
 
-  const comparisonData = providers.map((provider) => {
+  const comparisonData = PROVIDERS.map((provider) => {
+    const { rateMultiplier, fee } = rates[provider.id];
     const effectiveBase = baseRate ?? 0;
-    const exchangeRate = effectiveBase * provider.rateMultiplier;
-    const recipientGets = (SEND_AMOUNT - provider.fee) * exchangeRate;
+    const exchangeRate = effectiveBase * rateMultiplier;
+    const recipientGets = (SEND_AMOUNT - fee) * exchangeRate;
 
     return {
       ...provider,
-      exchangeRate: exchangeRate.toFixed(2),
-      transferFee: provider.fee === 0 ? "$0" : `$${provider.fee.toFixed(2)}`,
-      recipientGets: formatINR(recipientGets),
+      exchangeRate: formatRate(exchangeRate, currency),
+      transferFee: fee === 0 ? "$0" : `$${fee.toFixed(2)}`,
+      recipientGets: formatAmount(recipientGets, currency),
     };
   });
 
@@ -92,13 +98,19 @@ export function ComparisonSection() {
       <div className="container mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
         <div className="max-w-3xl mb-12 md:mb-16">
           <h2 className="display-mixed text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-tight text-foreground">
-            More rupees per dollar.
+            More {unit} per dollar.
           </h2>
           <p className="mt-6 mx-auto max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
             The amount a recipient receives when you send{" "}
             <span className="font-semibold text-foreground tabular">$1,000</span>,
             calculated using live rates.
           </p>
+          <div className="mt-8 flex items-center justify-center gap-3">
+            <span className="text-xs uppercase tracking-[0.16em] text-muted-foreground font-medium">
+              Recipient currency
+            </span>
+            <CurrencySelector value={currency} onChange={setCurrency} size="md" />
+          </div>
         </div>
 
         {/* Desktop table */}
