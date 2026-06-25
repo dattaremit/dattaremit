@@ -28,7 +28,7 @@ export function SupportedCountriesSection() {
           </h2>
           <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">
             Send USD from your US bank to a local account in any of these
-            corridors. More are on the way — don&apos;t see yours yet? It&apos;s
+            corridors. More are on the way. Don&apos;t see yours yet? It&apos;s
             likely coming soon.
           </p>
         </div>
