@@ -10,7 +10,7 @@ import {
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How DattaRemit collects, uses, stores, and shares your personal information for our USD-to-INR money-transfer service, and the rights you have over that information.",
+    "How DattaRemit collects, uses, stores, and shares your personal information for our USD cross-border money-transfer service, and the rights you have over that information.",
   openGraph: {
     title: "Privacy Policy | DattaRemit",
     description:
@@ -36,7 +36,7 @@ const sections: Section[] = [
   {
     title: "1. Overview",
     content:
-      "This Privacy Policy explains how DattaRemit Inc. (“DattaRemit”, “we”, “us”) collects, uses, stores, shares, and protects personal information in connection with our website at dattaremit.com, our mobile applications, and our USD-to-INR money-transfer service (together, the “Service”). It applies to everyone who visits our website, registers an account, initiates a transfer, or is named as a recipient of a transfer. By using the Service you confirm that you have read and understood this Policy.",
+      "This Privacy Policy explains how DattaRemit Inc. (“DattaRemit”, “we”, “us”) collects, uses, stores, shares, and protects personal information in connection with our website at dattaremit.com, our mobile applications, and our USD cross-border money-transfer service (together, the “Service”). It applies to everyone who visits our website, registers an account, initiates a transfer, or is named as a recipient of a transfer. By using the Service you confirm that you have read and understood this Policy.",
   },
   {
     title: "2. Who we are and how to contact us",
@@ -50,7 +50,7 @@ const sections: Section[] = [
     items: [
       "Identity information: full legal name, date of birth, nationality, government-issued identification type and number, and a photograph or selfie used for identity verification. Collected during KYC and when you add a recipient.",
       "Contact information: email address, phone number, residential address, and, for recipients, a contact number used for transfer notifications.",
-      "Financial information: US bank account linkage metadata (provided via Plaid), recipient Indian bank account number, IFSC code, bank name, branch, and account type. For Indian recipients we also collect Aadhaar and Permanent Account Number (PAN) as required by Indian regulation.",
+      "Financial information: US bank account linkage metadata (provided via Plaid), recipient local bank account number, the relevant bank routing identifier (such as an IFSC code for recipients in India), bank name, branch, and account type. For recipients we also collect any identifiers required in their country (for example, Aadhaar and Permanent Account Number (PAN) for recipients in India) as required by local regulation.",
       "Transaction information: amount sent, exchange rate applied, fees, amount received, timestamps, reference numbers, partner transaction identifiers, and transfer status.",
       "Device and usage information: IP address, device type and model, operating system, application version, browser type, language preference, crash and diagnostic data, push-notification tokens, and general patterns of usage.",
       "Authentication material: hashed passwords (managed by authentication provider), session tokens, and one-time step-up codes. We do not store plaintext passwords or biometric templates; biometric matching happens on your device.",
@@ -63,7 +63,7 @@ const sections: Section[] = [
       "We use your personal information only for the purposes listed below. We do not sell personal information and we do not share it with third parties for their own marketing.",
     items: [
       "To verify your identity and perform Know-Your-Customer (KYC) and Anti-Money-Laundering (AML) checks, through our regulated payments partner.",
-      "To operate, process, and settle money transfers between your US bank account and the recipient’s Indian bank account.",
+      "To operate, process, and settle money transfers between your US bank account and the recipient’s local bank account.",
       "To display accurate exchange-rate and fee information before you confirm a transfer.",
       "To send you service communications (transfer receipts, KYC notifications, security alerts, and account updates) by email, in-app message, or push notification.",
       "To prevent, detect, and investigate fraud, abuse, security incidents, and other prohibited activity on our platform.",
@@ -89,7 +89,7 @@ const sections: Section[] = [
     intro:
       "We apply layered technical and organisational controls to protect personal information. The most important are:",
     items: [
-      "Field-level encryption of highly sensitive personal data (name, date of birth, phone number, email, bank account number, IFSC, etc.) using AES-256-GCM with master keys stored in AWS Key Management Service.",
+      "Field-level encryption of highly sensitive personal data (name, date of birth, phone number, email, bank account number, bank routing identifiers, etc.) using AES-256-GCM with master keys stored in AWS Key Management Service.",
       "Blind indexing (HMAC-SHA256) so that exact-match lookups work on encrypted data without the plaintext ever being stored.",
       "TLS 1.2 or higher on all client–server and service-to-service links, with HSTS preload enabled.",
       "Strict Content Security Policy, X-Frame-Options DENY, and other hardened security headers on our web properties.",
@@ -106,7 +106,7 @@ const sections: Section[] = [
     intro:
       "We retain personal information only for as long as we need it to provide the Service, meet our legal and regulatory obligations, and defend legal claims. Typical retention periods are:",
     items: [
-      "Customer identification records (KYC documents and verification results): at least five (5) years after the end of the customer relationship, as required by US and Indian AML regulation.",
+      "Customer identification records (KYC documents and verification results): at least five (5) years after the end of the customer relationship, as required by US and applicable local AML regulation.",
       "Transaction records: at least five (5) years after the transaction date.",
       "Account metadata: while your account is open, and for up to five (5) years after closure for audit and dispute purposes.",
       "Application logs with PII redacted: typically 30 to 90 days, unless a specific incident requires longer retention.",

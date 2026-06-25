@@ -97,17 +97,7 @@ export function TestimonialsSection() {
       id="testimonials"
       className="relative py-20 md:py-28 bg-background overflow-hidden"
     >
-      <div
-        aria-hidden
-        className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[color-mix(in_oklch,var(--mint)_10%,transparent)] to-transparent pointer-events-none"
-      />
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="max-w-3xl mb-14 md:mb-20">
-          <h2 className="display-mixed text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-tight text-foreground">
-            Delightful to use, every time.
-          </h2>
-        </div>
-
+      <div className="relative z-10">
         <div className="space-y-5 md:space-y-6">
           <LogoLoop
             logos={row1}

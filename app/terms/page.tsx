@@ -10,11 +10,11 @@ import {
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "The legal terms that govern your use of DattaRemit, including eligibility, the USD-to-INR money-transfer service, fees, refunds, prohibited uses, and dispute resolution.",
+    "The legal terms that govern your use of DattaRemit, including eligibility, the USD cross-border money-transfer service, fees, refunds, prohibited uses, and dispute resolution.",
   openGraph: {
     title: "Terms of Service | DattaRemit",
     description:
-      "The legal terms that govern your use of DattaRemit's USD-to-INR money-transfer service.",
+      "The legal terms that govern your use of DattaRemit's USD cross-border money-transfer service.",
     url: "https://dattaremit.com/terms",
   },
   alternates: {
@@ -35,13 +35,13 @@ const sections: Section[] = [
   {
     title: "2. Our service and how it works",
     intro:
-      "DattaRemit provides a technology platform that enables eligible users in the United States to initiate money transfers that result in the delivery of Indian Rupees (INR) to a recipient’s Indian bank account. Money-transmission activity (including fund custody, foreign-exchange conversion, and settlement) is performed by our regulated payments partner.",
+      "DattaRemit provides a technology platform that enables eligible users in the United States to initiate money transfers that result in the delivery of local currency to a recipient’s bank account in a supported destination country (India, the Philippines, Vietnam, Indonesia, or Nigeria). Money-transmission activity (including fund custody, foreign-exchange conversion, and settlement) is performed by our regulated payments partner.",
     items: [
       "You link a United States bank account through Plaid as the funding source.",
-      "You create or select a recipient with verified Indian bank account details (name, account number, IFSC).",
+      "You create or select a recipient with verified local bank account details (such as name, account number, and the relevant bank routing identifier — for example, an IFSC code for recipients in India).",
       "Before confirmation, we display the amount you will send, the exchange rate applied, the fees payable, and the amount the recipient will receive.",
       "You authorise the transfer through step-up verification: an email code on the web and biometric confirmation on mobile.",
-      "Funds are debited from your US bank account, converted to INR by our partner, and delivered to the recipient via UPI or IMPS.",
+      "Funds are debited from your US bank account, converted to the recipient's local currency by our partner, and delivered to the recipient over that country's domestic payment rails.",
     ],
     outro:
       "DattaRemit is a technology provider, not a bank. Customer funds are not held by DattaRemit at any time.",
@@ -53,7 +53,7 @@ const sections: Section[] = [
       "Are at least 18 years old and have the legal capacity to enter into a binding contract in your jurisdiction.",
       "Reside in the United States and maintain a lawful US bank account you own or are authorised to use.",
       "Are not a resident of, or located in, any country that is the subject of comprehensive US, UN, EU, or UK sanctions.",
-      "Are not on any restricted-party list maintained by the US Office of Foreign Assets Control (OFAC), the UN Security Council, the European Union, HM Treasury, or equivalent Indian authorities.",
+      "Are not on any restricted-party list maintained by the US Office of Foreign Assets Control (OFAC), the UN Security Council, the European Union, HM Treasury, or equivalent authorities in the destination countries.",
       "Provide accurate, current, and complete information during registration and identity verification, and keep that information up to date.",
       "Use the Service only for lawful purposes and in compliance with these Terms and applicable law.",
     ],
@@ -61,7 +61,7 @@ const sections: Section[] = [
   {
     title: "4. Account registration and identity verification (KYC)",
     content:
-      "You must create an account and complete identity verification before you can initiate a transfer. Identity verification is performed by our regulated payments partner, Cybrid, and may require you to provide government-issued identification, a photograph or selfie, proof of address, and, for the Indian recipient side, Aadhaar and Permanent Account Number (PAN). Additional information (including source-of-funds documentation) may be requested at any time if required by applicable law or our risk controls. We may decline to open or may suspend or close your account at any time if we cannot verify your identity, if you provide inaccurate information, or if we have a reasonable basis to believe that your use of the Service presents a legal, regulatory, or fraud risk.",
+      "You must create an account and complete identity verification before you can initiate a transfer. Identity verification is performed by our regulated payments partner, Cybrid, and may require you to provide government-issued identification, a photograph or selfie, proof of address, and, for the recipient side, the identifiers required in their country (for example, Aadhaar and Permanent Account Number (PAN) for recipients in India). Additional information (including source-of-funds documentation) may be requested at any time if required by applicable law or our risk controls. We may decline to open or may suspend or close your account at any time if we cannot verify your identity, if you provide inaccurate information, or if we have a reasonable basis to believe that your use of the Service presents a legal, regulatory, or fraud risk.",
   },
   {
     title: "5. Your account credentials and account security",
@@ -83,7 +83,7 @@ const sections: Section[] = [
   {
     title: "7. Exchange rates, fees, and your authorisation",
     content:
-      "Before you confirm any transfer, the review screen will display (a) the USD amount debited from your funding source, (b) the exchange rate applied to that transfer, (c) all fees payable, and (d) the INR amount to be delivered to the recipient. Exchange rates fluctuate; the rate applied to your transfer is the rate displayed at the moment you confirm. By confirming the transfer you (i) authorise us and our partner to debit your linked US bank account for the total amount displayed, (ii) authorise the conversion of that amount from USD to INR at the disclosed rate, and (iii) authorise the disbursement of the INR amount to the recipient you selected. You are solely responsible for ensuring that recipient details are accurate. Once a transfer is authorised and submitted to our partner’s settlement rail, it generally cannot be cancelled.",
+      "Before you confirm any transfer, the review screen will display (a) the USD amount debited from your funding source, (b) the exchange rate applied to that transfer, (c) all fees payable, and (d) the local-currency amount to be delivered to the recipient. Exchange rates fluctuate; the rate applied to your transfer is the rate displayed at the moment you confirm. By confirming the transfer you (i) authorise us and our partner to debit your linked US bank account for the total amount displayed, (ii) authorise the conversion of that amount from USD to the recipient's local currency at the disclosed rate, and (iii) authorise the disbursement of that local-currency amount to the recipient you selected. You are solely responsible for ensuring that recipient details are accurate. Once a transfer is authorised and submitted to our partner’s settlement rail, it generally cannot be cancelled.",
   },
   {
     title: "8. Cancellation, refunds, and failed transfers",
@@ -101,7 +101,7 @@ const sections: Section[] = [
     intro:
       "You must not use the Service, and you must not allow anyone else to use your account, for any of the following:",
     items: [
-      "Any activity that is illegal under the laws of the United States, India, or any other jurisdiction that applies to your use of the Service.",
+      "Any activity that is illegal under the laws of the United States, the destination country, or any other jurisdiction that applies to your use of the Service.",
       "Money laundering, terrorist financing, the financing of proliferation, fraud, or the evasion of taxes, duties, or sanctions.",
       "Sending or receiving funds on behalf of third parties without our express written consent.",
       "Transactions involving controlled substances, weapons, adult services, gambling, counterfeit goods, or other activity restricted by our partner’s rules.",

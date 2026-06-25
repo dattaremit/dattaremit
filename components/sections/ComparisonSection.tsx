@@ -97,7 +97,7 @@ export function ComparisonSection() {
     >
       <div className="container mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
         <div className="max-w-3xl mb-12 md:mb-16">
-          <h2 className="display-mixed text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-tight text-foreground">
+          <h2 className="display-mixed text-[clamp(1.6rem,4vw,2.5rem)] font-semibold tracking-tight text-foreground">
             More {unit} per dollar.
           </h2>
           <p className="mt-6 mx-auto max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">

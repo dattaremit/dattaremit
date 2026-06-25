@@ -8,11 +8,11 @@ import {
 const faqs = [
   {
     q: "What does DattaRemit do?",
-    a: "DattaRemit is a cross-border money transfer service for the US to India corridor. You fund a transfer from a linked US bank account, and the recipient receives INR in their Indian bank account. We operate through regulated payments partners who perform identity verification, fund custody, and settlement under their licenses.",
+    a: "DattaRemit is a cross-border money transfer service from the US to India, the Philippines, Vietnam, Indonesia, and Nigeria. You fund a transfer from a linked US bank account, and the recipient receives local currency in their bank account. We operate through regulated payments partners who perform identity verification, fund custody, and settlement under their licenses.",
   },
   {
     q: "Which countries and currencies are supported?",
-    a: "Today, DattaRemit supports the US to India corridor only. You send USD from a US bank account, and the recipient receives INR. Additional corridors are on our roadmap and will be announced when they launch.",
+    a: "DattaRemit supports sending USD from a US bank account to India (INR), the Philippines (PHP), Vietnam (VND), Indonesia (IDR), and Nigeria (NGN). Additional corridors are on our roadmap and will be announced when they launch.",
   },
   {
     q: "How do I sign up?",
@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "What documents do I need for KYC?",
-    a: "Senders complete KYC through our partner Persona, which typically requires a government-issued ID and proof of address. Most users provide a driver's license or state ID. Indian recipients are verified using Aadhaar and PAN, in line with RBI requirements.",
+    a: "Senders complete KYC through our partner Persona, which typically requires a government-issued ID and proof of address. Most users provide a driver's license or state ID. Recipients complete the identity verification required in their country (for example, Aadhaar and PAN for recipients in India), in line with local regulations.",
   },
   {
     q: "How fast is delivery?",
@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     q: "Is DattaRemit regulated?",
-    a: "DattaRemit operates through regulated payments partners that hold the money transmission authorizations required to move funds between the US and India. Your transfer is executed under that regulated framework, and DattaRemit complies with the applicable KYC and AML requirements of our partners and the jurisdictions in which we operate.",
+    a: "DattaRemit operates through regulated payments partners that hold the money transmission authorizations required to move funds between the US and the countries we serve. Your transfer is executed under that regulated framework, and DattaRemit complies with the applicable KYC and AML requirements of our partners and the jurisdictions in which we operate.",
   },
   {
     q: "What if a transfer fails or is delayed?",

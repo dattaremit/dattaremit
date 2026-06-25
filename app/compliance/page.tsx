@@ -10,7 +10,7 @@ import {
 export const metadata: Metadata = {
   title: "Compliance",
   description:
-    "DattaRemit's regulatory model, KYC and AML program, sanctions posture, subprocessors, and record-keeping practices for the US-to-India remittance corridor.",
+    "DattaRemit's regulatory model, KYC and AML program, sanctions posture, subprocessors, and record-keeping practices for the corridors we support.",
   openGraph: {
     title: "Compliance | DattaRemit",
     description:
@@ -35,12 +35,12 @@ const sections: Section[] = [
   {
     title: "Regulatory model",
     content:
-      "DattaRemit operates as a technology partner-of-record on top of a regulated payments infrastructure provider. Our partner holds the money-transmission authorizations necessary to collect funds from US senders and disburse INR to Indian recipients. DattaRemit provides the customer-facing application and data flow; our partners performs the regulated activities of identity verification, fund custody, foreign-exchange conversion, and settlement. This model allows us to offer a compliant money-movement product without operating as a standalone Money Services Business (MSB). All activity is performed within the regulatory framework of our partner.",
+      "DattaRemit operates as a technology partner-of-record on top of a regulated payments infrastructure provider. Our partner holds the money-transmission authorizations necessary to collect funds from US senders and disburse local currency to recipients in each destination country. DattaRemit provides the customer-facing application and data flow; our partners performs the regulated activities of identity verification, fund custody, foreign-exchange conversion, and settlement. This model allows us to offer a compliant money-movement product without operating as a standalone Money Services Business (MSB). All activity is performed within the regulatory framework of our partner.",
   },
   {
     title: "Jurisdictions served",
     content:
-      "At launch, DattaRemit supports the United States-to-India corridor. Senders must reside in the United States and pass US-side identity verification. Recipients must hold an Indian bank account and pass India-side identity verification, including Aadhaar and Permanent Account Number (PAN) submission as required by the Reserve Bank of India's rules. We do not offer our service to residents of countries that are the subject of comprehensive trade sanctions, and we may decline individual transactions that present an unacceptable compliance risk.",
+      "DattaRemit supports corridors from the United States to India, the Philippines, Vietnam, Indonesia, and Nigeria. Senders must reside in the United States and pass US-side identity verification. Recipients must hold a bank account in a supported destination country and pass the identity verification required in that country (for example, Aadhaar and Permanent Account Number (PAN) submission for recipients in India, as required by the Reserve Bank of India's rules). We do not offer our service to residents of countries that are the subject of comprehensive trade sanctions, and we may decline individual transactions that present an unacceptable compliance risk.",
   },
   {
     title: "Customer Identification Program (KYC)",
@@ -51,7 +51,7 @@ const sections: Section[] = [
       "Date of birth.",
       "Residential address (for senders, a verifiable US address).",
       "Nationality and country of residence.",
-      "Government-issued identification document: type, number, and an image of the document. For Indian recipients, this includes Aadhaar and PAN.",
+      "Government-issued identification document: type, number, and an image of the document. For recipients, this includes the identifiers required in their country (for example, Aadhaar and PAN for recipients in India).",
       "A live photograph or selfie, matched against the identification document.",
       "Source-of-funds information for higher-value transfers, as required by our partner's rules.",
     ],
@@ -72,7 +72,7 @@ const sections: Section[] = [
   {
     title: "Sanctions and restricted-party screening",
     content:
-      "Sanctions screening against OFAC Specially Designated Nationals, UN consolidated list, EU consolidated list, HM Treasury and equivalent Indian lists is performed by our regulated partner prior to onboarding and before every transaction. DattaRemit does not knowingly transact with any party on a restricted list, and we will decline or freeze transactions that fail screening. If you believe a transaction has been declined in error, please contact support@dattaremit.com.",
+      "Sanctions screening against OFAC Specially Designated Nationals, UN consolidated list, EU consolidated list, HM Treasury and equivalent local lists in the destination countries is performed by our regulated partner prior to onboarding and before every transaction. DattaRemit does not knowingly transact with any party on a restricted list, and we will decline or freeze transactions that fail screening. If you believe a transaction has been declined in error, please contact support@dattaremit.com.",
   },
   {
     title: "Data protection and privacy",

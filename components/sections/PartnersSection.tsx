@@ -16,9 +16,9 @@ export function PartnersSection() {
       className="relative py-20 md:py-28 bg-background overflow-hidden"
     >
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          <div className="lg:col-span-5 text-left">
-            <h2 className="display-mixed text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-tight text-foreground">
+        <div className="flex flex-col gap-10 md:gap-14">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="display-mixed text-[clamp(1.6rem,4vw,2.5rem)] font-semibold tracking-tight text-foreground">
               Together, We Deliver{" "}
               <span className="font-semibold bg-gradient-to-r from-brand-deep via-brand to-mint bg-clip-text text-transparent">
                 Excellence
@@ -30,7 +30,7 @@ export function PartnersSection() {
             </p>
           </div>
 
-          <div className="lg:col-span-7 min-w-0">
+          <div className="min-w-0">
             <LogoLoop
               logos={partnerLogos}
               speed={80}

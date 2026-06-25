@@ -53,7 +53,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm text-muted-foreground max-w-md leading-relaxed mb-4">
-            DattaRemit facilitates USD-to-INR cross-border payments in partnership with a regulated payments provider. 
+            DattaRemit facilitates USD cross-border payments to India, the Philippines, Vietnam, Indonesia, and Nigeria in partnership with a regulated payments provider.
             DattaRemit does not custody customer funds.            
             </p>
             <p className="text-xs text-muted-foreground">

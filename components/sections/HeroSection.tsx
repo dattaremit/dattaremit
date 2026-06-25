@@ -61,7 +61,7 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left: editorial headline */}
           <div className="lg:col-span-7 fade-up" style={{ animationDelay: "80ms" }}>
-            <h1 className="display-mixed text-[clamp(2.5rem,7vw,5.5rem)] text-foreground">
+            <h1 className="display-mixed text-[clamp(2rem,5.5vw,4rem)] text-foreground">
               <span className="font-semibold">Send money</span>
               <br />
               <span className="font-light italic text-muted-foreground">

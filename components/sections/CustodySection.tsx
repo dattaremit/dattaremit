@@ -10,7 +10,7 @@ export function CustodySection() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Left copy */}
           <div className="lg:col-span-6 lg:order-1 order-2">
-            <h2 className="display-mixed text-[clamp(2rem,5vw,3.5rem)] font-semibold tracking-tight text-foreground">
+            <h2 className="display-mixed text-[clamp(1.6rem,4vw,2.5rem)] font-semibold tracking-tight text-foreground">
               Funds in regulated{" "}
               <span className="font-semibold bg-gradient-to-r from-brand-deep via-brand to-mint bg-clip-text text-transparent">
                 custody
