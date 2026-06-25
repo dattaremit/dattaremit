@@ -1,38 +1,29 @@
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Building2, Banknote, Receipt, Clock4 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { LinkSimple, Bank, Receipt, Lightning } from "@phosphor-icons/react/ssr";
 import { GlowCard } from "@/components/ui/glow-card";
 
 const features = [
   {
-    icon: Building2,
-    // Distinct gradient + matching colored shadow per feature so the badges
-    // read as a colorful, glossy 3D set rather than four identical chips.
-    gradient: "from-indigo-500 to-violet-600",
-    shadow: "shadow-indigo-500/40",
+    icon: LinkSimple,
     title: "Linked via Plaid",
     description:
       "Connect your US bank account securely. Credentials never touch our servers, only a tokenised link.",
   },
   {
-    icon: Banknote,
-    gradient: "from-emerald-500 to-teal-600",
-    shadow: "shadow-emerald-500/40",
+    icon: Bank,
     title: "Local bank payout",
     description:
       "Funds land directly in the recipient's local bank account over each country's domestic payment rails.",
   },
   {
     icon: Receipt,
-    gradient: "from-sky-500 to-blue-600",
-    shadow: "shadow-sky-500/40",
     title: "Transparent quote",
     description:
       "Exact exchange rate and fees shown before you confirm. No mark-ups hidden in the rate.",
   },
   {
-    icon: Clock4,
-    gradient: "from-orange-500 to-rose-600",
-    shadow: "shadow-orange-500/40",
+    icon: Lightning,
     title: "Fast settlement",
     description:
       "Most transfers settle to the recipient within minutes, 24x7x365.",
@@ -67,17 +58,15 @@ export function PaymentSection() {
           {/* Right feature list: split into 2x2 on sm+ */}
           <div className="lg:col-span-7">
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
-              {features.map((feature) => (
+              {features.map((feature, i) => (
                 <GlowCard key={feature.title} className="h-full">
                   <div className="group h-full p-6 sm:p-7">
-                    <div className="mb-8">
-                      <span
-                        className={`relative inline-flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br ${feature.gradient} text-white shadow-lg ${feature.shadow} ring-1 ring-white/25 transition-transform duration-300 group-hover:-translate-y-0.5`}
-                      >
-                        {/* Glossy top highlight gives the badge a 3D, lit-from-above feel. */}
-                        <span className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-white/35 to-transparent" />
-                        <feature.icon className="relative size-5" strokeWidth={2.25} />
-                      </span>
+                    <div className="mb-6">
+                      <feature.icon
+                        className="icon-float size-10 text-brand"
+                        style={{ animationDelay: `${i * 0.4}s` }}
+                        weight="duotone"
+                      />
                     </div>
                     <h3 className="text-[17px] font-semibold tracking-tight mb-2 text-foreground">
                       {feature.title}

@@ -1,37 +1,32 @@
-import { UserCheck, Landmark, Users, Send } from "lucide-react";
+import {
+  IdentificationCard,
+  Bank,
+  UsersThree,
+  PaperPlaneTilt,
+} from "@phosphor-icons/react/ssr";
 import { GlowCard } from "@/components/ui/glow-card";
 
 const steps = [
   {
-    icon: UserCheck,
-    // Distinct gradient + matching colored shadow per step so the badges read
-    // as a colorful, glossy 3D set rather than four identical chips.
-    gradient: "from-indigo-500 to-violet-600",
-    shadow: "shadow-indigo-500/40",
+    icon: IdentificationCard,
     title: "Create and verify",
     description:
       "Sign up with your email and complete identity verification through our regulated partner Cybrid. Majority of the time approved within minutes.",
   },
   {
-    icon: Landmark,
-    gradient: "from-sky-500 to-blue-600",
-    shadow: "shadow-sky-500/40",
+    icon: Bank,
     title: "Link your US bank",
     description:
       "Connect a US checking account securely through Plaid. We never see or store your bank credentials. Only a tokenised link.",
   },
   {
-    icon: Users,
-    gradient: "from-emerald-500 to-teal-600",
-    shadow: "shadow-emerald-500/40",
+    icon: UsersThree,
     title: "Add a recipient",
     description:
       "Enter the recipient's name, local bank account details, and contact. Recipients complete the identity verification required in their country.",
   },
   {
-    icon: Send,
-    gradient: "from-orange-500 to-rose-600",
-    shadow: "shadow-orange-500/40",
+    icon: PaperPlaneTilt,
     title: "Send and track",
     description:
       "Confirm amount, rate, and fees on the review screen. Authorise with email step-up (web) or biometrics (mobile). Track in Activity.",
@@ -58,17 +53,15 @@ export function HowItWorksSection() {
 
         {/* Step grid with asymmetric vertical rhythm on lg+ */}
         <div className="grid gap-4 sm:gap-5 sm:grid-cols-2">
-          {steps.map((step) => (
+          {steps.map((step, i) => (
             <GlowCard key={step.title} className="h-full">
               <div className="group flex h-full flex-col p-6 sm:p-7">
-                <div className="mb-8">
-                  <span
-                    className={`relative inline-flex size-12 items-center justify-center rounded-2xl bg-gradient-to-br ${step.gradient} text-white shadow-lg ${step.shadow} ring-1 ring-white/25 transition-transform duration-300 group-hover:-translate-y-0.5`}
-                  >
-                    {/* Glossy top highlight gives the badge a 3D, lit-from-above feel. */}
-                    <span className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-white/35 to-transparent" />
-                    <step.icon className="relative size-5" strokeWidth={2.25} />
-                  </span>
+                <div className="mb-6">
+                  <step.icon
+                    className="icon-float size-10 text-brand"
+                    style={{ animationDelay: `${i * 0.4}s` }}
+                    weight="duotone"
+                  />
                 </div>
 
                 <h3 className="text-xl font-semibold tracking-tight mb-3 text-foreground">

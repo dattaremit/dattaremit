@@ -395,3 +395,23 @@
   animation: caret-blink 1.1s steps(1) infinite;
 }
 
+@keyframes icon-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@utility icon-float {
+  animation: icon-float 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon-float {
+    animation: none;
+  }
+}
+
