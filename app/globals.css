@@ -193,10 +193,10 @@
    Utilities
    ================================ */
 /* Site-wide content width. Overrides Tailwind's default `container` so every
-   `.container` wrapper caps at 960px and centers, regardless of breakpoint. */
+   `.container` wrapper caps at 1100px and centers, regardless of breakpoint. */
 @utility container {
   width: 100%;
-  max-width: 960px;
+  max-width: 1100px;
   margin-inline: auto;
 }
 

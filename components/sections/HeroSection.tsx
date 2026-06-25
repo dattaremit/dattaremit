@@ -3,7 +3,7 @@
 import { useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
-import { Flag } from "@/components/ui/flag";
+import { Flag, type FlagCode } from "@/components/ui/flag";
 import { CurrencySelector } from "@/components/ui/currency-selector";
 import { HeroGlobe } from "@/components/ui/hero-globe";
 import TextType from "@/components/TextType";
@@ -24,6 +24,13 @@ const DEFAULT_USD = 100;
 const DESTINATIONS = CURRENCIES.map(
   (c) => `${c.destination.replace(/^the /, "")},`,
 );
+
+// Supported corridors shown as a compact flag strip under the CTAs.
+const COUNTRIES = CURRENCIES.map((c) => ({
+  code: c.code,
+  flag: c.country as FlagCode,
+  name: c.destination.replace(/^the /, ""),
+}));
 
 export function HeroSection() {
   const [currency, setCurrency] = useState<CurrencyCode>(DEFAULT_CURRENCY);
@@ -90,15 +97,36 @@ export function HeroSection() {
 
             {/* CTAs */}
             <div className="mt-10 flex flex-col sm:flex-row gap-3">
-              <Button size="xl" variant="brand" asChild>
+              <Button size="lg" variant="brand" asChild>
                 <a href="https://app.dattaremit.com/sign-up">
                   Open an account
-                  <ArrowUpRight className="size-5" />
+                  <ArrowUpRight className="size-4" />
                 </a>
               </Button>
-              <Button size="xl" variant="outline" asChild>
+              <Button size="lg" variant="outline" asChild>
                 <a href="#how-it-works">See how it works</a>
               </Button>
+            </div>
+
+            {/* Supported corridors — compact strip so the standalone section
+                isn't needed. */}
+            <div className="mt-10">
+              <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                Supported countries
+              </span>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {COUNTRIES.map((country) => (
+                  <li key={country.code}>
+                    <span className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/70 backdrop-blur-sm px-3 py-1.5 text-sm font-medium text-foreground transition-colors hover:border-brand/50">
+                      <Flag
+                        code={country.flag}
+                        className="size-5 ring-1 ring-border"
+                      />
+                      {country.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
 
           </div>

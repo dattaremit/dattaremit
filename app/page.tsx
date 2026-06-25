@@ -1,6 +1,5 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { SupportedCountriesSection } from "@/components/sections/SupportedCountriesSection";
 import { VisaPartnerSection } from "@/components/sections/VisaPartnerSection";
 import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
 import { ComparisonSection } from "@/components/sections/ComparisonSection";
@@ -19,7 +18,6 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
-        <SupportedCountriesSection />
         <VisaPartnerSection />
         <HowItWorksSection />
         <ComparisonSection />
