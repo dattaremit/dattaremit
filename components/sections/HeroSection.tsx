@@ -213,10 +213,6 @@ export function HeroSection() {
               </div>
             </div>
 
-            <p className="mt-4 text-center text-[11px] text-muted-foreground">
-              Indicative preview using live mid-market rates. Exact rate and
-              fees shown before you confirm.
-            </p>
           </div>
         </div>
       </div>
