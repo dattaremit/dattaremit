@@ -109,24 +109,35 @@ export function HeroSection() {
             </div>
 
             {/* Supported corridors — compact strip so the standalone section
-                isn't needed. */}
+                isn't needed. Direction matters: we only send *from* the US, and
+                the listed countries are where money is *received*, so the strip
+                is framed "From US → To …" rather than a flat country list. */}
             <div className="mt-10">
               <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-                Supported countries
+                Where you can send money
               </span>
-              <ul className="mt-3 flex flex-wrap gap-2">
-                {COUNTRIES.map((country) => (
-                  <li key={country.code}>
-                    <span className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/70 backdrop-blur-sm px-3 py-1.5 text-sm font-medium text-foreground transition-colors hover:border-brand/50">
-                      <Flag
-                        code={country.flag}
-                        className="size-5 ring-1 ring-border"
-                      />
-                      {country.name}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-3 flex flex-wrap items-center gap-2">
+                {/* Sender — the US is the only origin today. */}
+                <span className="inline-flex items-center gap-2 rounded-full border border-brand/40 bg-brand/5 px-3 py-1.5 text-sm font-medium text-foreground">
+                  <Flag code="us" className="size-5 ring-1 ring-border" />
+                  From the US
+                </span>
+                <ArrowUpRight className="size-4 rotate-45 text-muted-foreground" />
+                {/* Recipients — these countries can only receive. */}
+                <ul className="flex flex-wrap gap-2">
+                  {COUNTRIES.map((country) => (
+                    <li key={country.code}>
+                      <span className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/70 backdrop-blur-sm px-3 py-1.5 text-sm font-medium text-foreground transition-colors hover:border-brand/50">
+                        <Flag
+                          code={country.flag}
+                          className="size-5 ring-1 ring-border"
+                        />
+                        {country.name}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
           </div>
