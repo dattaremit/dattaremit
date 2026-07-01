@@ -12,9 +12,9 @@ const features = [
   },
   {
     icon: Bank,
-    title: "Local bank payout",
+    title: "Bank or UPI payout",
     description:
-      "Funds land directly in the recipient's local bank account over each country's domestic payment rails.",
+      "Funds land directly in the recipient's local bank account — or, in India, any UPI ID — over each country's domestic payment rails.",
   },
   {
     icon: Receipt,

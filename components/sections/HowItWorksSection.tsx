@@ -23,7 +23,7 @@ const steps = [
     icon: UsersThree,
     title: "Add a recipient",
     description:
-      "Enter the recipient's name, local bank account details, and contact. Recipients complete the identity verification required in their country.",
+      "Enter the recipient's name, contact, and payout details — their local bank account, or a UPI ID for recipients in India. Recipients complete the identity verification required in their country.",
   },
   {
     icon: PaperPlaneTilt,

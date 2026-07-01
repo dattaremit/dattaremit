@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight } from "lucide-react";
 import { Flag, type FlagCode } from "@/components/ui/flag";
@@ -68,6 +69,23 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left: editorial headline */}
           <div className="lg:col-span-7 fade-up" style={{ animationDelay: "80ms" }}>
+            {/* Announcement pill — highlights UPI payouts, our newest India
+                capability. Anchors to the receive card so it's discoverable. */}
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/5 px-3 py-1.5 text-xs font-medium text-foreground">
+              <span className="rounded-full bg-brand/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-brand">
+                New
+              </span>
+              Pay to any
+              <Image
+                src="/upi.png"
+                alt="UPI"
+                width={40}
+                height={20}
+                className="h-3.5 w-auto"
+              />
+              ID in India
+            </div>
+
             <h1 className="display-mixed text-[clamp(2rem,5.5vw,4rem)] text-foreground">
               <span className="font-semibold">Send money</span>
               <br />
@@ -227,6 +245,26 @@ export function HeroSection() {
                     {formattedReceive}
                   </span>
                 )}
+
+                {/* Payout destination — India can land in a bank account or any
+                    UPI ID; other corridors are bank-account only today. */}
+                <div className="mt-3 flex items-center gap-1.5 text-xs text-muted-foreground">
+                  {currency === "INR" ? (
+                    <>
+                      <span>To their bank account or any</span>
+                      <Image
+                        src="/upi.png"
+                        alt="UPI"
+                        width={40}
+                        height={20}
+                        className="h-3.5 w-auto"
+                      />
+                      <span>ID</span>
+                    </>
+                  ) : (
+                    <span>Straight to their local bank account</span>
+                  )}
+                </div>
               </div>
 
               {/* Footer row */}

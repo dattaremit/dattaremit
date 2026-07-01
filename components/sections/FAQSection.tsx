@@ -15,6 +15,10 @@ const faqs = [
     a: "DattaRemit supports sending USD from a US bank account to India (INR), the Philippines (PHP), Vietnam (VND), Indonesia (IDR), and Nigeria (NGN). Additional corridors are on our roadmap and will be announced when they launch.",
   },
   {
+    q: "Can I send money to a UPI ID in India?",
+    a: "Yes. For transfers to India, you can pay out to the recipient's bank account or to any UPI ID (VPA). Just enter their UPI ID when you set up the transfer, and the funds are credited in rupees, typically within minutes. UPI payout is available for the India corridor; other countries receive funds directly to a local bank account.",
+  },
+  {
     q: "How do I sign up?",
     a: "Create an account on the web or mobile app with your email, verify it, and complete identity verification (KYC). Once your KYC is approved, link a US bank account through Plaid and add a recipient. Most users complete onboarding in under 5-7 minutes.",
   },
