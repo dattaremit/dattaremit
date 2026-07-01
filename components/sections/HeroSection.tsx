@@ -71,7 +71,7 @@ export function HeroSection() {
           <div className="lg:col-span-7 fade-up" style={{ animationDelay: "80ms" }}>
             {/* Announcement pill — highlights UPI payouts, our newest India
                 capability. Anchors to the receive card so it's discoverable. */}
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/5 px-3 py-1.5 text-xs font-medium text-foreground">
+            <div className="animated-border mb-6 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium text-foreground">
               <span className="rounded-full bg-brand/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-brand">
                 New
               </span>

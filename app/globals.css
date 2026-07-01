@@ -409,8 +409,45 @@
   animation: icon-float 3s ease-in-out infinite;
 }
 
+/* Rotating gradient border — used on the "New · Pay to any UPI ID" pill.
+   A conic gradient painted on the border-box spins via an animated custom
+   property, while a solid padding-box fill keeps the pill's brand tint. */
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes border-spin {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+@utility animated-border {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(
+      color-mix(in oklch, var(--brand) 5%, var(--background)),
+      color-mix(in oklch, var(--brand) 5%, var(--background))
+    )
+      padding-box,
+    conic-gradient(
+        from var(--border-angle),
+        var(--brand),
+        var(--mint),
+        var(--periwinkle),
+        var(--brand)
+      )
+      border-box;
+  animation: border-spin 4s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .icon-float {
+    animation: none;
+  }
+  .animated-border {
     animation: none;
   }
 }
