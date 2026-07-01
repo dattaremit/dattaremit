@@ -59,19 +59,19 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-[70svh] overflow-hidden brand-mesh"
+      className="relative min-h-[56svh] overflow-hidden brand-mesh"
     >
       {/* Animated globe motif — we send money worldwide. Sits behind the
           content, auto-rotating, anchored to the upper-right. */}
       <HeroGlobe className="-top-10 right-[-18%] h-[480px] w-[480px] max-w-[90vw] sm:right-[-8%] md:h-[680px] md:w-[680px]" />
 
-      <div className="container mx-auto px-4 sm:px-6 pt-24 md:pt-28 pb-12 md:pb-16 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 pt-24 md:pt-28 pb-2 md:pb-4 relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left: editorial headline */}
           <div className="lg:col-span-7 fade-up" style={{ animationDelay: "80ms" }}>
             {/* Announcement pill — highlights UPI payouts, our newest India
                 capability. Anchors to the receive card so it's discoverable. */}
-            <div className="animated-border mb-6 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium text-foreground">
+            <div className="animated-border mb-4 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium text-foreground">
               <span className="rounded-full bg-brand/15 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-brand">
                 New
               </span>
@@ -86,9 +86,8 @@ export function HeroSection() {
               ID in India
             </div>
 
-            <h1 className="display-mixed text-[clamp(2rem,5.5vw,4rem)] text-foreground">
-              <span className="font-semibold">Send money</span>
-              <br />
+            <h1 className="display-mixed text-[clamp(1.5rem,4vw,3rem)] text-foreground">
+              <span className="font-semibold">Send money</span>{" "}
               <span className="font-light italic text-muted-foreground">
                 to{" "}
                 <TextType
@@ -107,14 +106,14 @@ export function HeroSection() {
               </span>
             </h1>
 
-            <p className="mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
+            <p className="mt-5 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
               Verify your identity, link your US bank once, and send USD that
               lands in a local bank account within minutes. Transparent rates
               and bank-grade encryption on every transfer.
             </p>
 
             {/* CTAs */}
-            <div className="mt-10 flex flex-col sm:flex-row gap-3">
+            <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <Button size="lg" variant="brand" asChild>
                 <a href="https://app.dattaremit.com/sign-up">
                   Open an account
@@ -130,7 +129,7 @@ export function HeroSection() {
                 isn't needed. Direction matters: we only send *from* the US, and
                 the listed countries are where money is *received*, so the strip
                 is framed "From US → To …" rather than a flat country list. */}
-            <div className="mt-10">
+            <div className="mt-6">
               <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
                 Where you can send money
               </span>
